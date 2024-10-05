@@ -9,5 +9,5 @@ permalink: /
 Scientific Computing and Intelligence Group (Scaling Group) is in the Department of Mathematics at National University of Singapore, led by Dr. Liu Yang (杨柳). 
 
 
-**We are  looking for passionate new students, postdocs, and visitors to join the team** [(more info)]({{ site.url }}{{ site.baseurl }}/openings) **!**
+**We are  looking for passionate new students, postdocs, and visiting scholars to join the team** [(more info)]({{ site.url }}{{ site.baseurl }}/openings) **!**
 
