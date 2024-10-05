@@ -1,0 +1,51 @@
+- name: Jiawei Zhang
+  photo: people.png
+  info: Visiting Ph.D. Student, from September 2024
+  email: e1353362 at u dot nus dot edu
+  number_educ: 1
+  education1: B.Sc. Fudan University
+
+
+- name: Haoming Kong
+  photo: people.png
+  info: Master Student, from August 2024
+  email: e1349242 at u dot nus dot edu
+  number_educ: 1
+  education1: B.Sc. Nanjing University
+
+- name: Chenhan Wu
+  photo: people.png
+  info: Master Student, from August 2024
+  email: e1349918 at u dot nus dot edu
+  number_educ: 1
+  education1: B.E. Shanghai Jiaotong University
+
+- name: Zhenhui Hu
+  photo: people.png
+  info: Master Student, from August 2024
+  email: e0952279 at u dot nus dot edu
+  number_educ: 1
+  education1: B.E. Shanghai Jiaotong University
+
+- name: Liangyu Zha
+  photo: people.png
+  info: Master Student, from August 2024
+  email: e0952217 at u dot nus dot edu
+  number_educ: 1
+  education1: B.E. Shanghai Jiaotong University
+
+- name: Boyu Li
+  photo: people.png
+  info: Visiting Undergrad Student, from Septemper 2024
+  email: 
+  number_educ: 1
+  education1: B.E. Tsinghua University (current)
+
+- name: "Join Us!"
+  photo: JoinUs2.jpg
+  info: See <a href="../openings">openings</a> for more info
+  email: 
+  number_educ: 0
+  education1:
+  education2:
+  education3:

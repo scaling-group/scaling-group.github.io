@@ -1,0 +1,32 @@
+
+- title: "In-Context Operator Learning With Data Prompts for Differential Equation Problems"
+  image: icon-pnas.jpg
+  description: Can we build a single large model for a wide range of PDE-related scientific learning tasks? We propose in-context operator learning framework with corresponding model In-Context Operator Network (ICON). A singe ICON model can act as a few-shot operator learner for a diversified type of differential equation problems, including forward and inverse problems of ODEs, PDEs, and mean-field control problems.
+  authors: Liu Yang, Siting Liu, Tingwei Meng, Stanley J. Osher
+  link:
+    url: https://www.pnas.org/doi/10.1073/pnas.2310142120
+    display: PNAS, Sep 2023
+  highlight: 1
+  # news1: Good
+
+- title: "Fine-Tune Language Models as Multi- Modal Differential Equation Solvers"
+  image: icon-weno-jcp.png
+  description: 
+  authors: Liu Yang, Siting Liu, and Stanley J. Osher
+  link:
+    url: https://arxiv.org/pdf/2308.05061
+    display: arXiv, Aug 2023
+  highlight: 2
+
+
+- title: "PDE Generalization of In-Context Operator Networks: A Study on 1D Scalar Nonlinear Conservation Laws"
+  image: icon-weno-jcp.png
+  description: We present a detailed methodology for solving time-evolving PDE problems with ICON, and show how a single ICON model can make forward and reverse predictions for different equations with different strides. An ICON model trained on conservation laws with cubic flux functions can generalize well to some other flux functions of more general forms, without fine-tuning.
+  authors: Liu Yang, Stanley J. Osher
+  link:
+    url: https://www.sciencedirect.com/science/article/pii/S0021999124006272
+    display: Journal of Computational Physics, Jan 2024
+  highlight: 1
+  # news2: Good
+
+
