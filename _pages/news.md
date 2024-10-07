@@ -3,7 +3,7 @@ title: "Scaling Group: News"
 layout: textlay
 excerpt: "Scaling Group: News"
 sitemap: false
-permalink: /allnews.html
+permalink: /news.html
 ---
 
 # News

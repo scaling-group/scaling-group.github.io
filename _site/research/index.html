@@ -36,7 +36,7 @@
 		<li><a href="http://localhost:4000/openings">Openings</a></li>
 		<li><a href="http://localhost:4000/publications">Publications</a></li>
 		<li><a href="http://localhost:4000/research">Research</a></li>
-		<li><a href="http://localhost:4000/pictures">Pictures</a></li>
+		<li><a href="http://localhost:4000/news">News</a></li>
 	  </ul>
 	</div>
   </div>
@@ -58,12 +58,17 @@
 
 <p>In our <a href="https://www.pnas.org/doi/10.1073/pnas.2310142120">paper</a> published in PNAS, we showed how a single ICON model manages 19 distinct problem types, encompassing forward and inverse ODE, PDE, and mean-field control problems, each including infinite operators. Later in <a href="https://arxiv.org/pdf/2308.05061.pdf">this paper</a>, we fine-tuned the GPT-2 model as a multi-modal differential equation solver, prompting the model to perform scientific machine learning with human language and LaTeX equations, apart from numerical data (See the following figure). In <a href="https://www.sciencedirect.com/science/article/pii/S0021999124006272">this paper</a>, we showed how a single ICON model can make forward and reverse predictions for different PDEs with different strides, and generalize well to PDEs with new forms, without any fine-tuning.</p>
 
+<hr />
 <p><img src="http://localhost:4000/images/papers/icon-multi-modal.png" alt="" style="width: 70%; float: center; margin: 0px" /></p>
 
-<p>Diagram for multi-modal in-context operator learning.
-<img src="http://localhost:4000/images/papers/icon-mfg.png" alt="" style="width: 100%; float: center; margin: 0px" /></p>
+<p>Figure 1: Diagram for multi-modal in-context operator learning.</p>
 
-<p>Illustration of in-context operator learning for a mean-field control problem. The blue/red/black dots represent the data points in the prompt. The ICON model is able to learn the underlying operator from three examples and solve the problem with one forward pass.</p>
+<hr />
+<p><img src="http://localhost:4000/images/papers/icon-mfg.png" alt="" style="width: 100%; float: center; margin: 0px" /></p>
+
+<p>Figure 2: Illustration of in-context operator learning for a mean-field control problem. The blue/red/black dots represent the data points in the prompt. The ICON model is able to learn the underlying operator from three examples and solve the problem with one forward pass.</p>
+
+<hr />
 
 <p>Tracing the evolution of neural equation solvers, we see a three-act progression: Act 1 focused on approximating the solution function, while Act 2 shifted towards approximating the solution operator. ICON can be viewed as an early attempt of Act 3, where the model acts like an intelligent agent that adapts to new physical systems and tasks.</p>
 
