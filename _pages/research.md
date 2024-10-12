@@ -22,7 +22,7 @@ In our [paper](https://www.pnas.org/doi/10.1073/pnas.2310142120) published in PN
 ---
 ![]({{ site.url }}{{ site.baseurl }}/images/papers/icon-multi-modal.png){: style="width: 70%; float: center; margin: 0px"}
 
-Figure 1: Diagram for multi-modal in-context operator learning.
+Figure 1: Diagram for multi-modal in-context operator learning. The model learns the operator from the textual prompt and/or numerical examples, and applys to the question to make the prediction, with one forward pass.
 
 ---
 ![]({{ site.url }}{{ site.baseurl }}/images/papers/icon-mfg.png){: style="width: 100%; float: center; margin: 0px"}
