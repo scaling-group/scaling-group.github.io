@@ -21,7 +21,7 @@
 
 - title: "PDE Generalization of In-Context Operator Networks: A Study on 1D Scalar Nonlinear Conservation Laws"
   image: icon-weno-jcp.png
-  description: We present a detailed methodology for solving time-evolving PDE problems with ICON, and show how a single ICON model can make forward and reverse predictions for different equations with different strides. An ICON model trained on conservation laws with cubic flux functions can generalize well to some other flux functions of more general forms, without fine-tuning.
+  description: We present a detailed methodology for solving time-evolving PDE problems with ICON, and show how a single ICON model can make forward and reverse predictions for different equations with different strides. An ICON model trained on conservation laws with cubic flux functions can generalize well to some other flux functions of more general forms, without fine-tuning. We also show prompt engineer techniques to broaden the range of problems that an ICON model can address.
   authors: Liu Yang, Stanley J. Osher
   link:
     url: https://www.sciencedirect.com/science/article/pii/S0021999124006272
