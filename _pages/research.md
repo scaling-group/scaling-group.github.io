@@ -31,7 +31,7 @@ Figure 2: Illustration of in-context operator learning for a mean-field control 
 
 ---
 
-Tracing the evolution of neural equation solvers, we see a three-act progression: Act 1 focused on approximating the solution function, while Act 2 shifted towards approximating the solution operator. ICON can be viewed as an early attempt of Act 3, where the model acts like an intelligent agent that adapts to new physical systems and tasks.
+Tracing the evolution of neural equation solvers, we see a three-act progression: Act 1 focused on approximating the solution function, e.g., Physics-Informed Neural Networks, while Act 2 shifted towards approximating the solution operator, e.g., Fourier Neural Operator, DeepONet. ICON can be viewed as an early attempt of Act 3, where the model acts like an intelligent learner that adapts to new physical systems and tasks.
 
 **Uncertainty Quantification**
 
