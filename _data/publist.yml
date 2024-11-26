@@ -1,23 +1,12 @@
 
-- title: "In-Context Operator Learning with Data Prompts for Differential Equation Problems"
-  image: icon-pnas.jpg
-  description: Can we build a single large model for a wide range of PDE-related scientific learning tasks? We propose in-context operator learning framework with corresponding model In-Context Operator Network (ICON). A singe ICON model can act as a few-shot operator learner for a diversified type of differential equation problems, including forward and inverse problems of ODEs, PDEs, and mean-field control problems.
-  authors: Liu Yang, Siting Liu, Tingwei Meng, Stanley J. Osher
+- title: "VICON: Vision In-Context Operator Networks for Multi-Physics Fluid Dynamics Prediction"
+  image: 
+  description:
+  authors: Yadi Cao, Yuxuan Liu, Liu Yang, Rose Yu, Hayden Schaeffer, Stanley Osher
   link:
-    url: https://www.pnas.org/doi/10.1073/pnas.2310142120
-    display: PNAS, Sep 2023
-  highlight: 1
-  # news1: Good
-
-- title: "Fine-Tune Language Models as Multi- Modal Differential Equation Solvers"
-  image: icon-weno-jcp.png
-  description: 
-  authors: Liu Yang, Siting Liu, and Stanley J. Osher
-  link:
-    url: https://arxiv.org/pdf/2308.05061
-    display: arXiv, Aug 2023
+    url: https://arxiv.org/pdf/2411.16063
+    display: arXiv, Nov 2024
   highlight: 2
-
 
 - title: "PDE Generalization of In-Context Operator Networks: A Study on 1D Scalar Nonlinear Conservation Laws"
   image: icon-weno-jcp.png
@@ -30,3 +19,22 @@
   # news2: Good
 
 
+- title: "Fine-Tune Language Models as Multi-Modal Differential Equation Solvers"
+  image: 
+  description: 
+  authors: Liu Yang, Siting Liu, and Stanley J. Osher
+  link:
+    url: https://arxiv.org/pdf/2308.05061
+    display: arXiv, Aug 2023
+  highlight: 2
+
+
+- title: "In-Context Operator Learning with Data Prompts for Differential Equation Problems"
+  image: icon-pnas.jpg
+  description: Can we build a single large model for a wide range of PDE-related scientific learning tasks? We propose in-context operator learning framework with corresponding model In-Context Operator Network (ICON). A singe ICON model can act as a few-shot operator learner for a diversified type of differential equation problems, including forward and inverse problems of ODEs, PDEs, and mean-field control problems, without any fine-tuning.
+  authors: Liu Yang, Siting Liu, Tingwei Meng, Stanley J. Osher
+  link:
+    url: https://www.pnas.org/doi/10.1073/pnas.2310142120
+    display: PNAS, Sep 2023
+  highlight: 1
+  # news1: Good
