@@ -48,7 +48,7 @@ Here are some of Yang Liu's previous works during Ph.D. years:
 This series of works aim to address the following challenge: How to perform stochatic modeling and uncertainty quantification for physical systems, with the knowledge of the governing equations and scattered/noisy measurements?
 
 
-To accurately model the distribution within physical systems (typically defined within a functional space) we have proposed [Physics-Informed Generative Adversarial Networks (PI-GANs)](https://epubs.siam.org/doi/abs/10.1137/18M1225409?journalCode=sjoce3). These networks effectively integrate physical principles and data, making them suitable for modeling stochastic physical systems or for learning prior distributions from historical data. When combined with [Physics-Informed Bayesian Neural Networks (B-PINNs)](https://www.sciencedirect.com/science/article/abs/pii/S0021999120306872), which establish likelihoods based on governing equations and observational data, this framework allows for [systematic Bayesian inference on PDEs](https://www.sciencedirect.com/science/article/abs/pii/S0021999122001358).
+To accurately model the distribution within physical systems (typically defined within a functional space) we proposed [Physics-Informed Generative Adversarial Networks (PI-GANs)](https://epubs.siam.org/doi/abs/10.1137/18M1225409?journalCode=sjoce3). This method effectively integrates physical principles and data, making it suitable for modeling stochastic physical systems or for learning prior distributions from historical data. When combined with our proposed [Physics-Informed Bayesian Neural Networks (B-PINNs)](https://www.sciencedirect.com/science/article/abs/pii/S0021999120306872), which establish likelihoods based on governing equations and observational data, this framework allows for [systematic Bayesian inference on PDEs](https://www.sciencedirect.com/science/article/abs/pii/S0021999122001358).
 
 
 -- Learning Optimal Transport Map and Particle Dynamics
@@ -64,7 +64,7 @@ Potential flow generator in GANs (left 3 columns) and normalizing flow (right 3 
 
 ---
 
-Subsequently, this framework was extended to [inference of particle dynamics from paired/unpaired observations of particles](https://epubs.siam.org/doi/abs/10.1137/21M1413018), encompassing non-local particle interactions and high-dimensional stochastic particle dynamics.
+Subsequently, we extended this framework to [inference of particle dynamics from paired/unpaired observations of particles](https://epubs.siam.org/doi/abs/10.1137/21M1413018), encompassing non-local particle interactions and high-dimensional stochastic particle dynamics.
 
 These works were cited by other great works in [high-dimensional mean-field problems](https://www.pnas.org/doi/10.1073/pnas.1922204117), [single-cell transcriptomics](https://www.nature.com/articles/s42256-023-00763-w), and [flow matching for generative modeling](https://arxiv.org/pdf/2210.02747).
 
