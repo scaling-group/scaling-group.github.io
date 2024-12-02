@@ -38,9 +38,9 @@ Tracing the evolution of neural equation solvers, we see a three-act progression
 Coming soon...
 
 
-**Prious Works**
+**Previous Works**
 
-Here are some of Yang Liu's prious works during Ph.D. years:
+Here are some of Yang Liu's previous works during Ph.D. years:
 
 
 -- Bayesian Inference for PDEs with PI-GANs and B-PINNs
