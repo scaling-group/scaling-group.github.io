@@ -65,7 +65,7 @@ Being the first to draw the connection between deep generative models and the co
 ![]({{ site.url }}{{ site.baseurl }}/images/papers/WGAN_all.png){: style="width: 40%; float: center; margin: 0px"}
 ![]({{ site.url }}{{ site.baseurl }}/images/papers/flow_all.png){: style="width: 45%; float: center; margin: 0px"}
 
-Potential flow generator in GANs (left 3 columns) and normalizing flow (right 3 columns). The first row shows the samples or the unnormalized densities of source distributions (purple) and target distributions (orange), the second row shows the learned optimal transport maps.
+Potential flow generator in GANs (left 3 columns) and normalizing flow (right 3 columns). The first row shows the samples or the unnormalized densities of source distributions $$\mu$$ (in purple) and target distributions $$\nu$$ (in orange), the second row shows the learned optimal transport maps $$G$$ and the push forward distributions $$G_{\#}\mu$$.
 
 ---
 
