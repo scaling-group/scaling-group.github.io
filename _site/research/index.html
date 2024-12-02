@@ -49,7 +49,7 @@
         <div id="textid" class="col-sm-12">
   <h1 id="research">Research</h1>
 
-<p>Here are some themes that we currently work on:</p>
+<!-- Here are some themes that we currently work on: -->
 
 <p><strong>Foundation Scientific Learning Models</strong></p>
 
@@ -76,6 +76,33 @@
 <p><strong>Uncertainty Quantification</strong></p>
 
 <p>Coming soon…</p>
+
+<p><strong>Prious Works</strong></p>
+
+<p>Here are some of Yang Liu’s prious works during Ph.D. years:</p>
+
+<p>– Bayesian Inference for PDEs with PI-GANs and B-PINNs</p>
+
+<p>This series of works aim to address the following challenge: How to perform stochatic modeling and uncertainty quantification for physical systems, with the knowledge of the governing equations and scattered/noisy measurements?</p>
+
+<p>To accurately model the distribution within physical systems (typically defined within a functional space) we have proposed <a href="https://epubs.siam.org/doi/abs/10.1137/18M1225409?journalCode=sjoce3">Physics-Informed Generative Adversarial Networks (PI-GANs)</a>. These networks effectively integrate physical principles and data, making them suitable for modeling stochastic physical systems or for learning prior distributions from historical data. When combined with <a href="https://www.sciencedirect.com/science/article/abs/pii/S0021999120306872">Physics-Informed Bayesian Neural Networks (B-PINNs)</a>, which establish likelihoods based on governing equations and observational data, this framework allows for <a href="https://www.sciencedirect.com/science/article/abs/pii/S0021999122001358">systematic Bayesian inference on PDEs</a>.</p>
+
+<p>– Learning Optimal Transport Map and Particle Dynamics</p>
+
+<p>Being the first to draw the connection between deep generative models and the continuous flow formulation of optimal transport, we proposed <a href="https://ieeexplore.ieee.org/document/9233438">potential flow generator</a> as a plug-and-play generator module for different GANs and flow-based models. With a special ODE-based network architecture and an augmented loss term tied to the Hamilton-Jacobi equation derived from the optimal transport condition, the potential flow generator not only transports the source distribution to the target one, but also approximates the optimal transport map.</p>
+
+<hr />
+
+<p><img src="http://localhost:4000/images/papers/WGAN_all.png" alt="" style="width: 40%; float: center; margin: 0px" />
+<img src="http://localhost:4000/images/papers/flow_all.png" alt="" style="width: 45%; float: center; margin: 0px" /></p>
+
+<p>Potential flow generator in GANs (left 3 columns) and normalizing flow (right 3 columns). The first row shows the samples or the unnormalized densities of source distributions (purple) and target distributions (orange), the second row shows the learned optimal transport maps.</p>
+
+<hr />
+
+<p>Subsequently, this framework was extended to <a href="https://epubs.siam.org/doi/abs/10.1137/21M1413018">inference of particle dynamics from paired/unpaired observations of particles</a>, encompassing non-local particle interactions and high-dimensional stochastic particle dynamics.</p>
+
+<p>These works were cited by other great works in <a href="https://www.pnas.org/doi/10.1073/pnas.1922204117">high-dimensional mean-field problems</a>, <a href="https://www.nature.com/articles/s42256-023-00763-w">single-cell transcriptomics</a>, and <a href="https://arxiv.org/pdf/2210.02747">flow matching for generative modeling</a>.</p>
 
 <p><strong>… and more</strong></p>
 
