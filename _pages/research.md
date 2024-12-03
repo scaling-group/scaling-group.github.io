@@ -15,7 +15,7 @@ permalink: /research/
 
 Can we build a single large model for a wide range of scientific problems?
 
-We proposed a new framework for scientific machine learning, namely **“In-Context Operator Learning** and the corresponding model
+We proposed a new framework for scientific machine learning, namely **“In-Context Operator Learning”** and the corresponding model
 **“In-Context Operator Networks”** (ICON). A distinguishing feature of ICON is its ability to learn operators from numerical prompts during the inference phase, without weight adjustments. A single ICON model can tackle a wide range of tasks involving different operators, since it is trained as a generalist operator learner, rather than being tuned to approximate a specific operator. This is similar to how a single Large Language Model can solve a variety of natural language processing tasks specified by the language prompt.
 
 We have a series of works on ICON.
@@ -38,9 +38,9 @@ Figure 2: Illustration of in-context operator learning for a mean-field control 
 
 Tracing the evolution of neural equation solvers, we see a three-act progression: **Act 1** focused on approximating the solution function, e.g., Physics-Informed Neural Networks, while **Act 2** shifted towards approximating the solution operator, e.g., Fourier Neural Operator, DeepONet. ICON can be viewed as an early attempt of **Act 3**, where the model acts like an intelligent agent that adapts to new physical systems and tasks.
 
-**Uncertainty Quantification**
+<!-- **Uncertainty Quantification**
 
-Coming soon...
+Coming soon... -->
 
 
 **Previous Works**
