@@ -35,27 +35,6 @@
   number_educ: 1
   education1: B.E. & B.Sc. Shanghai Jiaotong University
 
-- name: Zhenhui Hu
-  photo: people.png
-  info: Master Student, from August 2024
-  email: e0952279 at u dot nus dot edu
-  number_educ: 2
-  education1: B.Sc. University of Denver, Physics and Astronomy
-  education2: B.Sc. University of Denver, Mathematics
-
-- name: Liangyu Zha
-  photo: people.png
-  info: Master Student, from August 2024
-  email: e0952217 at u dot nus dot edu
-  number_educ: 1
-  education1: B.Sc. Xi'an Jiaotong-Liverpool University
-
-- name: Boyu Li
-  photo: people.png
-  info: Visiting Undergrad Student, from Septemper 2024
-  email: 
-  number_educ: 1
-  education1: B.E. Tsinghua University (current)
 
 - name: "Join Us!"
   photo: JoinUs2.jpg
