@@ -21,7 +21,8 @@ It is an exciting time to be a researcher. The recent rise of large language mod
 - Some important fundamental questions in AI, including how to enhance accuracy and efficiency, how to generalize from easy to hard tasks, how emergent capabilities arise, etc.
 
 
-We are looking for motivated students, postdoc, and visiting scholars to explore with us. If you are interested, please send an email to Dr. Yang (yangliu at nus dot edu dot sg) with your CV and a brief description of your research interests.
+We are looking for motivated students, postdoc, and visiting scholars to explore with us. **We still have openings for postdocs!**
+If you are interested, please send an email to Dr. Yang (yangliu at nus dot edu dot sg) with your CV and a brief description of your research interests.
 
 
 ##  Mentoring Philosophy
