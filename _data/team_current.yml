@@ -5,16 +5,23 @@
   number_educ: 1
   education1: Ph.D. Zhejiang University
 
+- name: Linyan Xiang
+  photo: people.png
+  info: Postdoc, from July 2025
+  email: 
+  number_educ: 1
+  education1: Ph.D. University of Michigan-Dearborn
+
 - name: Jiawei Zhang
   photo: people.png
-  info: Visiting Ph.D. Student, from September 2024
+  info: NUS Ph.D. Student, visiting scaling group, from September 2024
   email: e1353362 at u dot nus dot edu
   number_educ: 1
   education1: B.Sc. Fudan University
 
 - name: Yangzheng Zhong
   photo: people.png
-  info: Visiting Ph.D. Student, from August 2024
+  info: NUS Ph.D. Student, visiting scaling group, from August 2024
   email: yangzheng_zhong at u dot nus dot edu
   number_educ: 1
   education1: B.Sc. Nanjing University

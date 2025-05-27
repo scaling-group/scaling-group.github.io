@@ -20,7 +20,7 @@ We proposed a new framework for scientific machine learning, namely **“In-Cont
 
 We have a series of works on ICON.
 - In our first paper, we proposed In-Context Operator Learning and In-Context Operator Networks. We showed how **a single ICON model (without fine-tuning) manages 19 distinct problem types**, encompassing forward and inverse ODE, PDE, and mean-field control problems, with infinite operators in each problem type. [paper](https://www.pnas.org/doi/10.1073/pnas.2310142120)
-- We evolved the model architecture of ICON to improve efficiency and support multi-modal learning, i.e., prompting the model with human language and LaTeX equations, apart from numerical data (See the following figure). [paper](https://arxiv.org/pdf/2308.05061.pdf)
+- We evolved the model architecture of ICON to improve efficiency and support multi-modal learning, i.e., prompting the model with human language and LaTeX equations, apart from numerical data (See the following figure). [paper](https://www.sciencedirect.com/science/article/abs/pii/S089360802500334X)
 - We showed how a single ICON model can make forward and reverse predictions for conservation laws with different flux functions and time strides, and **generalize well to PDEs with new forms**, without any fine-tuning. We also showed prompt engineer techniques to broaden the capability of ICON. [paper](https://www.sciencedirect.com/science/article/pii/S0021999124006272)
 - We proposed VICON, incorporating a vision transformer architecture to efficiently process 2D functions in multi-physics fluid dynamics prediction tasks. [paper](https://arxiv.org/pdf/2411.16063)
 
