@@ -14,26 +14,17 @@
 
 - name: Jiawei Zhang
   photo: people.png
-  info: NUS Ph.D. Student, visiting scaling group, from September 2024
+  info: co-advising NUS Ph.D. Student, from August 2024
   email: e1353362 at u dot nus dot edu
   number_educ: 1
   education1: B.Sc. Fudan University
 
-- name: Yangzheng Zhong
+- name: Ying Zhou
   photo: people.png
-  info: NUS Ph.D. Student, visiting scaling group, from August 2024
-  email: yangzheng_zhong at u dot nus dot edu
+  info: NUS Ph.D. Student, from August 2025
+  email: e1583532 at u dot nus dot edu
   number_educ: 1
-  education1: B.Sc. Nanjing University
-
-- name: Kaixin Zhan
-  photo: people.png
-  info: Research Assistant, from Febuary 2025
-  email: 
-  number_educ: 2
-  education1: B.E. Tsinghua University
-  education2: M.Sc. Carnegie Mellon University
-
+  education1: B.Sc. Fudan University
 
 - name: Haoming Kong
   photo: people.png
