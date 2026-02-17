@@ -6,12 +6,9 @@ sitemap: false
 permalink: /research/
 ---
 
-# Research
-
-
 <!-- Here are some themes that we currently work on: -->
 
-**Foundation Scientific Learning Models** 
+## Foundation Scientific Learning Models
 
 Can we build a single large model for a wide range of scientific problems?
 
@@ -43,7 +40,7 @@ Tracing the evolution of neural equation solvers, we see a three-act progression
 Coming soon... -->
 
 
-**Previous Works**
+## Previous Works
 
 Here are some of Yang Liu's previous works during Ph.D. years:
 
@@ -74,4 +71,4 @@ Subsequently, we extended this framework to [inference of particle dynamics from
 These works were cited by other great works in [high-dimensional mean-field problems](https://www.pnas.org/doi/10.1073/pnas.1922204117), [single-cell transcriptomics](https://www.nature.com/articles/s42256-023-00763-w), and [flow matching for generative modeling](https://arxiv.org/pdf/2210.02747).
 
 
-**... and more** 
+**[... and more]({{ site.url }}{{ site.baseurl }}/downloads/cv/liuyang.pdf)**

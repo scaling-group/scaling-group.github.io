@@ -6,9 +6,6 @@ sitemap: false
 permalink: /publications/
 ---
 
-
-# Publications
-
 ## Highlights
 
 <!-- **At the end of this page, you can find the [full list of publications](#full-list-of-publications)** -->
@@ -52,7 +49,9 @@ permalink: /publications/
 
 
 
-## Full List of Publications
+## Full List
+
+<sup>*</sup> Equal contribution &nbsp;&nbsp; <sup>†</sup> Corresponding author
 
 {% for publi in site.data.publist %}
 
