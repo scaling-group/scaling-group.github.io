@@ -25,7 +25,7 @@ We are looking for motivated students, postdoc, and visiting scholars to explore
 If you are interested, please send an email to Dr. Yang (yangliu at nus dot edu dot sg) with your CV and a brief description of your research interests.
 
 
-##  Mentoring Philosophy
+## Group Philosophy
 
 - **Culture**: We value culture as the most important thing in the group. We aim to build a group with a culture of integrity, passion, open-mindedness, active communication and collaboration. Diverse backgrounds are embraced.
 - **Research Goal**: We desire research that not only addresses issues but also pioneers a shift in the community's viewpoint on the issues.
