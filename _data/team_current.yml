@@ -1,21 +1,42 @@
+- name: Lingfeng Li
+  photo: people.png
+  info: Research Fellow (Postdoc), from Sep 2025
+  email: 
+  number_educ: 1
+  education1: Ph.D. Tsinghua University
+
+- name: Boai Sun
+  photo: people.png
+  info: Research Fellow (Postdoc), from Dec 2025
+  email: 
+  number_educ: 1
+  education1: Ph.D. Westlake University
+
 - name: Song Chen
   photo: people.png
-  info: Postdoc, from July 2025
+  info: PostResearch Fellow (Postdoc)doc, from July 2025
   email: 
   number_educ: 1
   education1: Ph.D. Zhejiang University
 
 - name: Linyan Xiang
   photo: people.png
-  info: Postdoc, from July 2025
+  info: Research Fellow (Postdoc), from July 2025
   email: 
   number_educ: 1
   education1: Ph.D. University of Michigan-Dearborn
 
-- name: Jiawei Zhang
+- name: Zongmin Yu
   photo: people.png
-  info: co-advising NUS Ph.D. Student, from August 2024
-  email: e1353362 at u dot nus dot edu
+  info: Research Assistant, from February 2026
+  email: 
+  number_educ: 1
+  education1: B.S. National University of Singapore
+
+- name: Jun Zhai
+  photo: people.png
+  info: NUS Ph.D. Student, from August 2024
+  email: e1583532 at u dot nus dot edu
   number_educ: 1
   education1: B.Sc. Fudan University
 
@@ -23,6 +44,13 @@
   photo: people.png
   info: NUS Ph.D. Student, from August 2025
   email: e1583532 at u dot nus dot edu
+  number_educ: 1
+  education1: B.Sc. Fudan University
+
+- name: Jiawei Zhang
+  photo: people.png
+  info: co-advising NUS Ph.D. Student, from August 2024
+  email: e1353362 at u dot nus dot edu
   number_educ: 1
   education1: B.Sc. Fudan University
 
