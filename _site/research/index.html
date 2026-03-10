@@ -52,13 +52,9 @@
         <div id="textid" class="col-sm-12">
   <!-- Here are some themes that we currently work on: -->
 
-<h2 id="in-context-operator-networks">In-Context Operator Networks</h2>
+<h2 id="in-context-operator-networks-icon-towards-scientific-foundation-models">In-Context Operator Networks (ICON): Towards Scientific Foundation Models</h2>
 
-<p>Many scientific problems can be naturally described as learning an operator that maps an input function/field (the
-‘‘condition’’) to an output function/field (the ‘‘quantity of interest’’, QoI). In-Context Operator Networks (ICON) study how to amortize operator identification into context: rather than training one model per operator, ICON takes a set of condition–QoI pairs in its context and predict the QoI for a new condition, without weight updates during
-inference. View the tutorial code in our <a href="https://github.com/scaling-group/icon-tutorial">GitHub repository</a>.</p>
-
-<p><strong>The ICON Framework</strong></p>
+<p>Many scientific problems can be naturally described as learning an operator that maps an input function/field (the ‘‘condition’’) to an output function/field (the ‘‘quantity of interest’’, QoI). In-Context Operator Networks (ICON) study how to amortize operator identification into context: rather than training one model per operator, ICON takes a set of condition–QoI pairs in its context and predict the QoI for a new condition, without weight updates during inference.</p>
 
 <p>For a concrete mathematical example, consider a 1D scalar conservation law</p>
 
@@ -95,33 +91,35 @@ the query instance.</p>
 
 Coming soon... -->
 
-<h2 id="published-works">Published Works</h2>
+<p>We have a series of works on ICON as follows. You can also view the tutorial code in our <a href="https://github.com/scaling-group/icon-tutorial">GitHub repository</a>.</p>
 
-<p><strong>In-Context Operator Learning with Data Prompts for Differential Equation Problems</strong></p>
+<p><strong>In-Context Operator Learning with Data Prompts for Differential Equation Problems</strong> (<a href="https://www.pnas.org/doi/10.1073/pnas.2310142120">PNAS 2023</a>)</p>
 
-<p>We proposed In-Context Operator Learning and In-Context Operator Networks. A single ICON model (without fine-tuning) manages 19 distinct problem types, encompassing forward and inverse ODE, PDE, and mean-field control problems, with infinite operators in each problem type (<a href="https://www.pnas.org/doi/10.1073/pnas.2310142120">PNAS 2023</a>).</p>
+<p>We proposed In-Context Operator Learning and In-Context Operator Networks. A single ICON model (without fine-tuning) manages 19 distinct problem types, encompassing forward and inverse ODE, PDE, and mean-field control problems, with infinite operators in each problem type.</p>
 
 <p><img src="http://localhost:4000/images/papers/icon-mfg.png" alt="" style="width: 100%; float: center; margin: 0px" /></p>
 
 <p>Figure 1: Illustration of in-context operator learning for a mean-field control problem. The blue/red/black dots represent the data points in the prompt. The ICON model learns the underlying operator from three examples and solves the problem with one forward pass.</p>
 
-<p><strong>Fine-Tune Language Models as Multi-Modal Differential Equation Solvers</strong></p>
+<p><strong>Fine-Tune Language Models as Multi-Modal Differential Equation Solvers</strong> (<a href="https://www.sciencedirect.com/science/article/abs/pii/S089360802500334X">Neural Networks 2025</a>)</p>
 
-<p>We adopted a decoder-only, language-model-style architecture and introduced multi-modal prompting, allowing the model to be prompted with human language and LaTeX equations in addition to numerical data. We showed its impressive capabilities in combining multi-modal information to learn the operator (<a href="https://www.sciencedirect.com/science/article/abs/pii/S089360802500334X">Neural Networks 2025</a>).</p>
+<p>We adopted a decoder-only, language-model-style architecture and introduced multi-modal prompting, allowing the model to be prompted with human language and LaTeX equations in addition to numerical data. We showed its impressive capabilities in combining multi-modal information to learn the operator.</p>
 
 <p><img src="http://localhost:4000/images/papers/icon-multi-modal_numerical.png" alt="" style="width: 80%; float: center; margin: 0px" /></p>
 
 <p>Figure 2: Diagram for multi-modal in-context operator learning. The model learns the operator from the textual prompt and/or numerical examples, and applies it to the question to make the prediction, with one forward pass. Both the textual caption and the numerical examples are optional.</p>
 
-<p><strong>PDE Generalization of In-Context Operator Networks</strong></p>
+<p><strong>PDE Generalization of In-Context Operator Networks</strong> (<a href="https://www.sciencedirect.com/science/article/pii/S0021999124006272">JCP 2024</a>)</p>
 
-<p>A single ICON model makes forward and reverse predictions for conservation laws with different flux functions and time strides, and generalizes well to PDEs with new forms, without any fine-tuning. We also demonstrated prompt-design strategies—such as change of variables and stride manipulation—to expand the range of tractable problems (<a href="https://www.sciencedirect.com/science/article/pii/S0021999124006272">JCP 2024</a>).</p>
+<p>A single ICON model makes forward and reverse predictions for conservation laws with different flux functions and time strides, and generalizes well to PDEs with new forms, without any fine-tuning. We also demonstrated prompt-design strategies—such as change of variables and stride manipulation—to expand the range of tractable problems.</p>
 
-<p><strong>VICON: Vision In-Context Operator Networks for Multi-Physics Fluid Dynamics Prediction</strong></p>
+<p><strong>VICON: Vision In-Context Operator Networks for Multi-Physics Fluid Dynamics Prediction</strong> (<a href="https://arxiv.org/pdf/2411.16063">TMLR 2026</a>)</p>
 
-<p>We incorporated a patch-wise vision transformer architecture to efficiently process 2D functions, with flexible rollout under varying timestep strides and missing frames, in multi-physics fluid dynamics prediction tasks (<a href="https://arxiv.org/pdf/2411.16063">TMLR 2026</a>).</p>
+<p>We incorporated a patch-wise vision transformer architecture to efficiently process 2D functions, with flexible rollout under varying timestep strides and missing frames, in multi-physics fluid dynamics prediction tasks.</p>
 
-<h2 id="outdated-pre-icon-artifacts-during-phd">Outdated pre-ICON artifacts during Ph.D.</h2>
+<h2 id="previous-works">Previous Works</h2>
+
+<p>Here are some of Yang Liu’s previous works during Ph.D. years:</p>
 
 <p><strong>Bayesian Inference for PDEs with PI-GANs and B-PINNs</strong></p>
 
@@ -131,9 +129,7 @@ Coming soon... -->
 
 <p><strong>Learning Optimal Transport Map and Particle Dynamics with Unpaired Samples</strong></p>
 
-<p>We proposed potential flow generator (<a href="https://arxiv.org/pdf/1908.11462">arxiv 2019</a>, <a href="https://ieeexplore.ieee.org/document/9233438">IEEE TNNLS 2020</a>) as a plug-and-play generator module for different GANs and flow-based models. With a special ODE-based network architecture and an augmented loss term tied to the Hamilton-Jacobi equation derived from the optimal transport condition, the potential flow generator not only transports the source distribution to the target one, but also approximates the optimal transport map.</p>
-
-<p>To the best of my knowledge, this is the first paper to draw the connection between deep generative models and the continuous flow formulation of optimal transport.</p>
+<p>We proposed potential flow generator (<a href="https://arxiv.org/pdf/1908.11462">arxiv 2019</a>, <a href="https://ieeexplore.ieee.org/document/9233438">IEEE TNNLS 2020</a>) as a plug-and-play generator module for different GANs and flow-based models. With a special ODE-based network architecture and an augmented loss term tied to the Hamilton-Jacobi equation derived from the optimal transport condition, the potential flow generator not only transports the source distribution to the target one, but also approximates the optimal transport map. To the best of my knowledge, this is the first paper to draw the connection between deep generative models and the continuous flow formulation of optimal transport.</p>
 
 <p><img src="http://localhost:4000/images/papers/WGAN_all.png" alt="" style="width: 40%; float: center; margin: 0px" />
 <img src="http://localhost:4000/images/papers/flow_all.png" alt="" style="width: 45%; float: center; margin: 0px" /></p>

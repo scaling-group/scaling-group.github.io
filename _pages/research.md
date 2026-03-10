@@ -8,13 +8,9 @@ permalink: /research/
 
 <!-- Here are some themes that we currently work on: -->
 
-## In-Context Operator Networks
+## In-Context Operator Networks (ICON): Towards Scientific Foundation Models
 
-Many scientific problems can be naturally described as learning an operator that maps an input function/field (the
-''condition'') to an output function/field (the ''quantity of interest'', QoI). In-Context Operator Networks (ICON) study how to amortize operator identification into context: rather than training one model per operator, ICON takes a set of condition--QoI pairs in its context and predict the QoI for a new condition, without weight updates during
-inference. View the tutorial code in our [GitHub repository](https://github.com/scaling-group/icon-tutorial).
-
-**The ICON Framework**
+Many scientific problems can be naturally described as learning an operator that maps an input function/field (the ''condition'') to an output function/field (the ''quantity of interest'', QoI). In-Context Operator Networks (ICON) study how to amortize operator identification into context: rather than training one model per operator, ICON takes a set of condition--QoI pairs in its context and predict the QoI for a new condition, without weight updates during inference.
 
 For a concrete mathematical example, consider a 1D scalar conservation law
 
@@ -50,33 +46,35 @@ Tracing the evolution of neural equation solvers, we see a three-act progression
 
 Coming soon... -->
 
-## Published Works
+We have a series of works on ICON as follows. You can also view the tutorial code in our [GitHub repository](https://github.com/scaling-group/icon-tutorial).
 
-**In-Context Operator Learning with Data Prompts for Differential Equation Problems** 
+**In-Context Operator Learning with Data Prompts for Differential Equation Problems** ([PNAS 2023](https://www.pnas.org/doi/10.1073/pnas.2310142120))
 
-We proposed In-Context Operator Learning and In-Context Operator Networks. A single ICON model (without fine-tuning) manages 19 distinct problem types, encompassing forward and inverse ODE, PDE, and mean-field control problems, with infinite operators in each problem type ([PNAS 2023](https://www.pnas.org/doi/10.1073/pnas.2310142120)).
+We proposed In-Context Operator Learning and In-Context Operator Networks. A single ICON model (without fine-tuning) manages 19 distinct problem types, encompassing forward and inverse ODE, PDE, and mean-field control problems, with infinite operators in each problem type.
 
 ![]({{ site.url }}{{ site.baseurl }}/images/papers/icon-mfg.png){: style="width: 100%; float: center; margin: 0px"}
 
 Figure 1: Illustration of in-context operator learning for a mean-field control problem. The blue/red/black dots represent the data points in the prompt. The ICON model learns the underlying operator from three examples and solves the problem with one forward pass.
 
-**Fine-Tune Language Models as Multi-Modal Differential Equation Solvers** 
+**Fine-Tune Language Models as Multi-Modal Differential Equation Solvers** ([Neural Networks 2025](https://www.sciencedirect.com/science/article/abs/pii/S089360802500334X))
 
-We adopted a decoder-only, language-model-style architecture and introduced multi-modal prompting, allowing the model to be prompted with human language and LaTeX equations in addition to numerical data. We showed its impressive capabilities in combining multi-modal information to learn the operator ([Neural Networks 2025](https://www.sciencedirect.com/science/article/abs/pii/S089360802500334X)).
+We adopted a decoder-only, language-model-style architecture and introduced multi-modal prompting, allowing the model to be prompted with human language and LaTeX equations in addition to numerical data. We showed its impressive capabilities in combining multi-modal information to learn the operator.
 
 ![]({{ site.url }}{{ site.baseurl }}/images/papers/icon-multi-modal_numerical.png){: style="width: 80%; float: center; margin: 0px"}
 
 Figure 2: Diagram for multi-modal in-context operator learning. The model learns the operator from the textual prompt and/or numerical examples, and applies it to the question to make the prediction, with one forward pass. Both the textual caption and the numerical examples are optional.
 
-**PDE Generalization of In-Context Operator Networks**
+**PDE Generalization of In-Context Operator Networks** ([JCP 2024](https://www.sciencedirect.com/science/article/pii/S0021999124006272))
 
-A single ICON model makes forward and reverse predictions for conservation laws with different flux functions and time strides, and generalizes well to PDEs with new forms, without any fine-tuning. We also demonstrated prompt-design strategies---such as change of variables and stride manipulation---to expand the range of tractable problems ([JCP 2024](https://www.sciencedirect.com/science/article/pii/S0021999124006272)).
+A single ICON model makes forward and reverse predictions for conservation laws with different flux functions and time strides, and generalizes well to PDEs with new forms, without any fine-tuning. We also demonstrated prompt-design strategies---such as change of variables and stride manipulation---to expand the range of tractable problems.
 
-**VICON: Vision In-Context Operator Networks for Multi-Physics Fluid Dynamics Prediction**
+**VICON: Vision In-Context Operator Networks for Multi-Physics Fluid Dynamics Prediction** ([TMLR 2026](https://arxiv.org/pdf/2411.16063))
 
-We incorporated a patch-wise vision transformer architecture to efficiently process 2D functions, with flexible rollout under varying timestep strides and missing frames, in multi-physics fluid dynamics prediction tasks ([TMLR 2026](https://arxiv.org/pdf/2411.16063)).
+We incorporated a patch-wise vision transformer architecture to efficiently process 2D functions, with flexible rollout under varying timestep strides and missing frames, in multi-physics fluid dynamics prediction tasks. 
 
-## Outdated pre-ICON artifacts during Ph.D.
+## Previous Works
+
+Here are some of Yang Liu’s previous works during Ph.D. years:
 
 **Bayesian Inference for PDEs with PI-GANs and B-PINNs**
 
@@ -87,9 +85,7 @@ To accurately model the distribution within physical systems (typically defined 
 
 **Learning Optimal Transport Map and Particle Dynamics with Unpaired Samples**
 
-We proposed potential flow generator ([arxiv 2019](https://arxiv.org/pdf/1908.11462), [IEEE TNNLS 2020](https://ieeexplore.ieee.org/document/9233438)) as a plug-and-play generator module for different GANs and flow-based models. With a special ODE-based network architecture and an augmented loss term tied to the Hamilton-Jacobi equation derived from the optimal transport condition, the potential flow generator not only transports the source distribution to the target one, but also approximates the optimal transport map.
-
-To the best of my knowledge, this is the first paper to draw the connection between deep generative models and the continuous flow formulation of optimal transport.
+We proposed potential flow generator ([arxiv 2019](https://arxiv.org/pdf/1908.11462), [IEEE TNNLS 2020](https://ieeexplore.ieee.org/document/9233438)) as a plug-and-play generator module for different GANs and flow-based models. With a special ODE-based network architecture and an augmented loss term tied to the Hamilton-Jacobi equation derived from the optimal transport condition, the potential flow generator not only transports the source distribution to the target one, but also approximates the optimal transport map. To the best of my knowledge, this is the first paper to draw the connection between deep generative models and the continuous flow formulation of optimal transport.
 
 ![]({{ site.url }}{{ site.baseurl }}/images/papers/WGAN_all.png){: style="width: 40%; float: center; margin: 0px"}
 ![]({{ site.url }}{{ site.baseurl }}/images/papers/flow_all.png){: style="width: 45%; float: center; margin: 0px"}
