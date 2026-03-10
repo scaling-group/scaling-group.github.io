@@ -52,22 +52,50 @@
         <div id="textid" class="col-sm-12">
   <!-- Here are some themes that we currently work on: -->
 
-<h2 id="foundation-scientific-learning-models">Foundation Scientific Learning Models</h2>
+<h2 id="in-context-operator-networks">In-Context Operator Networks</h2>
 
-<p>We proposed a new framework for scientific machine learning, namely <strong>“In-Context Operator Learning”</strong> and the corresponding model <strong>“In-Context Operator Networks”</strong> (ICON). A distinguishing feature of ICON is its ability to learn operators from numerical prompts during the inference phase, without weight adjustments. A single ICON model can tackle a wide range of tasks involving different operators, since it is trained as a generalist operator learner, rather than being tuned to approximate a specific operator. This is similar to how a single Large Language Model can solve a variety of natural language processing tasks specified by the language prompt. View the tutorial code in our <a href="https://github.com/scaling-group/icon-tutorial">GitHub repository</a>.</p>
+<p>Many scientific problems can be naturally described as learning an operator that maps an input function/field (the
+‘‘condition’’) to an output function/field (the ‘‘quantity of interest’’, QoI). In-Context Operator Networks (ICON) study how to amortize operator identification into context: rather than training one model per operator, ICON takes a set of condition–QoI pairs in its context and predict the QoI for a new condition, without weight updates during
+inference. View the tutorial code in our <a href="https://github.com/scaling-group/icon-tutorial">GitHub repository</a>.</p>
+
+<p><strong>The ICON Framework</strong></p>
+
+<p>For a concrete mathematical example, consider a 1D scalar conservation law</p>
+
+\[\partial_t u(t,x) + \partial_x f(u(t,x)) = 0,\]
+
+<p>we can define its forward (solution) operator \(\mathcal{F}_{f,\tau}[u(0,\cdot)] = u(\tau,\cdot)\), or \(\mathcal{F}_{f,\tau}(u_0) = u_\tau\) for simplicity.</p>
+
+<p>Classical numerical methods approximate \(\mathcal{F}_{f,\tau}\) via discretization once the governing equation is specified. In <strong>fixed-operator learning</strong>, one typically fixes an operator
+(e.g., fixed \(f\) and \(\tau\)) and trains a model \(G_\theta\) such that \(G_\theta(u_0)\approx \mathcal{F}_{f,\tau}(u_0)\); if the
+operator changes (e.g., \(f\) changes), a new model or fine-tuning is often required. In <strong>in-context operator learning</strong>, a single model \(T_\theta\) is trained over a distribution of operators (e.g., different \(f\)) so that it can infer
+the operator from a few in-context input–output examples and apply it to a new condition:</p>
+
+\[\widehat{u}_\tau^{(q)} = T_\theta\!\left(\{(u_0^{(i)},u_\tau^{(i)})\}_{i=1}^{k},\, u_0^{(q)}\right).\]
+
+<p>Here \(k\in\mathbb{N}\) is the number of in-context examples, \(i=1,\ldots,k\) indexes the examples, and \(q\) denotes
+the query instance.</p>
 
 <p>Key advantages of the ICON paradigm include:</p>
 <ul>
-  <li><strong>Unified Framework</strong>: A single ICON model can represent many operators by conditioning on examples, rather than training one model per operator. This enables ICON to effectively leverage large-scale, heterogeneous datasets spanning multiple physical systems.</li>
-  <li><strong>Instant Adaptation</strong>: Shifting between operators is achieved seamlessly by updating the in-context examples, allowing for instant adaptation to new physical systems without training.</li>
-  <li><strong>Agentic Integration for Numerical Workflows</strong>: Beyond static inference, ICON holds the potential to serve as a core agentic component within automated scientific discovery loops. It can autonomously interface with numerical solvers and LLM engines, acting as a flexible neural operator unit to navigate and solve complex, multi-physics numerical problems.</li>
+  <li>
+    <p>Unified Framework: A single ICON model can represent many operators by conditioning on examples, rather than training one model per operator. This enables ICON to effectively leverage large-scale, heterogeneous datasets spanning multiple physical systems.</p>
+  </li>
+  <li>
+    <p>Instant Adaptation: Shifting between operators is achieved seamlessly by updating the in-context examples, allowing for instant adaptation to new physical systems without training.</p>
+  </li>
+  <li>
+    <p>Agentic Integration for Numerical Workflows: Beyond static inference, ICON holds the potential to serve as a core agentic component within automated scientific discovery loops. It can autonomously interface with numerical solvers and LLM engines, acting as a flexible neural operator unit to navigate and solve complex, multi-physics numerical problems.</p>
+  </li>
 </ul>
+
+<p>Tracing the evolution of neural equation solvers, we see a three-act progression: Act 1 focused on approximating the solution function, e.g., Physics-Informed Neural Networks, while Act 2 shifted towards approximating the solution operator, e.g., Fourier Neural Operator, DeepONet. ICON can be viewed as an early attempt of Act 3, where the model acts like an intelligence that adapts to new physical systems and tasks.</p>
 
 <!-- **Uncertainty Quantification**
 
 Coming soon... -->
 
-<h2 id="research-highlight">Research Highlight</h2>
+<h2 id="published-works">Published Works</h2>
 
 <p><strong>In-Context Operator Learning with Data Prompts for Differential Equation Problems</strong></p>
 
@@ -89,17 +117,9 @@ Coming soon... -->
 
 <p>A single ICON model makes forward and reverse predictions for conservation laws with different flux functions and time strides, and generalizes well to PDEs with new forms, without any fine-tuning. We also demonstrated prompt-design strategies—such as change of variables and stride manipulation—to expand the range of tractable problems (<a href="https://www.sciencedirect.com/science/article/pii/S0021999124006272">JCP 2024</a>).</p>
 
-<p><img src="http://localhost:4000/images/papers/icon-weno-jcp.png" alt="" style="width: 75%; float: center; margin: 0px" /></p>
-
-<p>Figure 3: Illustration of training and inference of ICON for PDEs, using conservation laws as examples.</p>
-
 <p><strong>VICON: Vision In-Context Operator Networks for Multi-Physics Fluid Dynamics Prediction</strong></p>
 
 <p>We incorporated a patch-wise vision transformer architecture to efficiently process 2D functions, with flexible rollout under varying timestep strides and missing frames, in multi-physics fluid dynamics prediction tasks (<a href="https://arxiv.org/pdf/2411.16063">TMLR 2026</a>).</p>
-
-<p><img src="http://localhost:4000/images/papers/VICON.png" alt="" style="width: 80%; float: center; margin: 0px" /></p>
-
-<p>Figure 4: VICON model overview.</p>
 
 <h2 id="outdated-pre-icon-artifacts-during-phd">Outdated pre-ICON artifacts during Ph.D.</h2>
 
@@ -115,9 +135,10 @@ Coming soon... -->
 
 <p>To the best of my knowledge, this is the first paper to draw the connection between deep generative models and the continuous flow formulation of optimal transport.</p>
 
-<p><img src="http://localhost:4000/images/papers/MNIST-OT.png" alt="" style="width: 80%; float: center; margin: 0px" /></p>
+<p><img src="http://localhost:4000/images/papers/WGAN_all.png" alt="" style="width: 40%; float: center; margin: 0px" />
+<img src="http://localhost:4000/images/papers/flow_all.png" alt="" style="width: 45%; float: center; margin: 0px" /></p>
 
-<p>Figure 5: Learned optimal transport mapping from digits 0–4 to 5–9 on the MNIST dataset. The model transforms images to similar ones without the need for paired training samples.</p>
+<p>Figure 3: Potential flow generator in GANs (left 3 columns) and normalizing flow (right 3 columns). The first row shows the samples or the unnormalized densities of source distributions \(\mu\) (in purple) and target distributions \(\nu\) (in orange), the second row shows the learned optimal transport maps \(G\) and the push forward distributions \(G_{\#}\mu\).</p>
 
 <p>Subsequently, we extended this framework to inference of particle dynamics from unpaired observations of particles (<a href="https://arxiv.org/abs/2008.01915">arxiv 2020</a>, <a href="https://epubs.siam.org/doi/abs/10.1137/21M1413018">SIAM SISC 2022</a>), encompassing non-local particle interactions and high-dimensional stochastic particle dynamics.</p>
 
