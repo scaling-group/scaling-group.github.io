@@ -1,24 +1,24 @@
 - name: Lingfeng Li
   photo: people.png
-  info: Research Fellow (Postdoc), from Sep 2025
-  number_educ: 1
-  education1: Ph.D. Tsinghua University
+  info: Research Fellow (Postdoc)
+  # number_educ: 1
+  # education1: Ph.D. Tsinghua University
 
 - name: Boai Sun
   photo: people.png
-  info: Research Fellow (Postdoc), from Dec 2025
+  info: Research Fellow (Postdoc)
   number_educ: 1
   education1: Ph.D. Westlake University
 
 - name: Song Chen
   photo: people.png
-  info: Research Fellow (Postdoc), from July 2025
+  info: Research Fellow (Postdoc)
   number_educ: 1
   education1: Ph.D. Zhejiang University
 
 - name: Linyan Xiang
   photo: people.png
-  info: Research Fellow (Postdoc), from July 2025
+  info: Research Fellow (Postdoc)
   number_educ: 1
   education1: Ph.D. University of Michigan-Dearborn
 
