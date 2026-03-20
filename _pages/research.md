@@ -10,7 +10,7 @@ permalink: /research/
 
 ## In-Context Operator Networks (ICON): Towards Scientific Foundation Models
 
-Many scientific problems can be naturally described as learning an operator that maps an input function/field (the ``key function'') to an output function/field (the ``value function''). In-Context Operator Networks (ICON) study how to amortize operator identification into context: rather than training one model per operator, ICON takes a set of key--value function pairs in its context and predicts the value function for a new key function, without weight updates during inference. (Note: our early papers used the terms *condition* and *quantity of interest (QoI)* for these concepts; we adopt *key function* and *value function* here as they better align with common convention.)
+Many scientific problems can be naturally described as learning an operator that maps an input function/field (the "key function") to an output function/field (the "value function"). In-Context Operator Networks (ICON) study how to amortize operator identification into context: rather than training one model per operator, ICON takes a set of key--value function pairs in its context and predicts the value function for a new key function, without weight updates during inference. (Note: our early papers used the terms *condition* and *quantity of interest (QoI)* for these concepts; we adopt *key function* and *value function* here as they better align with common convention.)
 
 For a concrete mathematical example, consider a 1D scalar conservation law
 
