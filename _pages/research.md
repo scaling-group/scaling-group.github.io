@@ -46,7 +46,9 @@ Tracing the evolution of neural equation solvers, we see a three-act progression
 
 Coming soon... -->
 
-We have a series of works on ICON as follows. You can also view the tutorial code in our [GitHub repository](https://github.com/scaling-group/icon-tutorial).
+We have a series of works on ICON as follows. 
+
+🚀 Check out [**icon-core**](https://github.com/scaling-group/icon-core) on GitHub, the open-source infrastructure package for your ICON development, featuring built-in AI support, modular implementations, training pipelines, and examples to get you started. We’d love to see your model and dataset! Feel free to submit a pull request to contribute.
 
 **In-Context Operator Learning with Data Prompts for Differential Equation Problems** ([PNAS 2023](https://www.pnas.org/doi/10.1073/pnas.2310142120))
 
