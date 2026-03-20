@@ -10,7 +10,7 @@ permalink: /research/
 
 ## In-Context Operator Networks (ICON): Towards Scientific Foundation Models
 
-Many scientific problems can be naturally described as learning an operator that maps an input function/field (the ''condition'') to an output function/field (the ''quantity of interest'', QoI). In-Context Operator Networks (ICON) study how to amortize operator identification into context: rather than training one model per operator, ICON takes a set of condition--QoI pairs in its context and predict the QoI for a new condition, without weight updates during inference.
+Many scientific problems can be naturally described as learning an operator that maps an input function/field (the ``key function'') to an output function/field (the ``value function''). In-Context Operator Networks (ICON) study how to amortize operator identification into context: rather than training one model per operator, ICON takes a set of key--value function pairs in its context and predicts the value function for a new key function, without weight updates during inference. (Note: our early papers used the terms *condition* and *quantity of interest (QoI)* for these concepts; we adopt *key function* and *value function* here as they better align with common convention.)
 
 For a concrete mathematical example, consider a 1D scalar conservation law
 
@@ -23,7 +23,7 @@ we can define its forward (solution) operator $$\mathcal{F}_{f,\tau}[u(0,\cdot)]
 Classical numerical methods approximate $$\mathcal{F}_{f,\tau}$$ via discretization once the governing equation is specified. In **fixed-operator learning**, one typically fixes an operator
 (e.g., fixed $$f$$ and $$\tau$$) and trains a model $$G_\theta$$ such that $$G_\theta(u_0)\approx \mathcal{F}_{f,\tau}(u_0)$$; if the
 operator changes (e.g., $$f$$ changes), a new model or fine-tuning is often required. In **in-context operator learning**, a single model $$T_\theta$$ is trained over a distribution of operators (e.g., different $$f$$) so that it can infer
-the operator from a few in-context input--output examples and apply it to a new condition:
+the operator from a few in-context key-value function pairs and apply it to a new key function:
 
 $$
 \widehat{u}_\tau^{(q)} = T_\theta\!\left(\{(u_0^{(i)},u_\tau^{(i)})\}_{i=1}^{k},\, u_0^{(q)}\right).
