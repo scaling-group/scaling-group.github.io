@@ -29,10 +29,14 @@
   education1: B.S. National University of Singapore
 
 - name: Jun Zhai
-  photo: people.png
+  photo: jun_zhai.jpg
+  photo_style: cover
   info: NUS Ph.D. Student, from August 2024
+  github: https://github.com/Jun2028
+  website: https://jun2028.github.io/
+  research: AI4Math
   number_educ: 1
-  education1: B.Sc. Fudan University
+  education1: B.Sc. National University of Singapore
 
 - name: Ying Zhou
   photo: people.png
