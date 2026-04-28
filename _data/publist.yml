@@ -1,4 +1,14 @@
 
+- title: "In-context modeling as a retrain-free paradigm for foundation models in computational science"
+  image: icm-hyperelastic.png
+  description: We introduce In-Context Modeling (ICM), a retrain-free paradigm that infers physical relationships directly from observational fields. Rather than encoding system-specific behavior in fixed parameters, ICM assimilates measurements as physical context and performs inference through a single forward pass. Trained in a physics-informed, label-free manner using governing equations, a single model generalizes across unseen materials, geometries, and loading conditions.
+  authors: "Lingfeng Li<sup>*</sup>, Zhuoyuan Li<sup>*</sup>, Shun Li<sup>*</sup>, Kaixin Zhan, Huajian Gao<sup>†</sup>, Changqing Chen<sup>†</sup>, Liu Yang<sup>†</sup>"
+  link:
+    url: https://arxiv.org/abs/2604.23098
+    display: arXiv, Apr 2026
+  highlight: 1
+
+
 - title: "VICON: Vision In-Context Operator Networks for Multi-Physics Fluid Dynamics Prediction"
   image: 
   description:

@@ -21,15 +21,23 @@ permalink: /publications/
 {% endif %}
 
 <div class="col-sm-11 clearfix">
- <div class="well">
-  <pubtit>{{ publi.title }}</pubtit>
-  <img src="{{ site.url }}{{ site.baseurl }}/images/papers/{{ publi.image }}" class="img-responsive" width="33%" style="float: left" />
-  <p>{{ publi.description }}</p>
-  <p><em>{{ publi.authors }}</em></p>
-  <p><strong><a href="{{ publi.link.url }}">{{ publi.link.display }}</a></strong></p>
-  <p class="text-danger"><strong> {{ publi.news1 }}</strong></p>
-  <p> {{ publi.news2 }}</p>
- </div>
+<div class="well">
+<pubtit>{{ publi.title }}</pubtit>
+<div class="publication-highlight" markdown="0">
+  <div class="publication-highlight__media">
+    <img src="{{ site.url }}{{ site.baseurl }}/images/papers/{{ publi.image }}" class="img-responsive publication-highlight__image" />
+  </div>
+  <div class="publication-highlight__body">
+    <div class="publication-highlight__main">
+      <p>{{ publi.description }}</p>
+      <p class="publication-highlight__authors"><em>{{ publi.authors }}</em></p>
+    </div>
+    <p class="publication-highlight__link"><strong><a href="{{ publi.link.url }}">{{ publi.link.display }}</a></strong></p>
+    <p class="text-danger"><strong>{{ publi.news1 }}</strong></p>
+    <p>{{ publi.news2 }}</p>
+  </div>
+</div>
+</div>
 </div>
 
 {% assign number_printed = number_printed | plus: 1 %}
