@@ -8,6 +8,15 @@
     display: arXiv, Apr 2026
   highlight: 1
 
+- title: "Escher-Loop: Mutual Evolution by Closed-Loop Self-Referential Optimization"
+  image:
+  description:
+  authors: "Ziyang Liu<sup>*</sup>, Xinyan Guo<sup>*</sup>, Xuchen Wei<sup>*</sup>, Han Hao<sup>†</sup>, Liu Yang<sup>†</sup>"
+  link:
+    url: https://arxiv.org/abs/2604.23472
+    display: arXiv, Apr 2026
+  highlight: 2
+
 - title: "Graph In-Context Operator Networks for Generalizable Spatiotemporal Prediction"
   image:
   description:

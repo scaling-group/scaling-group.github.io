@@ -1,6 +1,9 @@
 - date: Apr 28 2026
   headline: "Our paper [In-context modeling as a retrain-free paradigm for foundation models in computational science](https://arxiv.org/abs/2604.23098) is now available on arXiv."
 
+- date: Apr 25 2026
+  headline: "Our paper [Escher-Loop: Mutual Evolution by Closed-Loop Self-Referential Optimization](https://arxiv.org/abs/2604.23472) is now available on arXiv."
+
 - date: Mar 14 2026
   headline: "We released [icon-core](https://github.com/scaling-group/icon-core), an open-source research infrastructure package for In-Context Operator Network (ICON) development. It provides standard models and algorithms, benchmark datasets, training pipelines, and development utilities, featuring built-in support for AI coding assistants like Claude Code."
 
