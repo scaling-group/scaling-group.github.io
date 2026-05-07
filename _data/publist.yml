@@ -8,6 +8,14 @@
     display: arXiv, Apr 2026
   highlight: 1
 
+- title: "Graph In-Context Operator Networks for Generalizable Spatiotemporal Prediction"
+  image:
+  description:
+  authors: "Chenghan Wu, Zongmin Yu, Boai Sun, Liu Yang<sup>†</sup>"
+  link:
+    url: https://arxiv.org/abs/2603.12725v3
+    display: arXiv, Mar 2026
+  highlight: 2
 
 - title: "VICON: Vision In-Context Operator Networks for Multi-Physics Fluid Dynamics Prediction"
   image: 

@@ -4,6 +4,9 @@
 - date: Mar 14 2026
   headline: "We released [icon-core](https://github.com/scaling-group/icon-core), an open-source research infrastructure package for In-Context Operator Network (ICON) development. It provides standard models and algorithms, benchmark datasets, training pipelines, and development utilities, featuring built-in support for AI coding assistants like Claude Code."
 
+- date: Mar 13 2026
+  headline: "Our paper [Graph In-Context Operator Networks for Generalizable Spatiotemporal Prediction](https://arxiv.org/abs/2603.12725v3) is now available on arXiv."
+
 - date: Nov 25 2025
   headline: "Our paper [VICON: Vision In-Context Operator Networks for Multi-Physics Fluid Dynamics Prediction](https://openreview.net/forum?id=6V3YmHULQ3) is accepted by Transactions on Machine Learning Research. This work was done in collaboration with researchers from UCLA and UCSD."
 
