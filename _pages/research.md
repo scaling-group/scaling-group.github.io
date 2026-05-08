@@ -74,6 +74,10 @@ A single ICON model makes forward and reverse predictions for conservation laws 
 
 We incorporated a patch-wise vision transformer architecture to efficiently process 2D functions, with flexible rollout under varying timestep strides and missing frames, in multi-physics fluid dynamics prediction tasks. 
 
+**GICON: Graph In-Context Operator Networks for Generalizable Spatiotemporal Prediction** ([arXiv 2026](https://arxiv.org/abs/2603.12725v3))
+
+We incorporated graph message passing with example-aware positional encoding for geometric and example cardinality generalization on real-world spatiotemporal systems, and showed on air quality prediction that in-context operator learning outperforms classical single-operator training under matched data.
+
 ## Previous Works
 
 Here are some of Yang Liu’s previous works during Ph.D. years:
