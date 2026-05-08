@@ -76,7 +76,7 @@ We incorporated a patch-wise vision transformer architecture to efficiently proc
 
 **GICON: Graph In-Context Operator Networks for Generalizable Spatiotemporal Prediction** ([arXiv 2026](https://arxiv.org/abs/2603.12725v3))
 
-We incorporated graph message passing with example-aware positional encoding for geometric and cardinality generalization on real-world spatiotemporal systems, and showed on air quality prediction that in-context operator learning outperforms classical single-operator training under matched data.
+We incorporated graph message passing with example-aware positional encoding for geometric and example cardinality generalization on real-world spatiotemporal systems, and showed on air quality prediction that in-context operator learning outperforms classical single-operator training under matched data.
 
 ## Previous Works
 
