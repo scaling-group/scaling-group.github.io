@@ -1,5 +1,5 @@
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container-fluid">
+  <div class="container-fluid site-nav-container">
 	<div class="navbar-header">
 	  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
 		<span class="sr-only">Toggle navigation</span>
@@ -19,7 +19,81 @@
 		<li><a href="{{ site.url }}{{ site.baseurl }}/research">Research</a></li>
 		<li><a href="{{ site.url }}{{ site.baseurl }}/blogs">Blogs</a></li>
 		<li><a href="{{ site.url }}{{ site.baseurl }}/news">News</a></li>
+		<li class="theme-toggle-item">
+		  <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Toggle color mode" title="Toggle color mode">
+			<span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">☀</span>
+			<span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">☾</span>
+		  </button>
+		</li>
 	  </ul>
 	</div>
   </div>
 </div>
+<script>
+  (function() {
+    var storageKey = 'theme-preference';
+
+    function getPreferredTheme() {
+      var storedTheme = null;
+      try {
+        storedTheme = localStorage.getItem(storageKey);
+      } catch (error) {}
+
+      if (storedTheme === 'light' || storedTheme === 'dark') {
+        return storedTheme;
+      }
+
+      return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      var toggle = document.getElementById('theme-toggle');
+      if (toggle) {
+        toggle.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+        toggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        toggle.setAttribute('title', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+      }
+    }
+
+    function bindThemeToggle() {
+      applyTheme(getPreferredTheme());
+
+      var toggle = document.getElementById('theme-toggle');
+      if (!toggle) {
+        return;
+      }
+
+      toggle.addEventListener('click', function() {
+        var currentTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        var nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        try {
+          localStorage.setItem(storageKey, nextTheme);
+        } catch (error) {}
+        applyTheme(nextTheme);
+      });
+
+      if (window.matchMedia) {
+        var mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        mediaQuery.addEventListener('change', function(event) {
+          var storedTheme = null;
+          try {
+            storedTheme = localStorage.getItem(storageKey);
+          } catch (error) {}
+
+          if (storedTheme === 'light' || storedTheme === 'dark') {
+            return;
+          }
+
+          applyTheme(event.matches ? 'dark' : 'light');
+        });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', bindThemeToggle);
+    } else {
+      bindThemeToggle();
+    }
+  })();
+</script>
