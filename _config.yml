@@ -17,6 +17,11 @@ include:
   - .htaccess
   - _pages
 
+collections:
+  blogs:
+    output: true
+    permalink: /blogs/:name/
+
 sass:
   sass_dir: _sass
 

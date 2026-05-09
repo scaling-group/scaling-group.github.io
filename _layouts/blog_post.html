@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<div class="col-sm-12">
+  <article class="blog-post">
+    <header class="blog-post__header">
+      <h1 class="blog-post__title">{{ page.title }}</h1>
+      <p class="blog-post__meta">
+        {% if page.author %}{{ page.author }}{% endif %}
+        {% if page.date %}{% if page.author %} · {% endif %}{{ page.date | date: "%b %-d, %Y" }}{% endif %}
+      </p>
+      {% if page.abstract %}
+      <p class="blog-post__abstract">{{ page.abstract }}</p>
+      {% endif %}
+    </header>
+
+    <div class="blog-post__content">
+      {{ content }}
+    </div>
+  </article>
+</div>
