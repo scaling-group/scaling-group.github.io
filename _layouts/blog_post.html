@@ -2,9 +2,37 @@
 layout: default
 ---
 <div class="col-sm-12">
+  {% assign page_lang = page.lang | default: "en" %}
+  {% assign sibling_lang = "zh" %}
+  {% if page_lang == "zh" %}
+    {% assign sibling_lang = "en" %}
+  {% endif %}
+  {% assign sibling_blog = nil %}
+  {% if page.translation_key %}
+    {% for blog in site.blogs %}
+      {% if blog.translation_key == page.translation_key and blog.lang == sibling_lang %}
+        {% assign sibling_blog = blog %}
+        {% break %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
   <article class="blog-post">
     <header class="blog-post__header">
-      <h1 class="blog-post__title">{{ page.title }}</h1>
+      <div class="blog-post__header-top">
+        <h1 class="blog-post__title">{{ page.title }}</h1>
+        {% if sibling_blog %}
+        <div class="blog-language-switch">
+          {% if page_lang == "zh" %}
+          <span class="blog-language-switch__link blog-language-switch__link--active">中文</span>
+          <a class="blog-language-switch__link" href="{{ site.url }}{{ site.baseurl }}{{ sibling_blog.url }}">EN</a>
+          {% else %}
+          <span class="blog-language-switch__link blog-language-switch__link--active">EN</span>
+          <a class="blog-language-switch__link" href="{{ site.url }}{{ site.baseurl }}{{ sibling_blog.url }}">中文</a>
+          {% endif %}
+        </div>
+        {% endif %}
+      </div>
       <p class="blog-post__meta">
         {% if page.author %}{{ page.author }}{% endif %}
         {% if page.date %}{% if page.author %} · {% endif %}{{ page.date | date: "%b %-d, %Y" }}{% endif %}
