@@ -307,6 +307,10 @@ firstp {
 	display: block;
 }
 
+#gridid .publication-highlight__image + .publication-highlight__image {
+	margin-top: 12px;
+}
+
 #gridid .publication-highlight__body {
 	flex: 1 1 auto;
 	min-width: 0;
