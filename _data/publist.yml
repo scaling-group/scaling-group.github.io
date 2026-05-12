@@ -1,7 +1,7 @@
 - title: "Evolutionary Ensemble of Agents"
   image: eve-demo.gif
   image2: eve-overview.png
-  description: "We introduce Evolutionary Ensemble (EvE), a decentralized framework that organizes existing, highly capable coding agents into a co-evolving system for algorithmic discovery. Rather than reinventing the wheel, EvE fixes the base agent substrate and focuses entirely on evolving the guidance and skills that dictate agent behaviors. When applied to a research bottleneck in In-Context Operator Networks (ICON), EvE autonomously discovered a robust mechanism that enables reliable context length generalization."
+  description: "We introduce Evolutionary Ensemble (EvE), a decentralized framework that organizes existing, highly capable coding agents into a co-evolving system for algorithmic discovery. Rather than reinventing the wheel, EvE fixes the base agent substrate and focuses entirely on evolving the guidance and skills that dictate agent behaviors. When applied to a research bottleneck in In-Context Operator Networks (ICON), EvE autonomously discovered a robust mechanism that enables reliable context length generalization.<br>A single GPT or Claude subscription is sufficient, with no additional API fees. Third-party APIs are also supported."
   authors: "Zongmin Yu, Liu Yang<sup>†</sup>"
   link:
     url: https://arxiv.org/abs/2605.09018
