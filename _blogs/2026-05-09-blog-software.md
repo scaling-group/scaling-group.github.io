@@ -61,9 +61,19 @@ What will happen in the future? Here are my personal thoughts.
 
   Simple functions—such as low-dimensional functions or functions where every input dimension has a rational explanation—do not need neural networks for fitting. Neural networks have the so-called "universal approximation," but letting a coding agent find a more interpretable, problem-specific parametric representation (like Gaussian Splatting) or a piece of code logic for each problem can also produce universal approximation. The true domain of neural networks is extremely complex functions, especially foundation models.
 
-* **Most human effort will concentrate on defining metrics.**
+* **From Data-Driven to Empirical-Driven.**
 
-  In past software engineering, defining metrics was important, but most labor was not spent there. In the Software 1.0 era, most engineers wrote code to improve metrics; in 2.0, most trained networks to improve them (especially data cleaning). However, as long as the goal is clear, these tasks can theoretically be handed over to Agents—perhaps only a few extremely difficult problems will still require top-tier human brains. But the definition of the metric, because requirements are known only to humans and due to ethical considerations, etc., will still need to be completed by humans for the foreseeable future. We said "programming is telling the computer what to do"—defining the metric is telling the machine "what to do." As for "how to do it," that can largely be left to the Agent to explore.
+  In the era of Software 2.0, models passively absorbed massive datasets to fit probability distributions within the data. The empirical-driven mode is fundamentally different: it no longer relies on static data stacking, but on a dynamic loop where an Agent actively interacts with its environment, gathers feedback, and self-corrects. This more closely resembles the scientific method: proposing a hypothesis (writing code), experimental validation (running tests), analyzing results (obtaining feedback), and refining the hypothesis. This shift implies that the source of intelligence has evolved from "imitating past data" to "exploring unknown spaces." Under this paradigm, as long as the feedback loop is sufficiently short and of high quality, an Agent can navigate and uncover complex logic never before discovered by humans—all through countless empirical iterations without the need for human-labeled data.
+
+* **Human’s Focus: Building the Agent’s "Playground".**
+
+  In the past, Software 1.0 engineers manually wrote logic, while in the 2.0 era, they were preoccupied with data cleaning and hyperparameter tuning. In principle, these execution-level tasks can now be handed over to Agents, with perhaps only a few exceptionally difficult problems still requiring the intervention of top-tier human minds.
+
+  In the future, the primary role of humans will be to construct the "Playground" where Agents produce logic. This process is by no means trivial. Initially, the logic provided by an Agent may deviate entirely from expectations, requiring humans to continuously calibrate and align the system.
+
+  We can draw an analogy from the Industrial Revolution: before the invention of the spinning machine, humans had to "hand-spin" yarn, where the quality of every thread depended on the physical strength and skill of the worker. This is much like an engineer writing code line by line. Once the spinning machine was invented, humans stopped spinning yarn directly and instead turned to building the machines. Human intelligence was no longer consumed by the production of each individual thread, but was instead focused on keeping the machine running and defining what constituted a "qualified" thread. The machine then produced yarn automatically and at high speed. If we replace "yarn" with "code" or "logic," the picture becomes clear: in the future, humans will not manufacture logic themselves; instead, they will build systems that produce logic tailored to our needs.
+
+  Within this Playground, the most critical element is the definition of problems and evaluation metrics—these are the core "rules of the game". Because only humans understand specific needs and navigate the complexities of ethics and values, defining "what to do" and "what is good" remains a non-negotiable human prerogative, at least in the short term. If we define "programming" as the "expression of intent," then defining problems and metrics is the highest level of programming. As for "how to do it," that can largely be left to the Agents to explore.
 
 * **Self-Referential Iteration of AI**
 
@@ -73,8 +83,9 @@ What will happen in the future? Here are my personal thoughts.
   * AI is already accelerating AI development, though it cannot yet fully detach from human intervention.
   * We can fix one part of the AI and self-referentially iterate the rest. For example, we can fix the LLM and iterate on the outer Agent layer.
 
-
   I estimate that within a few years, we will see AI training a smarter AI model and writing the peripheral harness systems without any human intervention. I see no fundamental obstacles.
+
+  It is worth noting that AI's self-referential iteration will not shift the focus of human labor mentioned above. While this iteration will accelerate the pace of AI problem-solving, the decisions of "what to do" and "what defines quality" must remain firmly in human hands.
 
 ## Our Exploration
 
