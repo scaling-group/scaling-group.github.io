@@ -5,5 +5,5 @@ excerpt: "Scaling Group: Blogs"
 sitemap: false
 permalink: /blogs/
 lang: en
-intro: "Notes, explainers, and longer-form updates from the group."
+intro: "Research overviews, technical explainers, and longer-form updates from the group."
 ---

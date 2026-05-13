@@ -24,7 +24,22 @@ layout: default
   <div class="blog-list">
     {% assign page_lang = page.lang | default: "en" %}
     {% assign sorted_blogs = site.blogs | where: "lang", page_lang | sort: "date" | reverse %}
-    {% for blog in sorted_blogs %}
+    {% assign pinned_blogs = sorted_blogs | where: "pinned", true | sort: "pin_order" %}
+    {% assign regular_blogs = sorted_blogs | where_exp: "blog", "blog.pinned != true" %}
+    {% for blog in pinned_blogs %}
+    <a class="blog-card blog-card--pinned" href="{{ site.url }}{{ site.baseurl }}{{ blog.url }}">
+      <div class="blog-card__pin" aria-hidden="true">★</div>
+      <h2 class="blog-card__title">{{ blog.title }}</h2>
+      <p class="blog-card__meta">
+        {% if blog.author %}{{ blog.author }}{% endif %}
+        {% if blog.date %}{% if blog.author %} · {% endif %}{{ blog.date | date: "%b %-d, %Y" }}{% endif %}
+      </p>
+      {% if blog.abstract %}
+      <p class="blog-card__abstract">{{ blog.abstract }}</p>
+      {% endif %}
+    </a>
+    {% endfor %}
+    {% for blog in regular_blogs %}
     <a class="blog-card" href="{{ site.url }}{{ site.baseurl }}{{ blog.url }}">
       <h2 class="blog-card__title">{{ blog.title }}</h2>
       <p class="blog-card__meta">

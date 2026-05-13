@@ -1,5 +1,5 @@
 ---
-title: "软件：从 1.0 到 3.0，以及未来"
+title: "软件 3.0 与 Evolutionary Ensemble (EvE) of Agents"
 layout: blog_post
 author: "杨柳, 于宗民"
 date: 2026-05-09
@@ -7,6 +7,8 @@ lang: zh
 translation_key: software-engineer
 permalink: /blogs/zh/software-engineer/
 abstract: "分享我们对 AI 重塑软件开发范式的观察，以及我们在这一浪潮中的思考与实践。"
+pinned: true
+pin_order: 2
 ---
 
 本文由杨柳撰写，撰写过程中与组员于宗民有深入讨论和交流。以下“我”指代杨柳。我绝非软件开发领域的专家，仅仅想分享一下我们最近的工作“Evolutionary Ensemble (EvE) of Agents” ([arXiv](https://arxiv.org/abs/2605.09018), [GitHub](https://github.com/scaling-group/eve))背后的思路。
