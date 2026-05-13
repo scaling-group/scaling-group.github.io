@@ -3,3 +3,9 @@
 This is the website of the Scientific Computing and Intelligence Group at National University of Singapore. It's adapted from this repository: https://github.com/mpa139/allanlab
 
 For local testing: https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/testing-your-github-pages-site-locally-with-jekyll
+
+For the usual local development workflow with automatic rebuilds and browser refresh:
+
+```bash
+bundle exec jekyll serve --config _config.yml,_config_dev.yml --livereload
+```

@@ -3,11 +3,74 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark light">
-  <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
-  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  {% assign page_title = page.title | default: site.title %}
+  {% assign page_description = page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 %}
+  {% assign canonical_url = page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url %}
+  <title>{{ page_title | escape }}</title>
+  <meta name="description" content="{{ page_description }}">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="author" content="{{ site.seo.person_name }}">
+  <meta name="keywords" content="{{ site.seo.keywords }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:title" content="{{ page_title | escape }}">
+  <meta property="og:description" content="{{ page_description }}">
+  <meta property="og:type" content="{% if page.layout == 'blog_post' %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ page_title | escape }}">
+  <meta name="twitter:description" content="{{ page_description }}">
   {% assign stylesheet_version = site.github.build_revision | default: site.time | date: "%s" %}
   <link rel="stylesheet" href="{{ "/css/main.css?v=" | append: stylesheet_version | prepend: site.baseurl | prepend: site.url }}">
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": {{ site.title | jsonify }},
+      "url": {{ site.url | jsonify }},
+      "description": {{ site.description | jsonify }},
+      "keywords": {{ site.seo.keywords | jsonify }}
+    }
+  </script>
+  {% if page.url == "/" %}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ResearchOrganization",
+      "name": {{ site.title | jsonify }},
+      "alternateName": "Scaling Group",
+      "url": {{ site.url | jsonify }},
+      "email": {{ site.email | jsonify }},
+      "parentOrganization": {
+        "@type": "CollegeOrUniversity",
+        "name": "National University of Singapore"
+      },
+      "employee": {
+        "@type": "Person",
+        "name": {{ site.seo.person_name | jsonify }},
+        "alternateName": {{ site.seo.alternate_names | jsonify }},
+        "jobTitle": {{ site.seo.role | jsonify }},
+        "affiliation": {
+          "@type": "CollegeOrUniversity",
+          "name": {{ site.seo.affiliation | jsonify }}
+        },
+        "sameAs": [
+          {{ site.seo.scholar_url | jsonify }},
+          {{ site.seo.cv_url | prepend: site.url | jsonify }}
+        ]
+      },
+      "knowsAbout": [
+        "In-Context Operator Networks",
+        "ICON",
+        "In-Context Operator Learning",
+        "Scientific Computing",
+        "Scientific Machine Learning",
+        "Operator Learning",
+        "Scalable AI"
+      ]
+    }
+  </script>
+  {% endif %}
   <script>
     (function() {
       var storedTheme = null;

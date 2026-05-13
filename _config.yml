@@ -9,9 +9,19 @@
 title: Scientific Computing and Intelligence Group
 email: yangliu@nus.edu.sg
 description: > # this means to ignore newlines until "baseurl:"
-  Website of the Scientific Computing and Intelligence Group at NUS, led by Liu Yang
+  Scientific Computing and Intelligence Group at NUS, led by Liu Yang (Yang Liu, 杨柳), centered on in-context operator networks (ICON) and in-context operator learning, with work on multi-physics prediction, physical modeling, embodied AI, and agents for automated discovery of algorithms.
 baseurl: ""
-url: ""
+url: "https://scaling-group.github.io"
+seo:
+  person_name: "Liu Yang"
+  alternate_names:
+    - "Yang Liu"
+    - "杨柳"
+  role: "Assistant Professor"
+  affiliation: "National University of Singapore"
+  scholar_url: "https://scholar.google.com/citations?user=3qRUYIYAAAAJ&hl=en"
+  cv_url: "/downloads/cv/liuyang.pdf"
+  keywords: "Liu Yang, Yang Liu, 杨柳, ICON, In-Context Operator Networks, in-context operator learning, scientific computing, scientific machine learning, operator learning, NUS"
 
 include:
   - .htaccess
