@@ -1,0 +1,18 @@
+---
+layout: null
+permalink: /sitemap.xml
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  {% assign site_pages = site.pages | where_exp: "item", "item.sitemap != false" %}
+  {% for item in site_pages %}
+  <url>
+    <loc>{{ item.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}</loc>
+  </url>
+  {% endfor %}
+  {% for item in site.blogs %}
+  <url>
+    <loc>{{ item.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}</loc>
+  </url>
+  {% endfor %}
+</urlset>
