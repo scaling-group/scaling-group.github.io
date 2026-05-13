@@ -1,5 +1,5 @@
 ---
-title: "Software: From 1.0 to 3.0, and the Future"
+title: "Software 3.0 and Evolutionary Ensemble (EvE) of Agents"
 layout: blog_post
 author: "Yang Liu, Yu Zongmin"
 date: 2026-05-09
@@ -7,6 +7,8 @@ lang: en
 translation_key: software-engineer
 permalink: /blogs/en/software-engineer/
 abstract: "Sharing our observations on how AI is reshaping the software development paradigm, along with our reflections and practices within this wave."
+pinned: true
+pin_order: 2
 ---
 
 This article was written by Yang Liu, following in-depth discussions and exchanges with team member Yu Zongmin. In the text below, "I" refers to Yang Liu. I am by no means an expert in software development; I simply want to share the thinking behind our recent work, "Evolutionary Ensemble (EvE) of Agents" ([arXiv](https://arxiv.org/abs/2605.09018), [GitHub](https://github.com/scaling-group/eve)).
