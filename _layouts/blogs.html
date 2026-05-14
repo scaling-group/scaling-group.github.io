@@ -2,14 +2,44 @@
 layout: default
 ---
 <div id="blogsid" class="col-sm-12">
-  <h1>{{ page.title }}</h1>
-  {% if page.intro %}
-  <p>{{ page.intro }}</p>
-  {% endif %}
+  <div class="blog-page__header">
+    <div class="blog-page__title-group">
+      <h1>{{ page.title }}</h1>
+      {% if page.intro %}
+      <p>{{ page.intro }}</p>
+      {% endif %}
+    </div>
+
+    <div class="blog-language-switch">
+      {% if page.lang == "zh" %}
+      <span class="blog-language-switch__link blog-language-switch__link--active">中文</span>
+      <a class="blog-language-switch__link" href="{{ site.url }}{{ site.baseurl }}/blogs/">EN</a>
+      {% else %}
+      <span class="blog-language-switch__link blog-language-switch__link--active">EN</span>
+      <a class="blog-language-switch__link" href="{{ site.url }}{{ site.baseurl }}/blogs/zh/">中文</a>
+      {% endif %}
+    </div>
+  </div>
 
   <div class="blog-list">
-    {% assign sorted_blogs = site.blogs | sort: "date" | reverse %}
-    {% for blog in sorted_blogs %}
+    {% assign page_lang = page.lang | default: "en" %}
+    {% assign sorted_blogs = site.blogs | where: "lang", page_lang | sort: "date" | reverse %}
+    {% assign pinned_blogs = sorted_blogs | where: "pinned", true | sort: "pin_order" %}
+    {% assign regular_blogs = sorted_blogs | where_exp: "blog", "blog.pinned != true" %}
+    {% for blog in pinned_blogs %}
+    <a class="blog-card blog-card--pinned" href="{{ site.url }}{{ site.baseurl }}{{ blog.url }}">
+      <div class="blog-card__pin" aria-hidden="true">★</div>
+      <h2 class="blog-card__title">{{ blog.title }}</h2>
+      <p class="blog-card__meta">
+        {% if blog.author %}{{ blog.author }}{% endif %}
+        {% if blog.date %}{% if blog.author %} · {% endif %}{{ blog.date | date: "%b %-d, %Y" }}{% endif %}
+      </p>
+      {% if blog.abstract %}
+      <p class="blog-card__abstract">{{ blog.abstract }}</p>
+      {% endif %}
+    </a>
+    {% endfor %}
+    {% for blog in regular_blogs %}
     <a class="blog-card" href="{{ site.url }}{{ site.baseurl }}{{ blog.url }}">
       <h2 class="blog-card__title">{{ blog.title }}</h2>
       <p class="blog-card__meta">

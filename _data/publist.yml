@@ -1,3 +1,13 @@
+- title: "Evolutionary Ensemble of Agents"
+  image: eve-demo.gif
+  image2: eve-overview.png
+  description: "We introduce Evolutionary Ensemble (EvE), a decentralized framework that organizes existing, highly capable coding agents into a co-evolving system for algorithmic discovery. Rather than reinventing the wheel, EvE fixes the base agent substrate and focuses entirely on evolving the guidance and skills that dictate agent behaviors. When applied to a research bottleneck in In-Context Operator Networks (ICON), EvE autonomously discovered a robust mechanism that enables reliable context length generalization.<br>A single GPT or Claude subscription is sufficient, with no additional API fees. Third-party APIs are also supported."
+  authors: "Zongmin Yu, Liu Yang<sup>†</sup>"
+  link:
+    url: https://arxiv.org/abs/2605.09018
+    display: arXiv, May 2026
+  github: https://github.com/scaling-group/eve
+  highlight: 1
 
 - title: "In-context modeling as a retrain-free paradigm for foundation models in computational science"
   image: icm-hyperelastic.png
@@ -42,7 +52,7 @@
   link:
     url: https://www.sciencedirect.com/science/article/pii/S0021999124006272
     display: Journal of Computational Physics, Dec 2024 / arXiv, Jan 2024
-  highlight: 1
+  highlight: 2
   # news2: Good
 
 
