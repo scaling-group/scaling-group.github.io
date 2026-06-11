@@ -1,3 +1,30 @@
+- title: "Harness In-Context Operator Learning with Chain of Operators"
+  image:
+  description:
+  authors: "Minghui Yang, Ling Guo, Liu Yang<sup>†</sup>"
+  link:
+    url: https://arxiv.org/abs/2606.12318
+    display: arXiv, Jun 2026
+  highlight: 2
+
+- title: "VICX: Generalizable Robot Manipulation via Video Generation and In-Context Operator Network"
+  image:
+  description: VICX is a decoupled closed-loop manipulation framework for generalizable robot manipulation. A frozen video generation model produces vision-language-conditioned high-level visual plans, while a Video-to-Trajectory In-Context Operator Network grounds these plans into executable robot-state trajectories.
+  authors: "Song Chen<sup>*</sup>, Linyan Xiang<sup>*</sup>, Ying Zhou, Liu Yang<sup>†</sup>"
+  link:
+    url: https://arxiv.org/abs/2606.12028
+    display: arXiv, Jun 2026
+  highlight: 2
+
+- title: "Self-Evolving Scientific Agent Discovers Generalizable Physically-Reasoned Fluid Control"
+  image:
+  description: We present a self-evolving scientific-agent workflow that uses large language models and iterative code generation to automate interpretable controller construction for physical systems. On an underactuated two-joint dogfish swimmer, the agent discovers a unified controller that generalizes to unseen static targets and dynamically curved pursuit trajectories.
+  authors: "Boai Sun, Wenjin Guo, Zongmin Yu, Liu Yang<sup>†</sup>"
+  link:
+    url: https://arxiv.org/abs/2606.08405
+    display: arXiv, Jun 2026
+  highlight: 2
+
 - title: "Evolutionary Ensemble of Agents"
   image: eve-demo.gif
   image2: eve-overview.png
