@@ -110,10 +110,20 @@ h1 {
   letter-spacing: 0.04em;
 }
 
+.paper-links a[href]:hover {
+  color: var(--surface);
+  background: var(--fg);
+}
+
 .paper-links a[aria-disabled="true"] {
   color: var(--fg-muted);
   border-color: var(--border);
   cursor: default;
+}
+
+.header-links {
+  justify-content: center;
+  margin: 4px 0 28px;
 }
 
 .lead,
