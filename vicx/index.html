@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="VICX: Generalizable Robot Manipulation via Video Generation and In-Context Operator Network."
+    />
+    <link rel="canonical" href="https://scaling-group.github.io/vicx/" />
+    <title>VICX: Generalizable Robot Manipulation via Video Generation and In-Context Operator Network</title>
+    <link rel="stylesheet" href="styles.css?v=20260603-explicit-arrow-color" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <span class="badge">VICX Project Page</span>
+        <h1>VICX: Generalizable Robot Manipulation via Video Generation and In-Context Operator Network</h1>
+        <p class="authors">Song Chen*, Linyan Xiang*, Ying Zhou, Liu Yang</p>
+        <p class="authors">* Equal contribution</p>
+        <nav class="paper-links header-links" aria-label="Project resources">
+          <a href="https://arxiv.org/abs/2606.12028">Paper</a>
+          <a aria-disabled="true">Code · Coming soon</a>
+        </nav>
+        <figure class="hero-figure">
+          <img src="assets/paper/closed_loop_evaluation.png" alt="VICX closed-loop framework" />
+        </figure>
+      </header>
+
+      <h2 class="center-heading">Abstract</h2>
+      <section class="paper-section abstract-section">
+        <p>
+          Generalizable robot manipulation requires not only task-level reasoning over unseen
+          scenes, but also reliable grounding of visual plans into embodiment-specific execution.
+          To bridge this gap, we propose VICX (Video generation and In-Context eXecution), a
+          decoupled closed-loop manipulation framework. In VICX, a frozen video generation model
+          produces vision-language-conditioned high-level visual plans, while a Video-to-Trajectory
+          In-Context Operator Network (V2T-ICON) serves as the task-agnostic interface that grounds
+          these plans into executable robot-state trajectories. To improve execution generalization,
+          V2T-ICON operates on segmentation-extracted arm-only frame observations and uses
+          retrieved image-state pairs as in-context prompts, allowing a robust and generalizable
+          visual-to-state mapping at inference time without parameter updates. Experiments on
+          Meta-World show that VICX supports cross-task generalization, closed-loop self-correction,
+          and cross-embodiment transfer, demonstrating dual generalization across both task
+          semantics and robot execution.
+        </p>
+      </section>
+
+      <h2>Video Agent Closed-loop Task Evaluation</h2>
+      <p class="section-intro">
+        The videos below include representative closed-loop successes and failure cases from the
+        demo package; tasks with 100% success omit failure examples. The quantitative cards use the
+        paper's 20-seed evaluation protocol. If a task displays fewer than four videos, the
+        available examples are either all successful or all failed.
+        Closed-loop feedback lets the video planner treat failed or incomplete execution as new
+        visual context. In later planning cycles, the system can adapt its strategy rather than
+        repeating the same unsuccessful motion.
+      </p>
+      <section id="closed-loop-task-evaluation" class="closed-loop-task-evaluation">
+        <p id="closed-loop-tab-reminder" class="task-tab-reminder" aria-live="polite"></p>
+        <div id="closed-loop-task-selector" class="task-selector-grid"></div>
+        <div id="closed-loop-task-detail" class="task-program-detail"></div>
+      </section>
+
+      <h2>Method Overview</h2>
+      <section class="paper-section">
+        <p>
+          VICX separates high-level visual planning from low-level execution grounding.
+          Given the current observation and a task prompt, a frozen image-conditioned video model
+          predicts a short-horizon future video. V2T-ICON then translates the generated arm motion
+          into robot states by comparing each query frame with retrieved image-state references.
+          After execution, the latest observation is fed back for the next planning cycle, enabling
+          closed-loop replanning and self-correction.
+        </p>
+        <div class="figure-grid">
+          <figure class="paper-figure">
+            <img src="assets/paper/closed_loop_evaluation.png" alt="Closed-loop framework" />
+            <figcaption>VICX closed-loop video-agent manipulation with V2T-ICON grounding.</figcaption>
+          </figure>
+          <figure class="paper-figure">
+            <img
+              src="assets/paper/in-context_trajectory_translator.png"
+              alt="V2T-ICON architecture"
+            />
+            <figcaption>Retrieved image-state references calibrate video-to-trajectory translation.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <h2>Closed-loop Evaluation Results</h2>
+      <section class="paper-section">
+        <p>
+          The paper reports closed-loop evaluation over 20 random seeds per task on nine
+          Meta-World tasks. V2T-ICON is trained on only three source tasks and evaluated with a
+          frozen Wan video planner, five retrieved references per query frame, and a ten-cycle
+          replanning budget.
+        </p>
+        <div class="baseline-grid">
+          <div><strong>20.6%</strong><span>pi0.5-Scratch</span></div>
+          <div><strong>26.1%</strong><span>pi0.5-Finetune</span></div>
+          <div><strong>55.0%</strong><span>AVDC</span></div>
+          <div><strong>72.2%</strong><span>VICX</span></div>
+        </div>
+      </section>
+      <div id="closed-loop-success-rates" class="success-rate-grid"></div>
+
+      <h2>Evaluation Pseudocode</h2>
+      <section class="algorithm-card" aria-label="WAN V2T evaluation pseudocode">
+        <p class="algorithm-title">
+          <strong>Algorithm 1:</strong> VICX via video generation and V2T-ICON
+        </p>
+        <p class="algorithm-io">
+          <strong>Input:</strong> task prompt <var>P</var>, initial observation
+          <var>I<sub>0</sub></var>, planning budget <var>C</var>, reference count <var>N</var>,
+          arm-only training pool <var>D<sub>train</sub></var>, and optional external planned video
+          <var>Q<sub>ext</sub></var>.
+        </p>
+        <p class="algorithm-io">
+          <strong>Output:</strong> generated videos, executable state trajectories, and success flag
+          <var>y</var>.
+        </p>
+        <p class="algorithm-io algorithm-notation">
+          <strong>Notation:</strong> <var>V</var> is the frozen video agent,
+          <var>G<sub>&theta;</sub></var> is V2T-ICON, <var>S</var> is the arm-only segmentation
+          operator, <var>Q</var> is a planned video, <var>R</var> is the retrieved reference
+          context, and <var>X&#770;</var> is the predicted executable state trajectory.
+        </p>
+        <ol class="algorithm-lines">
+          <li><span class="alg-comment">// <var>C</var> = 0 gives open-loop execution; <var>C</var> &ge; 1 gives closed-loop replanning.</span></li>
+          <li><span><var>I</var> &leftarrow; <var>I<sub>0</sub></var></span></li>
+          <li><span><strong>if</strong> <var>C</var> = 0 <strong>then</strong></span></li>
+          <li><span class="alg-indent-1"><var>Q</var> &leftarrow; <var>Q<sub>ext</sub></var> if provided; otherwise <var>V</var>(<var>P</var>, <var>I</var>)</span></li>
+          <li><span class="alg-indent-1"><var>R</var> &leftarrow; RetrieveRefs(<var>S</var>(<var>Q</var>), <var>D<sub>train</sub></var>, <var>N</var>)</span></li>
+          <li><span class="alg-indent-1"><var>X&#770;</var> &leftarrow; <var>G<sub>&theta;</sub></var>(<var>Q</var>, <var>R</var>)</span></li>
+          <li><span class="alg-indent-1"><var>y</var> &leftarrow; Execute(<var>X&#770;</var>)</span></li>
+          <li><span class="alg-indent-1"><strong>return</strong> <var>Q</var>, <var>X&#770;</var>, <var>y</var></span></li>
+          <li><span><strong>end if</strong></span></li>
+          <li><span><strong>for</strong> <var>c</var> = 1, ..., <var>C</var> <strong>do</strong></span></li>
+          <li><span class="alg-indent-1"><var>Q<sub>c</sub></var> &leftarrow; <var>V</var>(<var>P</var>, <var>I</var>)</span></li>
+          <li><span class="alg-indent-1"><var>R<sub>c</sub></var> &leftarrow; RetrieveRefs(<var>S</var>(<var>Q<sub>c</sub></var>), <var>D<sub>train</sub></var>, <var>N</var>)</span></li>
+          <li><span class="alg-indent-1"><var>X&#770;<sub>c</sub></var> &leftarrow; <var>G<sub>&theta;</sub></var>(<var>Q<sub>c</sub></var>, <var>R<sub>c</sub></var>)</span></li>
+          <li><span class="alg-indent-1"><var>y<sub>c</sub></var>, <var>I<sup>c</sup><sub>t:t+T</sub></var> &leftarrow; ExecuteAndObserve(<var>X&#770;<sub>c</sub></var>)</span></li>
+          <li><span class="alg-indent-1"><var>I</var> &leftarrow; <var>I<sup>c</sup><sub>t:t+T</sub></var></span></li>
+          <li><span class="alg-indent-1"><strong>if</strong> <var>y<sub>c</sub></var> = success <strong>then</strong></span></li>
+          <li><span class="alg-indent-2"><strong>return</strong> {<var>Q<sub>i</sub></var>, <var>X&#770;<sub>i</sub></var>}<sub>i=1</sub><sup>c</sup>, success</span></li>
+          <li><span class="alg-indent-1"><strong>end if</strong></span></li>
+          <li><span><strong>end for</strong></span></li>
+          <li><span><strong>return</strong> {<var>Q<sub>i</sub></var>, <var>X&#770;<sub>i</sub></var>}<sub>i=1</sub><sup>C</sup>, failed</span></li>
+        </ol>
+      </section>
+
+      <h2>Benefits of in-context learning</h2>
+      <section class="benefit-panel">
+        <p class="section-intro">
+          Retrieved references improve both task success and planning efficiency. The canonical
+          benchmark improves from 62.8% to 72.2% success, while the cross-embodiment benchmark
+          improves from 45.0% to 57.2% success.
+        </p>
+        <figure class="paper-figure figure-wide">
+          <img
+            src="assets/paper/icl_context_comparison.png"
+            alt="In-context learning comparison"
+          />
+          <figcaption>
+            Five retrieved references improve success rate and reduce penalized planning count in
+            canonical and cross-embodiment evaluation.
+          </figcaption>
+        </figure>
+        <div id="in-context-metric-selector" class="metric-selector"></div>
+        <p id="in-context-metric-description" class="metric-description"></p>
+        <div id="closed-loop-context-chart" class="comparison-chart"></div>
+      </section>
+
+      <h2>Cross-embodiment Generalization</h2>
+      <section class="paper-section">
+        <p>
+          V2T-ICON is trained on standard red Sawyer-style arm demonstrations and evaluated without
+          retraining on a shifted orange industrial-style arm with modified tabletop, floor texture,
+          and lighting. With five retrieved references, the system maintains 57.2% overall success
+          under this visual embodiment shift. The gallery below includes additional v9 5-context
+          success and failure examples under the shifted embodiment setting; each task shows all
+          available clips from the source folder. If a task displays fewer than four videos, the
+          available examples are either all successful or all failed.
+        </p>
+        <figure class="paper-figure figure-wide">
+          <img src="assets/paper/retrieval_demo.png" alt="Cross-embodiment retrieval" />
+          <figcaption>Retrieved red-arm references remain organized by arm-pose alignment.</figcaption>
+        </figure>
+      </section>
+      <section class="task-programs">
+        <p id="cross-embodiment-tab-reminder" class="task-tab-reminder" aria-live="polite"></p>
+        <div id="cross-embodiment-task-selector" class="task-selector-grid"></div>
+        <div id="cross-embodiment-task-detail" class="task-program-detail"></div>
+      </section>
+
+      <h2>Additional Stress Test</h2>
+      <section class="paper-section compact-paper-section">
+        <figure class="paper-figure side-figure">
+          <img src="assets/paper/diy_sweep_soccer_scene.png" alt="DIY sweep-soccer task" />
+          <figcaption>Custom DIY sweep-soccer scene outside the Meta-World benchmark.</figcaption>
+        </figure>
+        <p>
+          The paper also stress-tests the same pipeline on a custom
+          <code>sweep-soccer-into-hole</code> scene outside the standard Meta-World family. The
+          5-context setting improves success from 15.0% to 20.0% and reduces penalized planning
+          count from 9.15 to 8.20.
+        </p>
+      </section>
+      <section class="task-programs">
+        <div id="stress-test-task-selector" class="task-selector-grid"></div>
+        <div id="stress-test-task-detail" class="task-program-detail"></div>
+      </section>
+    </div>
+
+    <script src="app.js?v=20260603-dynamic-tab-reminder"></script>
+  </body>
+</html>
