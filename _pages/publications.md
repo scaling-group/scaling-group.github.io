@@ -25,7 +25,11 @@ permalink: /publications/
 <pubtit>{{ publi.title }}</pubtit>
 <div class="publication-highlight" markdown="0">
   <div class="publication-highlight__media">
+    {% if publi.image_path %}
+    <img src="{{ site.url }}{{ site.baseurl }}/{{ publi.image_path }}" class="img-responsive publication-highlight__image" />
+    {% else %}
     <img src="{{ site.url }}{{ site.baseurl }}/images/papers/{{ publi.image }}" class="img-responsive publication-highlight__image" />
+    {% endif %}
     {% if publi.image2 %}
     <img src="{{ site.url }}{{ site.baseurl }}/images/papers/{{ publi.image2 }}" class="img-responsive publication-highlight__image" />
     {% endif %}
@@ -38,6 +42,7 @@ permalink: /publications/
     <p class="publication-highlight__link">
       <strong><a href="{{ publi.link.url }}">{{ publi.link.display }}</a></strong>
       {% if publi.github %} / <strong><a href="{{ publi.github }}">GitHub</a></strong>{% endif %}
+      {% if publi.project %} / <strong><a href="{{ publi.project }}">Project</a></strong>{% endif %}
     </p>
     <p class="text-danger"><strong>{{ publi.news1 }}</strong></p>
     <p>{{ publi.news2 }}</p>
