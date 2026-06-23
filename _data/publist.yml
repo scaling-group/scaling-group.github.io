@@ -1,3 +1,12 @@
+- title: "Agentic Symbolic Search: Characterizing PDEs Beyond Hand-crafted Expressions, Meshes, and Neural Networks"
+  image:
+  description:
+  authors: "Zongmin Yu, Liu Yang<sup>†</sup>"
+  link:
+    url: https://arxiv.org/abs/2606.20467
+    display: arXiv, Jun 2026
+  highlight: 2
+
 - title: "Harness In-Context Operator Learning with Chain of Operators"
   image:
   description:
