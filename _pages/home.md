@@ -1,7 +1,7 @@
 ---
-title: "Scientific Computing and Intelligence Group | Liu Yang (Yang Liu) | ICON | NUS"
+title: "Scientific Computing and Intelligence Group | Liu Yang (杨柳) | NUS"
 layout: homelay
-excerpt: "Scientific Computing and Intelligence Group at NUS, led by Liu Yang (Yang Liu, 杨柳), centered on In-Context Operator Networks (ICON) and in-context operator learning, with work on multi-physics prediction, physical modeling, embodied AI, and agents for automated discovery of algorithms."
+excerpt: "Scientific Computing and Intelligence Group at NUS, led by Liu Yang (杨柳), centered on In-Context Operator Networks (ICON) and in-context operator learning, with work on multi-physics prediction, physical modeling, embodied AI, and agents for automated discovery of algorithms."
 sitemap: false
 permalink: /
 ---
