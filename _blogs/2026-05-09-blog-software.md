@@ -1,7 +1,7 @@
 ---
 title: "Software 3.0 and Evolutionary Ensemble (EvE) of Agents"
 layout: blog_post
-author: "Yang Liu, Yu Zongmin"
+author: "Liu Yang, Zongmin Yu"
 date: 2026-05-09
 lang: en
 translation_key: software-engineer
@@ -11,7 +11,7 @@ pinned: true
 pin_order: 2
 ---
 
-This article was written by Yang Liu, following in-depth discussions and exchanges with team member Yu Zongmin. In the text below, "I" refers to Yang Liu. I am by no means an expert in software development; I simply want to share the thinking behind our recent work, "Evolutionary Ensemble (EvE) of Agents" ([arXiv](https://arxiv.org/abs/2605.09018), [GitHub](https://github.com/scaling-group/eve)).
+This article was written by Liu Yang, following in-depth discussions and exchanges with team member Zongmin Yu. In the text below, "I" refers to Liu Yang. I am by no means an expert in software development; I simply want to share the thinking behind our recent work, "Evolutionary Ensemble (EvE) of Agents" ([arXiv](https://arxiv.org/abs/2605.09018), [GitHub](https://github.com/scaling-group/eve)).
 
 ## Software 1.0: Engineers Iterating on Traditional Code
 
@@ -82,7 +82,7 @@ FunSearch and AlphaEvolve introduced evolutionary algorithm ideas on top of LLM-
 
 In the summer of 2025, I discussed these two goals with my collaborators. In short, we wanted to build an agent that could optimize both downstream task code and itself. This resulted in our paper, [Escher-Loop](https://arxiv.org/abs/2604.23472). The "Escher" here is a tribute to the place where I learned about self-referential iteration—the book *Gödel, Escher, Bach*. To me, this work was a very interesting exploration, many thanks to my collaborators! In this work, the "synchronous race + Elo rating" mechanism simply and effectively solved the problem of comparing whether "optimizing from 60 to 70" is more impressive than "optimizing from 90 to 95". This work partially realized self-referential iteration and validated its effectiveness, though it didn't fully solve the leap to Agent-as-Optimizer.
 
-Just as I was worrying about how to create a self-referentially iterating Agent-as-Optimizer that could solve truly complex problems, my team member Yu Zongmin pointed out that we don't need to reinvent the wheel. We should leverage existing coding agents like Claude Code and Codex. This idea was brilliant—the puzzle was complete! We could build the most "correct" thing possible based on all the reflections above.
+Just as I was worrying about how to create a self-referentially iterating Agent-as-Optimizer that could solve truly complex problems, my team member Zongmin Yu pointed out that we don't need to reinvent the wheel. We should leverage existing coding agents like Claude Code and Codex. This idea was brilliant—the puzzle was complete! We could build the most "correct" thing possible based on all the reflections above.
 
 * Since coding agents are rising and natural language is the new programming language, the target of self-referential iteration can simply be natural language intended for the coding agent, including optimization guidance, skills.md, and so on. Our experience is that natural language has a significant influence on Agent behavior; the degree of freedom is sufficient.
 * The human role is to provide a specific evaluation standard for the downstream task that can score the code written by the Agent.

@@ -1,7 +1,7 @@
 ---
 title: "From PI-GANs and B-PINNs to ICON: A Research Path"
 layout: blog_post
-author: "Yang Liu"
+author: "Liu Yang"
 date: 2026-03-09
 lang: en
 translation_key: research-path

@@ -1,7 +1,7 @@
 ---
 title: "Humans Provide Information, AI Performs Computation"
 layout: blog_post
-author: "Yang Liu"
+author: "Liu Yang"
 date: 2026-06-21
 lang: en
 translation_key: information-vs-computation
@@ -35,7 +35,7 @@ Without additional information input, AI's output can only be a high-probability
 
 I think this distinction directly affects how we understand human value. The stronger AI becomes, the less humans should place themselves in the position of computation. What humans should really do is collect as much information as possible that AI cannot obtain, and then tell that information to AI in an appropriate way.
 
-## The Example of Go Rules
+## The Example of Go
 
 Consider a somewhat extreme example.
 
@@ -83,7 +83,7 @@ The problem itself is not the final answer. It is more like an interface. It com
 
 ## Our Practice: Evolutionary Ensemble of Agents (EvE)
 
-This is also one of the core motivations behind our work on [EvE](/blogs/en/eve-design-philosophy/).
+This is also one of the core motivations behind our work on [EvE](https://github.com/scaling-group/eve).
 
 What EvE does can be understood as wrapping existing, already powerful coding agents inside a decentralized evolutionary ensemble. It evolves two populations at the same time: one is the solver population inside the repository, namely concrete code, algorithms, proof drafts, or other functional components; the other is the agent population, namely the guidance and skills used by agents. The former is responsible for producing better solutions, while the latter is responsible for continuously improving the way solutions are produced.
 
@@ -116,3 +116,7 @@ AI progress makes computation increasingly cheap. It can deepen derivations for 
 Human value will increasingly concentrate on the other side: obtaining information from the real world that AI cannot obtain, and then compressing that information into problems, constraints, examples, and evaluation criteria that AI can use.
 
 Finding problems is especially important. It is a compression of information that a person has encountered over a long period of time. If the compression is good, AI can compute many things along it; if the compression is poor, even the strongest computation will only amplify the error.
+
+## Acknowledgement
+
+My sincere thanks go to my friend Zhao Kong for the numerous conversations we shared. The intellectual sparks from those exchanges were indispensable to this piece; without them, this article would never have been written.

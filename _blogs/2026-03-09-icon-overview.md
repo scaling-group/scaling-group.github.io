@@ -1,7 +1,7 @@
 ---
 title: "In-Context Operator Networks: Toward Scientific Foundation Models"
 layout: blog_post
-author: "Yang Liu"
+author: "Liu Yang"
 date: 2026-03-09
 lang: en
 translation_key: icon
