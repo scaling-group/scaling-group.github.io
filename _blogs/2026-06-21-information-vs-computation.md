@@ -9,6 +9,8 @@ permalink: /blogs/en/information-vs-computation/
 abstract: "AI can do more and more computation for us, but computation is not the same as information. The value of humans will increasingly concentrate on collecting information that AI cannot easily obtain, and compressing that information into problems that AI can use."
 ---
 
+My sincere thanks go to my friend Zhao Kong for the numerous conversations we shared. The intellectual sparks from those exchanges were indispensable to this piece; without them, this article would never have been written.
+
 ## Introduction
 
 Over the past period of time, I have felt a strong sense of confusion.
@@ -116,7 +118,3 @@ AI progress makes computation increasingly cheap. It can deepen derivations for 
 Human value will increasingly concentrate on the other side: obtaining information from the real world that AI cannot obtain, and then compressing that information into problems, constraints, examples, and evaluation criteria that AI can use.
 
 Finding problems is especially important. It is a compression of information that a person has encountered over a long period of time. If the compression is good, AI can compute many things along it; if the compression is poor, even the strongest computation will only amplify the error.
-
-## Acknowledgement
-
-My sincere thanks go to my friend Zhao Kong for the numerous conversations we shared. The intellectual sparks from those exchanges were indispensable to this piece; without them, this article would never have been written.
