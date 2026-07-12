@@ -27,9 +27,7 @@ This is of course very valuable. But this value should not be misunderstood as "
 
 We can roughly write AI's output as a formula:
 
-```text
 AI output = f(the model/agent's own knowledge, information found through search, human-provided context)
-```
 
 AI's output depends on the information it can access. What exists in the model parameters and agent program, what search can find, and what humans input are the conditions under which it continues to compute.
 
