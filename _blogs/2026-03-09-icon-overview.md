@@ -72,6 +72,10 @@ VICON extends the framework to 2D fields with a patch-wise vision transformer, t
 
 GICON brings the same philosophy to graph-structured systems using graph message passing and example-aware positional encoding. The goal is geometric and example-cardinality generalization on real spatiotemporal problems.
 
+**Harness In-Context Operator Learning with Chain of Operators** ([arXiv 2026](https://arxiv.org/abs/2606.12318))
+
+This work studies how to harness a frozen ICON for out-of-distribution tasks without updating its parameters. With the help of [Evolutionary Ensemble of Agents (EvE)](https://github.com/scaling-group/eve), we search for Chain of Operators (CHOP), which wraps ICON with explicit elementary transformations and provides an interpretable way to move difficult tasks into a regime where the frozen model is more capable.
+
 **VICX: Generalizable Robot Manipulation via Video Generation and In-Context Operator Network** ([arXiv 2026](https://arxiv.org/abs/2606.12028), [Project](https://scaling-group.github.io/vicx/))
 
 VICX extends the ICON thread into embodied AI. A frozen video generation model provides high-level visual plans, while V2T-ICON grounds those generated videos into executable robot-state trajectories using retrieved image-state examples as in-context prompts. This turns visual-to-state grounding into an operator inference problem and connects in-context operator learning with closed-loop robot manipulation.
