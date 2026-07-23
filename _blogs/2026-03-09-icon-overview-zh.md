@@ -80,6 +80,10 @@ GICON 则把同样的思想带到图结构系统中，使用 graph message passi
 
 VICX 把 ICON 这条研究线索进一步延伸到 embodied AI。冻结的视频生成模型负责给出高层视觉规划，而 V2T-ICON 使用检索得到的 image-state examples 作为上下文提示，把生成的视频落地为可执行的机器人状态轨迹。这样，视觉到状态的 grounding 就被转化为一个算子推断问题，也把 in-context operator learning 与闭环机器人操作连接起来。
 
+![VICX 闭环机器人操作框架]({{ site.url }}{{ site.baseurl }}/vicx/assets/paper/closed_loop_evaluation.png){: style="width: 100%; float: center; margin: 0px"}
+
+图 3：VICX 框架。冻结的视频生成模型提出视觉规划，V2T-ICON 利用 image-state references 将其落地为机器人轨迹。
+
 ## 迈向科学基础模型
 
 从更长期的角度看，我们的兴趣并不只是再做一个 operator approximator。我们真正关心的是，ICON 能不能成长为一种 scientific foundation models：成为可复用的基础组件，能够跨任务迁移，能够与模拟器和基于语言的系统交互，也能够进入越来越具有 agentic 特征的科学工作流中。
