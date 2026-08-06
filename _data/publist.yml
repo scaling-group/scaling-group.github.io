@@ -1,11 +1,11 @@
 - title: "A foundation model of numerical intelligence with cross-disciplinary generalization"
-  image:
-  description:
+  image: unicon-fig1.png
+  description: We introduce UNified In-Context Operator Networks (UNICON), a foundation model of numerical intelligence. Trained once on graph-based numerical systems spanning hydrology, traffic, power systems, weather, land, ocean, soil, solar resources and human mobility, the frozen model infers the predictive relation shared across contextual examples and applies it to queries from the same system, approaching specialist performance even in disciplines absent from training. Combined with language-model agents, UNICON surpasses state-of-the-art specialists in a discipline unseen in training.
   authors: "Chenghan Wu, Zongmin Yu, Liu Yang<sup>†</sup>"
   link:
     url: https://arxiv.org/abs/2607.28432
     display: arXiv, Jul 2026
-  highlight: 2
+  highlight: 1
 
 - title: "Agentic Symbolic Search: Characterizing PDEs Beyond Hand-crafted Expressions, Meshes, and Neural Networks"
   image:
