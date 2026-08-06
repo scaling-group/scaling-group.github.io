@@ -1,3 +1,12 @@
+- title: "A foundation model of numerical intelligence with cross-disciplinary generalization"
+  image:
+  description:
+  authors: "Chenghan Wu, Zongmin Yu, Liu Yang<sup>†</sup>"
+  link:
+    url: https://arxiv.org/abs/2607.28432
+    display: arXiv, Jul 2026
+  highlight: 2
+
 - title: "Agentic Symbolic Search: Characterizing PDEs Beyond Hand-crafted Expressions, Meshes, and Neural Networks"
   image:
   description:

@@ -84,6 +84,10 @@ VICX 把 ICON 这条研究线索进一步延伸到 embodied AI。冻结的视频
 
 图 3：VICX 框架。冻结的视频生成模型提出视觉规划，V2T-ICON 利用 image-state references 将其落地为机器人轨迹。
 
+**A foundation model of numerical intelligence with cross-disciplinary generalization** ([arXiv 2026](https://arxiv.org/abs/2607.28432))
+
+UNICON 把 ICON 推进到跨学科规模：一个冻结的模型，训练数据覆盖水文学、交通、电力系统、天气、陆地、海洋、土壤、太阳能和人类移动等数值系统。在推理时，把来自新系统的图结构样例作为上下文，UNICON 就能推断出这些样例共享的预测关系，并把它应用到同一系统的查询上，即使面对训练中完全未出现的学科也能接近专用模型的表现。再结合语言模型智能体，UNICON 甚至能在训练中未见过的学科上超越最先进的专用模型。
+
 ## 迈向科学基础模型
 
 从更长期的角度看，我们的兴趣并不只是再做一个 operator approximator。我们真正关心的是，ICON 能不能成长为一种 scientific foundation models：成为可复用的基础组件，能够跨任务迁移，能够与模拟器和基于语言的系统交互，也能够进入越来越具有 agentic 特征的科学工作流中。
