@@ -1,6 +1,6 @@
 ---
 name: update-paper
-description: Update this website when the user provides a new paper link or an official publication link. Use this skill for arXiv links, journal links, conference links, and paper-status upgrades that should sync News, Publications, and related blog posts in this repository.
+description: Update this website when the user provides a new paper link or an official publication link. Use this skill for arXiv links, journal links, conference links, and paper-status upgrades that should sync News, Publications, related blog posts, and the CV in this repository.
 ---
 
 # Update Paper
@@ -12,6 +12,7 @@ This repository stores paper-related content in:
 - `_data/publist.yml`
 - `_data/news.yml`
 - `_blogs/*.md`
+- `downloads/cv/pub_plain.tex` (the CV publication list)
 
 ## Goal
 
@@ -84,6 +85,21 @@ Typical blog updates are:
 
 Keep blog edits narrow. Do not change the article's argument or voice.
 
+### CV
+
+Edit `downloads/cv/pub_plain.tex`. The main file `downloads/cv/liuyang.tex` includes it via `\input{pub_plain}`, so no other CV file needs editing.
+
+Follow the format of the existing entries exactly (author markers, ``Title'', `\textit{venue}`):
+
+- Newest papers first (descending year).
+- When a paper is officially published, upgrade its existing arXiv entry to the journal form in place; do not leave both.
+
+After editing `pub_plain.tex`, recompile the PDF so it stays in sync:
+
+```bash
+cd downloads/cv && pdflatex -interaction=nonstopmode liuyang.tex && rm -f liuyang.aux liuyang.log
+```
+
 ## Workflow
 
 1. Read the provided paper link and identify:
@@ -101,7 +117,8 @@ Keep blog edits narrow. Do not change the article's argument or voice.
 4. Update `publist.yml` first.
 5. Update `news.yml` next.
 6. Update related blog posts last, if any.
-7. Verify that links, venue names, and dates are consistent across all touched files.
+7. Update `downloads/cv/pub_plain.tex` and recompile the CV PDF.
+8. Verify that links, venue names, and dates are consistent across all touched files.
 
 ## Decision Rules
 
@@ -111,6 +128,7 @@ Keep blog edits narrow. Do not change the article's argument or voice.
 - If the paper already exists with an older or versioned arXiv URL, normalize to the best current arXiv landing page when appropriate.
 - Add a news item announcing arXiv availability unless an equivalent item already exists.
 - If a blog post discusses the paper's topic or explicitly names the paper, add or improve the paper link there.
+- Add the paper to the CV publication list in `downloads/cv/pub_plain.tex` (arXiv form) and recompile the CV.
 
 ### Case B: User provides a journal or conference link
 
@@ -119,6 +137,7 @@ Keep blog edits narrow. Do not change the article's argument or voice.
 - Update `link.display` so it includes the venue and publication date, and keep the arXiv reference when relevant.
 - Update any existing news item that still points only to arXiv when the official link should replace it, or add a new milestone item if publication/acceptance is a distinct event.
 - Update related blog posts so official venue information appears wherever the paper is already discussed.
+- Upgrade the paper's entry in `downloads/cv/pub_plain.tex` from arXiv form to journal form and recompile the CV.
 
 ## Blog Matching Heuristics
 
@@ -134,7 +153,7 @@ If multiple related posts exist, update all clearly relevant ones.
 
 When using this skill, finish by reporting:
 
-- which files were changed
+- which files were changed (including whether the CV was updated and recompiled)
 - whether this was a new paper or a status upgrade
 - whether related blog content was found and updated
 - any metadata that could not be confidently determined
