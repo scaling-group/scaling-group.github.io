@@ -1,0 +1,127 @@
+\documentclass[margin]{resphoto}  
+\usepackage{helvet}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{enumitem,kantlipsum}
+
+% 使用原生命令精准控制版面，彻底解决页脚太窄、报错的问题
+\textheight=680pt        % 稍微缩短正文高度，给底部留出更多空间
+\voffset=-0.2in          % 将整个版面稍微往上提一点点
+\begin{document}
+
+%-------------------------------------------------------------------------------
+%	NAME AND ADDRESS SECTION
+%-------------------------------------------------------------------------------
+\name{\textbf{\LARGE Yang, Liu }}
+
+% Note that addresses can be used for other contact information:
+% -phone numbers
+% -email addresses
+% -linked-in profile
+
+% Simulate as if there are 7 lines of address
+\address{\\\\\\
+            Title: Assistant Professor (Tenure Track)\\
+            \qquad\quad Presidential Young Professor \\
+            \qquad\quad Department of Mathematics \\
+            \qquad\quad National University of Singapore
+            \\\\
+            Email: \url{yangliu@nus.edu.sg}\\\\
+            Website: \url{https://scaling-group.github.io/}, \href{https://scholar.google.com/citations?user=3qRUYIYAAAAJ}{Google Scholar} \\\\
+            }
+% Hence the photo would take 7 lines/rows
+% \address{\multirow{5}{*}{\includegraphics[width=2.8cm]{photo.jpg}}\\}
+
+% Uncomment to add a third address
+%\address{Address 3 line 1\\Address 3 line 2\\Address 3 line 3}
+%-------------------------------------------------------------------------------
+
+\begin{resume}
+
+%-------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%-------------------------------------------------------------------------------
+\section{EDUCATION}
+
+\textbf{Brown University}, Providence, RI, USA\\
+Ph.D. in Applied Mathematics, May 2021\\
+Sc.M. in Applied Mathematics, May 2018\\
+Advisor: George Karniadakis\\
+Dissertation: Generative Adversarial Networks for Physics-Informed Learning
+
+\textbf{Tsinghua University}, Beijing, China\\
+B.E. in Engineering Mechanics, July 2016\\
+\href{https://www.hy.tsinghua.edu.cn/hyen/info/1176/1065.htm}{Tsien Hsue-Shen Elite Class in Mechanics}\\
+Outstanding Graduate Honor (Top 10\%)
+
+
+%-------------------------------------------------------------------------------
+\section{WORK}
+\textbf{National University of Singapore}, Singapore\\
+Assistant Professor, Department of Mathematics, July 2024-present
+\\Presidential Young Professor
+
+\textbf{University of California, Los Angeles}, Los Angeles, CA, USA\\
+Assistant Adjunct Professor, Department of Mathematics, July 2022-June 2024
+\\Working with Prof. Stanley Osher.
+
+\textbf{WeRide Corp}, San Jose, CA, USA\\
+Software Engineer, June 2021-June 2022
+\\Developing autonomous driving systems, with a focus on planning and decision-making in uncertain environments.
+
+%-------------------------------------------------------------------------------
+% \section{RESEARCH INTERESTS}
+% \begin{itemize}[leftmargin=*]
+% \item Build scalable AI for real-world challenges, including forward PDE solving, robotic control, inverse problems, etc.
+% \item Answer some important fundamental questions in AI, including how to generalize from easy to hard tasks, how emergent capabilities arise, etc.
+% \end{itemize}
+
+
+\section{AWARDS}
+\begin{itemize}[leftmargin=*]
+\item Presidential Young Professorship, National University of Singapore (2024)
+\item David Gottlieb Memorial Award, Brown University, USA (2021)
+\item Outstanding Graduate Honor (Top 10\%), Tsinghua University, China (2016)
+\item Scholarship for Academic Excellence, Tsinghua University, China (2013, 2015)
+\item Tsien Hsue-Shen Elite Class in Mechanics, Tsinghua University, China (2012-2016)
+\end{itemize}
+
+
+\section{GRANTS}
+\begin{itemize}[leftmargin=*]
+\item Singapore National Research Foundation Fellowship, August 2025 - August 2030
+\end{itemize}
+
+%-------------------------------------------------------------------------------
+\section{PUBLICATIONS \& PREPRINTS}
+% \section{SELECTED PUBLICATIONS} % Citations over 7000, h-index 13, by April 2025\\
+$*$ indicates equal contribution. $\dagger$ indicates corresponding author(s).
+
+\input{pub_plain}
+
+\section{TEACHING}
+\begin{itemize}[leftmargin=*]
+    \item Principles of Machine Learning, National University of Singapore 
+ (Fall 2025)
+     \item Modeling and Numerical Simulations, National University of Singapore 
+ (Co-Instructor, Spring 2025, 2026)
+    \item Advanced Topics in Machine Learning, National University of Singapore 
+ (Spring 2025, 2026)
+    \item Topics in Applied Mathematics (on the topic of scientific machine learning), National University of Singapore (Fall 2024)
+    \item Instructor, Program in Computing 16A: Python with Application, UCLA (Winter 2023, Spring 2023, Fall 2023)
+    \item Instructor, Program in Computing 10A: Introduction to Programming (C++), UCLA (Fall 2022, Spring 2024)
+    \item Instructor, Program in Computing 10B: Intermediate Programming (C++), UCLA (Winter 2024)
+    \item Teaching assistant, Summer@ICERM 2020 Program: Fast Learning Algorithms for Numerical Computation and Data Analysis, The Institute for Computational and Experimental Research in Mathematics (Summer 2020)
+    \item Teaching assistant, Operations Research: Deterministic Models, Brown University (Spring 2020)
+    \item Teaching assistant, Statistical Inference, Brown University (Fall 2019)
+\end{itemize}
+
+
+% \section{SERVICES}
+% \begin{itemize}[leftmargin=*]
+% \item Peer reviewer for: {\it Nature Machine Intelligence, Journal of Machine Learning Research, SIAM Journal on Scientific Computing, Computer Methods in Applied Mechanics and Engineering, Journal of Computational Physics, etc.}
+% \end{itemize}
+
+\end{resume}
+\end{document}
