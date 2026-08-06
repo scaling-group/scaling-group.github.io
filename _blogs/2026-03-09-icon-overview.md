@@ -84,7 +84,7 @@ VICX extends the ICON thread into embodied AI. A frozen video generation model p
 
 Figure 3: The VICX framework. A frozen video generation model proposes a visual plan, and V2T-ICON grounds it into a robot trajectory using image-state references.
 
-**A foundation model of numerical intelligence with cross-disciplinary generalization** ([arXiv 2026](https://arxiv.org/abs/2607.28432))
+**A Foundation Model of Numerical Intelligence with Cross-Disciplinary Generalization** ([arXiv 2026](https://arxiv.org/abs/2607.28432))
 
 UNICON takes ICON to cross-disciplinary scale: a single frozen model trained on numerical systems spanning hydrology, traffic, power systems, weather, land, ocean, soil, solar resources and human mobility. Presented with graph-based examples from a new system as context, it infers the predictive relation shared across them and applies it to queries from the same system, approaching specialist performance even in disciplines absent from training. Combined with language-model agents, UNICON surpasses state-of-the-art specialists in a discipline unseen in training.
 

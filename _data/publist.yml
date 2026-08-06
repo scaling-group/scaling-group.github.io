@@ -1,4 +1,4 @@
-- title: "A foundation model of numerical intelligence with cross-disciplinary generalization"
+- title: "A Foundation Model of Numerical Intelligence with Cross-Disciplinary Generalization"
   image: unicon-fig1.png
   description: We introduce UNified In-Context Operator Networks (UNICON), a foundation model of numerical intelligence. Trained once on graph-based numerical systems spanning hydrology, traffic, power systems, weather, land, ocean, soil, solar resources and human mobility, the frozen model infers the predictive relation shared across contextual examples and applies it to queries from the same system, approaching specialist performance even in disciplines absent from training. Combined with language-model agents, UNICON surpasses state-of-the-art specialists in a discipline unseen in training.
   authors: "Chenghan Wu, Zongmin Yu, Liu Yang<sup>†</sup>"
@@ -55,7 +55,7 @@
   github: https://github.com/scaling-group/eve
   highlight: 1
 
-- title: "In-context modeling as a retrain-free paradigm for foundation models in computational science"
+- title: "In-Context Modeling as a Retrain-Free Paradigm for Foundation Models in Computational Science"
   image: icm-hyperelastic.png
   description: We introduce In-Context Modeling (ICM), a retrain-free paradigm that infers physical relationships directly from observational fields. Rather than encoding system-specific behavior in fixed parameters, ICM assimilates measurements as physical context and performs inference through a single forward pass. Trained in a physics-informed, label-free manner using governing equations, a single model generalizes across unseen materials, geometries, and loading conditions.
   authors: "Lingfeng Li<sup>*</sup>, Zhuoyuan Li<sup>*</sup>, Shun Li<sup>*</sup>, Kaixin Zhan, Huajian Gao<sup>†</sup>, Changqing Chen<sup>†</sup>, Liu Yang<sup>†</sup>"

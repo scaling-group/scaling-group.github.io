@@ -1,5 +1,5 @@
 - date: Jul 30 2026
-  headline: "Our paper [A foundation model of numerical intelligence with cross-disciplinary generalization](https://arxiv.org/abs/2607.28432) is now available on arXiv. UNICON is a single frozen model that infers system-specific predictive relations from graph-based numerical examples and approaches specialist performance across disciplines absent from training."
+  headline: "Our paper [A Foundation Model of Numerical Intelligence with Cross-Disciplinary Generalization](https://arxiv.org/abs/2607.28432) is now available on arXiv. UNICON is a single frozen model that infers system-specific predictive relations from graph-based numerical examples and approaches specialist performance across disciplines absent from training."
 
 - date: Jun 18 2026
   headline: "Our paper [Agentic Symbolic Search: Characterizing PDEs Beyond Hand-crafted Expressions, Meshes, and Neural Networks](https://arxiv.org/abs/2606.20467) is now available on arXiv."
@@ -17,7 +17,7 @@
   headline: "Our paper [Evolutionary Ensemble of Agents](https://arxiv.org/abs/2605.09018) ([GitHub](https://github.com/scaling-group/eve)) is now available on arXiv. We introduce EvE: a decentralized evolutionary ensemble of coding agents co-evolving with code repositories."
 
 - date: Apr 28 2026
-  headline: "Our paper [In-context modeling as a retrain-free paradigm for foundation models in computational science](https://arxiv.org/abs/2604.23098) is now available on arXiv."
+  headline: "Our paper [In-Context Modeling as a Retrain-Free Paradigm for Foundation Models in Computational Science](https://arxiv.org/abs/2604.23098) is now available on arXiv."
 
 - date: Apr 25 2026
   headline: "Our paper [Escher-Loop: Mutual Evolution by Closed-Loop Self-Referential Optimization](https://arxiv.org/abs/2604.23472) is now available on arXiv."
