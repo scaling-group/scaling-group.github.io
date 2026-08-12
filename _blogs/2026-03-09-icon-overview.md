@@ -96,7 +96,7 @@ UNICON takes ICON to cross-disciplinary scale and makes the case for numerical i
 
 Figure 4: UNICON learns how to learn from graph-based numerical context, then applies that ability to systems and disciplines not represented in training.
 
-## ICON Harnesses: Optimizing in Numerical Prompt Space
+## ICON Harnesses: Orchestrating Model Calls at Inference Time
 
 A foundational insight in in-context operator learning is that the same physical problem can be addressed in different ways by reformulating its numerical prompt. Equivalent formulations need not elicit identical behavior from a frozen model: one formulation may place the problem in a regime that the model handles much more reliably than another. This opens a new route to better inference without retraining.
 
