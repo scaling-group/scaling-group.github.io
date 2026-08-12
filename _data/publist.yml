@@ -1,6 +1,6 @@
 - title: "A Foundation Model of Numerical Intelligence with Cross-Disciplinary Generalization"
   image: unicon-fig1.png
-  description: We introduce UNified In-Context Operator Networks (UNICON), a foundation model of numerical intelligence. Trained once on graph-based numerical systems spanning hydrology, traffic, power systems, weather, land, ocean, soil, solar resources and human mobility, the frozen model infers the predictive relation shared across contextual examples and applies it to queries from the same system, approaching specialist performance even in disciplines absent from training. Combined with language-model agents, UNICON surpasses state-of-the-art specialists in a discipline unseen in training.
+  description: We introduce UNified In-Context Operator Networks (UNICON), a foundation model of numerical intelligence. Trained once on graph-based numerical systems spanning hydrology, traffic, power systems, weather, land, ocean, soil, solar resources and human mobility, the frozen model infers the predictive relation shared across contextual examples and applies it to queries from the same system, approaching specialist performance even in disciplines absent from training. Combining UNICON with language-model agents to perform contextual ensemble learning (CEL) yields further gains, enabling it to surpass state-of-the-art specialists in a discipline unseen during training.
   authors: "Chenghan Wu, Zongmin Yu, Liu Yang<sup>†</sup>"
   link:
     url: https://arxiv.org/abs/2607.28432
@@ -32,7 +32,7 @@
   link:
     url: https://arxiv.org/abs/2606.12028
     display: arXiv, Jun 2026
-  project: https://scaling-group.github.io/vicx/
+  project: /vicx/
   highlight: 1
 
 - title: "Self-Evolving Scientific Agent Discovers Generalizable Physically-Reasoned Fluid Control"
