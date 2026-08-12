@@ -21,7 +21,7 @@ This led to our work on **Physics-Informed Generative Adversarial Networks (PI-G
 
 PI-GANs became especially useful when combined with **Bayesian Physics-Informed Neural Networks (B-PINNs)** ([arXiv 2020](https://arxiv.org/abs/2003.06097), [JCP 2021](https://www.sciencedirect.com/science/article/abs/pii/S0021999120306872)). B-PINNs provided a way to build likelihoods from governing equations and observational data, which then supported broader Bayesian inference pipelines for PDE problems ([arXiv 2021](https://arxiv.org/abs/2106.05863), [JCP 2022](https://www.sciencedirect.com/science/article/abs/pii/S0021999122001358)).
 
-![]({{ site.url }}{{ site.baseurl }}/images/papers/PI-GAN-B-PINN.png){: style="width: 70%; float: center; margin: 0px"}
+![]({{ '/images/papers/PI-GAN-B-PINN.png' | relative_url }}){: style="width: 70%; float: center; margin: 0px"}
 
 Figure 1: Schematic of learning functional priors and posteriors from data and physics, with PI-GAN and B-PINNs.
 
@@ -34,8 +34,8 @@ Another important thread is learning optimal transport and particle dynamics fro
 
 In **potential flow generator** ([arXiv 2019](https://arxiv.org/pdf/1908.11462), [IEEE TNNLS 2020](https://ieeexplore.ieee.org/document/9233438)), we introduced a plug-and-play generator module for GANs and flow-based models. The architecture was based on an ODE view, and the loss included a term tied to the Hamilton-Jacobi equation implied by the optimal transport condition. The resulting generator did not just move samples from one distribution to another; it also approximated the transport map itself. To the best of my knowledge, this is the first paper to draw the connection between deep generative models and the continuous flow formulation of optimal transport.
 
-![]({{ site.url }}{{ site.baseurl }}/images/papers/WGAN_all.png){: style="width: 40%; float: center; margin: 0px"}
-![]({{ site.url }}{{ site.baseurl }}/images/papers/flow_all.png){: style="width: 45%; float: center; margin: 0px"}
+![]({{ '/images/papers/WGAN_all.png' | relative_url }}){: style="width: 40%; float: center; margin: 0px"}
+![]({{ '/images/papers/flow_all.png' | relative_url }}){: style="width: 45%; float: center; margin: 0px"}
 
 Figure 2: Potential flow generator in GANs (left 3 columns) and normalizing flow (right 3 columns). The first row shows the samples or the unnormalized densities of source distributions $$\mu$$ (in purple) and target distributions $$\nu$$ (in orange), the second row shows the learned optimal transport maps $$G$$ and the push forward distributions $$G_{\#}\mu$$.
 

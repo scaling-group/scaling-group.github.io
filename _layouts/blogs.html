@@ -13,10 +13,10 @@ layout: default
     <div class="blog-language-switch">
       {% if page.lang == "zh" %}
       <span class="blog-language-switch__link blog-language-switch__link--active">中文</span>
-      <a class="blog-language-switch__link" href="{{ site.url }}{{ site.baseurl }}/blogs/">EN</a>
+      <a class="blog-language-switch__link" href="{{ '/blogs/' | relative_url }}">EN</a>
       {% else %}
       <span class="blog-language-switch__link blog-language-switch__link--active">EN</span>
-      <a class="blog-language-switch__link" href="{{ site.url }}{{ site.baseurl }}/blogs/zh/">中文</a>
+      <a class="blog-language-switch__link" href="{{ '/blogs/zh/' | relative_url }}">中文</a>
       {% endif %}
     </div>
   </div>
@@ -27,7 +27,7 @@ layout: default
     {% assign pinned_blogs = sorted_blogs | where: "pinned", true | sort: "pin_order" %}
     {% assign regular_blogs = sorted_blogs | where_exp: "blog", "blog.pinned != true" %}
     {% for blog in pinned_blogs %}
-    <a class="blog-card blog-card--pinned" href="{{ site.url }}{{ site.baseurl }}{{ blog.url }}">
+    <a class="blog-card blog-card--pinned" href="{{ blog.url | relative_url }}">
       <div class="blog-card__pin" aria-hidden="true">★</div>
       <h2 class="blog-card__title">{{ blog.title }}</h2>
       <p class="blog-card__meta">
@@ -40,7 +40,7 @@ layout: default
     </a>
     {% endfor %}
     {% for blog in regular_blogs %}
-    <a class="blog-card" href="{{ site.url }}{{ site.baseurl }}{{ blog.url }}">
+    <a class="blog-card" href="{{ blog.url | relative_url }}">
       <h2 class="blog-card__title">{{ blog.title }}</h2>
       <p class="blog-card__meta">
         {% if blog.author %}{{ blog.author }}{% endif %}

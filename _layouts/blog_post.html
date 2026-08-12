@@ -25,10 +25,10 @@ layout: default
         <div class="blog-language-switch">
           {% if page_lang == "zh" %}
           <span class="blog-language-switch__link blog-language-switch__link--active">中文</span>
-          <a class="blog-language-switch__link" href="{{ site.url }}{{ site.baseurl }}{{ sibling_blog.url }}">EN</a>
+          <a class="blog-language-switch__link" href="{{ sibling_blog.url | relative_url }}">EN</a>
           {% else %}
           <span class="blog-language-switch__link blog-language-switch__link--active">EN</span>
-          <a class="blog-language-switch__link" href="{{ site.url }}{{ site.baseurl }}{{ sibling_blog.url }}">中文</a>
+          <a class="blog-language-switch__link" href="{{ sibling_blog.url | relative_url }}">中文</a>
           {% endif %}
         </div>
         {% endif %}

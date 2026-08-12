@@ -6,6 +6,6 @@
 <p>{{ article.date }}<br>{{ article.headline | markdownify}}</p>
 {% endfor %}
 
-<a href="{{ site.url }}{{ site.baseurl }}/news.html">... see all news</a>
+<a href="{{ '/news.html' | relative_url }}">... see all news</a>
 
     </div>

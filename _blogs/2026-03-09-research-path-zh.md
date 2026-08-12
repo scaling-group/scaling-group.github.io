@@ -21,7 +21,7 @@ abstract: "简要回顾通向当前研究工作的路径：从 PDE 的不确定�
 
 PI-GANs 与 **Bayesian Physics-Informed Neural Networks (B-PINNs)**（[arXiv 2020](https://arxiv.org/abs/2003.06097), [JCP 2021](https://www.sciencedirect.com/science/article/abs/pii/S0021999120306872)）结合之后，变得尤其有用。B-PINNs 提供了一种利用控制方程和观测数据构建 likelihood 的方式，并进一步支撑了更广义的 PDE 贝叶斯推断流程（[arXiv 2021](https://arxiv.org/abs/2106.05863), [JCP 2022](https://www.sciencedirect.com/science/article/abs/pii/S0021999122001358)）。
 
-![]({{ site.url }}{{ site.baseurl }}/images/papers/PI-GAN-B-PINN.png){: style="width: 70%; float: center; margin: 0px"}
+![]({{ '/images/papers/PI-GAN-B-PINN.png' | relative_url }}){: style="width: 70%; float: center; margin: 0px"}
 
 图 1：PI-GAN 和 B-PINNs 中，从数据和物理出发学习函数先验与后验的示意图。
 
@@ -33,8 +33,8 @@ PI-GANs 与 **Bayesian Physics-Informed Neural Networks (B-PINNs)**（[arXiv 202
 
 在 **potential flow generator**（[arXiv 2019](https://arxiv.org/pdf/1908.11462), [IEEE TNNLS 2020](https://ieeexplore.ieee.org/document/9233438)）中，我们提出了一个可插拔的生成器模块，可用于 GAN 和 flow-based models。这个架构建立在 ODE 视角之上，并在损失函数中加入了一项与最优传输条件对应的 Hamilton-Jacobi 方程约束。最终得到的生成器，不只是把样本从一个分布搬运到另一个分布，它还近似了传输映射本身。据我所知，这是第一篇把深度生成模型和最优传输的连续流表述联系起来的论文。
 
-![]({{ site.url }}{{ site.baseurl }}/images/papers/WGAN_all.png){: style="width: 40%; float: center; margin: 0px"}
-![]({{ site.url }}{{ site.baseurl }}/images/papers/flow_all.png){: style="width: 45%; float: center; margin: 0px"}
+![]({{ '/images/papers/WGAN_all.png' | relative_url }}){: style="width: 40%; float: center; margin: 0px"}
+![]({{ '/images/papers/flow_all.png' | relative_url }}){: style="width: 45%; float: center; margin: 0px"}
 
 图 2：GAN（左三列）和 normalizing flow（右三列）中的 potential flow generator。第一行展示了源分布 $$\mu$$（紫色）和目标分布 $$\nu$$（橙色）的样本或未归一化密度，第二行展示了学到的最优传输映射 $$G$$，以及推前分布 $$G_{\#}\mu$$。
 

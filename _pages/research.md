@@ -6,9 +6,9 @@ sitemap: false
 permalink: /research/
 ---
 
-<meta http-equiv="refresh" content="0; url={{ site.url }}{{ site.baseurl }}/blogs/">
+<meta http-equiv="refresh" content="0; url={{ '/blogs/' | relative_url }}">
 <script>
-  window.location.replace("{{ site.url }}{{ site.baseurl }}/blogs/");
+  window.location.replace("{{ '/blogs/' | relative_url }}");
 </script>
 
-This page has moved to [Blogs]({{ site.url }}{{ site.baseurl }}/blogs/).
+This page has moved to [Blogs]({{ '/blogs/' | relative_url }}).
