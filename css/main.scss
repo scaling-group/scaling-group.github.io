@@ -270,6 +270,31 @@ firstp {
 }
 
 /* Home, News */
+#homeid .home-epigraph {
+	max-width: 680px;
+	margin: 30px auto 32px;
+	padding: 20px 28px 18px;
+	text-align: center;
+	border-top: 1px solid var(--border);
+	border-bottom: 1px solid var(--border);
+}
+
+#homeid .home-epigraph__quote {
+	margin: 0;
+	font-family: Georgia, "Times New Roman", serif;
+	font-size: 20px;
+	font-style: italic;
+	line-height: 1.55;
+	color: var(--text);
+}
+
+#homeid .home-epigraph__source {
+	margin: 10px 0 0;
+	font-size: 14px;
+	line-height: 1.5;
+	color: var(--text-muted);
+}
+
 #newsid p {
 	text-align: left;
 }
@@ -568,6 +593,15 @@ firstp {
 }
 
 @media (max-width: 767px) {
+	#homeid .home-epigraph {
+		margin: 24px auto 26px;
+		padding: 16px 14px 14px;
+	}
+
+	#homeid .home-epigraph__quote {
+		font-size: 18px;
+	}
+
 	.navbar-default .navbar-nav > li.theme-toggle-item {
 		padding-left: 15px;
 		padding-right: 15px;

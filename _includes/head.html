@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark light">
   {% assign page_title = page.title | default: site.title %}
-  {% assign page_description = page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 %}
+  {% assign page_description = page.abstract | default: page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 %}
   {% assign canonical_url = page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url %}
   <title>{{ page_title | escape }}</title>
   <meta name="description" content="{{ page_description }}">
@@ -20,7 +20,7 @@
   <meta name="twitter:title" content="{{ page_title | escape }}">
   <meta name="twitter:description" content="{{ page_description }}">
   {% assign stylesheet_version = site.github.build_revision | default: site.time | date: "%s" %}
-  <link rel="stylesheet" href="{{ "/css/main.css?v=" | append: stylesheet_version | prepend: site.baseurl | prepend: site.url }}">
+  <link rel="stylesheet" href="{{ '/css/main.css' | relative_url }}?v={{ stylesheet_version }}">
   <link rel="canonical" href="{{ canonical_url }}">
   <script type="application/ld+json">
     {
@@ -63,6 +63,7 @@
         "In-Context Operator Networks",
         "ICON",
         "In-Context Operator Learning",
+        "Numerical Intelligence",
         "Scientific Computing",
         "Scientific Machine Learning",
         "Operator Learning",
