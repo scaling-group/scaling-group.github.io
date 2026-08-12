@@ -6,14 +6,16 @@ date: 2026-03-09
 lang: en
 translation_key: icon
 permalink: /blogs/en/icon/
-abstract: "An overview of In-Context Operator Networks (ICON), how they learn predictive relations from numerical context, and how these ideas form a research program for numerical intelligence."
+abstract: "In-Context Operator Networks acquire and apply knowledge from numerical context. A frozen model infers the predictive relation expressed by contextual examples and applies it to new queries, adapting across scientific and social systems without retraining."
+show_abstract: false
 pinned: true
 pin_order: 1
 ---
 
-> *“There are, indeed, things that cannot be put into words. They make themselves manifest.”*
->
-> — Ludwig Wittgenstein, *Tractatus Logico-Philosophicus*, 6.522
+<aside class="blog-epigraph" aria-label="Epigraph">
+  <p class="blog-epigraph__quote">“There are, indeed, things that cannot be put into words. They make themselves manifest.”</p>
+  <p class="blog-epigraph__source">— Ludwig Wittgenstein, <cite>Tractatus Logico-Philosophicus</cite>, 6.522</p>
+</aside>
 
 Intelligence is commonly understood as the ability to acquire and apply knowledge, adapt to unfamiliar situations, and solve new problems. Large language models exhibit this capacity by inferring task-relevant knowledge from textual context and applying it to new tasks. Yet intelligence need not be confined to language. Scientific and social systems often reveal themselves numerically before we can fully describe them in words: traffic moves across road networks, water flows through river basins, and physical fields evolve over space and time. These observations contain predictive relations that may be learned before they are named, formalized, or built into a specialist model. We call the ability to acquire and apply knowledge from such numerical context [*numerical intelligence*](https://arxiv.org/abs/2607.28432).
 

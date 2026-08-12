@@ -37,7 +37,7 @@ layout: default
         {% if page.author %}{{ page.author }}{% endif %}
         {% if page.date %}{% if page.author %} · {% endif %}{{ page.date | date: "%b %-d, %Y" }}{% endif %}
       </p>
-      {% if page.abstract %}
+      {% if page.abstract and page.show_abstract != false %}
       <p class="blog-post__abstract">{{ page.abstract }}</p>
       {% endif %}
     </header>

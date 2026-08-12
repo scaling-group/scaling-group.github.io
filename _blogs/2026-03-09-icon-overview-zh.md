@@ -1,21 +1,22 @@
 ---
-title: "In-Context Operator Networks：数值智能的研究纲领"
+title: "In-Context Operator Networks：数值智能研究计划"
 layout: blog_post
 author: "杨柳"
 date: 2026-03-09
 lang: zh
 translation_key: icon
 permalink: /blogs/zh/icon-overview/
-abstract: "介绍 In-Context Operator Networks（ICON）如何从数值上下文中学习预测关系，以及这些思想如何共同构成数值智能的研究纲领。"
+abstract: "In-Context Operator Networks 从数值上下文中获取并应用知识。冻结模型从上下文样例中推断其表达的预测关系，并将其用于新的查询，从而无需重新训练便能适应不同的科学与社会系统。"
+show_abstract: false
 pinned: true
 pin_order: 1
 ---
 
-> *“There are, indeed, things that cannot be put into words. They make themselves manifest.”*
->
-> “的确，有些东西无法用语言表达。它们显现自身。”
->
-> —— Ludwig Wittgenstein，*Tractatus Logico-Philosophicus*，6.522
+<aside class="blog-epigraph" aria-label="题记">
+  <p class="blog-epigraph__quote">“There are, indeed, things that cannot be put into words. They make themselves manifest.”</p>
+  <p class="blog-epigraph__translation">“确有不可言说之物；它自会显现。”</p>
+  <p class="blog-epigraph__source">— Ludwig Wittgenstein，<cite>Tractatus Logico-Philosophicus</cite>，6.522</p>
+</aside>
 
 智能通常被理解为获取和应用知识、适应陌生情境以及解决新问题的能力。大语言模型通过从文本上下文中推断与任务相关的知识，并将其应用于新任务，展现了这种能力。然而，智能并不必局限于语言。科学与社会系统往往先通过数值显现出来，然后才被语言完整描述：交通在路网上流动，水流穿过河流流域，物理场随时间和空间演化。这些观测中包含着预测关系；在我们为它们命名、建立形式化描述或训练专用模型之前，这些关系就可能已经可以从数据中学习。我们将从这样的数值上下文中获取并应用知识的能力称为[“数值智能”（*numerical intelligence*）](https://arxiv.org/abs/2607.28432)。
 
@@ -122,8 +123,8 @@ In-context operator learning 的一个基础洞见是：同一个物理问题，
 
 图 5：语言智能与数值智能作为人工通用智能生态中相互补充的组成部分。引自 [*A Foundation Model of Numerical Intelligence with Cross-Disciplinary Generalization*](https://arxiv.org/abs/2607.28432) 的 Figure 1a。
 
-## 数值智能的研究纲领
+## 数值智能研究计划
 
-这些工作共同构成了数值智能的研究纲领：训练让模型学会如何从上下文中学习，上下文则提供当前问题所需的知识。
+这些工作共同构成了一项数值智能研究计划：训练让模型学会如何从上下文中学习，上下文则提供当前问题所需的知识。
 
-推进这一研究纲领，需要共享模型、多样化数据集、跨学科 benchmark、推理方法和具体应用。我们构建了开源基础设施 [**icon-core**](https://github.com/scaling-group/icon-core)，将模型实现、训练流程和示例组织成可供社区复用的技术栈。
+推进这一研究计划，需要共享模型、多样化数据集、跨学科 benchmark、推理方法和具体应用。我们构建了开源基础设施 [**icon-core**](https://github.com/scaling-group/icon-core)，将模型实现、训练流程和示例组织成可供社区复用的技术栈。
