@@ -38,6 +38,11 @@ img { margin-bottom: 24px;
     border-radius:2%;
 }
 
+/* Preserve dark text in diagrams exported with a transparent canvas. */
+.figure-light-canvas {
+	background-color: #ffffff;
+}
+
 
 body {
 	padding-top: 70px;
