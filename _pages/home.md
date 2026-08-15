@@ -21,4 +21,4 @@ Our work centers on [**numerical intelligence**](/blogs/en/icon/): the ability t
 
 We are looking for passionate new students, postdocs, and visiting scholars to join the team!
 
-**Funding.** We gratefully acknowledge support from the [National Research Foundation, Singapore](https://www.nrf.gov.sg/grants/nrff/) under the NRF Fellowship (Project No. **NRF-NRFF17-2025-0006**).
+**Funding.** We gratefully acknowledge support from the [National Research Foundation, Singapore](https://www.nrf.gov.sg/grants/nrff/) under the NRF Fellowship (2025–2030; Project No. NRF-NRFF17-2025-0006).
