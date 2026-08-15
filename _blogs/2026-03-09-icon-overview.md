@@ -19,9 +19,16 @@ pin_order: 1
 
 Intelligence is commonly understood as the ability to acquire and apply knowledge, adapt to unfamiliar situations, and solve new problems. Large language models exhibit this capacity by inferring task-relevant knowledge from textual context and applying it to new tasks. Yet intelligence need not be confined to language. Scientific and social systems often reveal themselves numerically before we can fully describe them in words: traffic moves across road networks, water flows through river basins, and physical fields evolve over space and time. These observations contain predictive relations that may be learned before they are named, formalized, or built into a specialist model. We call the ability to acquire and apply knowledge from such numerical context [*numerical intelligence*](https://arxiv.org/abs/2607.28432).
 
-Many scientific and social problems can be viewed as learning an operator that maps one function or field to another. Our work asks whether a frozen model can infer that operator directly from numerical examples, instead of requiring a separately trained model for every new system.
+## Operator Approximation as a Unifying Perspective
 
-This is the central idea behind **In-Context Operator Networks (ICON)**. Rather than fitting one model to one fixed operator, ICON takes a small set of input-output examples in its context and predicts the output for a new input without updating the weights at test time. In our earlier papers we used the terms *condition* and *quantity of interest (QoI)*. Here we instead use *key function* and *value function*, which are closer to the broader literature.
+Many scientific and social problems can be formulated as operator-learning problems. An operator is a map between spaces of functions or fields:
+
+$$
+\mathcal{F}: \mathcal{X}\to\mathcal{Y},
+\qquad y(\cdot)=\mathcal{F}[x(\cdot)].
+$$
+
+Unlike a pointwise rule that maps one value to another, an operator takes an entire function or field as its input and returns another entire function or field. This provides a common language for many tasks: an operator may evolve a traffic-density field forward in time, map a rainfall field to river discharge, recover an unknown coefficient field from observations, or map a desired target to a control function. The particular operator is determined by the governing dynamics and their parameters, together with the task formulation, domain or geometry, boundary and forcing conditions, and the choice of input and output variables. Operator approximation seeks to compute or learn this entire function-to-function map.
 
 For a concrete example, consider a 1D conservation law
 
@@ -29,15 +36,23 @@ $$
 \partial_t u(t,x) + \partial_x f(u(t,x)) = 0.
 $$
 
-Its forward operator can be written as $$\mathcal{F}_{f,\tau}[u(0,\cdot)] = u(\tau,\cdot)$$, or more compactly $$\mathcal{F}_{f,\tau}(u_0) = u_\tau$$. Classical numerical methods approximate this operator once the governing equation is specified. In fixed-operator learning, one would train a model $$G_\theta$$ for a particular choice of $$f$$ and $$\tau$$ so that $$G_\theta(u_0)\approx \mathcal{F}_{f,\tau}(u_0)$$. If the operator changes, another model or additional fine-tuning is usually required.
+On a fixed periodic spatial domain, choosing the flux function $$f$$ and evolution time $$\tau$$ defines a solution operator
 
-ICON aims at a different regime. A single model $$T_\theta$$ is trained over a distribution of operators and receives a few in-context examples:
+$$
+\mathcal{F}_{f,\tau}[u(0,\cdot)] = u(\tau,\cdot),
+$$
+
+or more compactly $$\mathcal{F}_{f,\tau}(u_0) = u_\tau$$. Its input is the entire initial profile $$u_0(x)$$, and its output is the entire evolved profile $$u(\tau,x)$$. Thus the operator is not merely one of the derivative symbols appearing in the PDE; it is the complete evolution rule induced by the equation. Because the domain and periodic boundary condition are held fixed here, changing $$f$$ or $$\tau$$ produces a different operator in this family.
+
+Classical numerical methods evaluate this operator once the governing equation is specified. In fixed-operator learning, one would train a model $$G_\theta$$ for a particular operator so that $$G_\theta(u_0)\approx \mathcal{F}_{f,\tau}(u_0)$$. If the operator changes, another model or additional fine-tuning is usually required.
+
+Our work asks whether a frozen model can instead infer the currently relevant operator directly from numerical examples. This is the central idea behind **In-Context Operator Networks (ICON)**. Rather than fitting one model to one fixed operator, a single model $$T_\theta$$ is trained over a distribution of operators and receives a few input-output examples in its context:
 
 $$
 \widehat{u}_\tau^{(q)} = T_\theta\!\left(\{(u_0^{(i)},u_\tau^{(i)})\}_{i=1}^{k},\, u_0^{(q)}\right).
 $$
 
-The hope is that the model infers the operator from these examples and applies it immediately to the query. This lets the model adapt by changing the prompt rather than by changing the weights.
+The model infers the operator expressed by these examples and applies it immediately to the query, without updating its weights at test time. This lets the model adapt by changing the prompt rather than by changing the weights. In our earlier papers we used the terms *condition* and *quantity of interest (QoI)*. Here we instead use *key function* and *value function*, which are closer to the broader literature.
 
 Why do we find this direction compelling?
 
