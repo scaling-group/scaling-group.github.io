@@ -27,6 +27,7 @@
 
 - title: "VICX: Generalizable Robot Manipulation via Video Generation and In-Context Operator Network"
   image_path: vicx/assets/paper/closed_loop_evaluation.png
+  image_class: figure-light-canvas
   description: VICX is a decoupled closed-loop manipulation framework for generalizable robot manipulation. A frozen video generation model produces vision-language-conditioned high-level visual plans, while a Video-to-Trajectory In-Context Operator Network grounds these plans into executable robot-state trajectories.
   authors: "Song Chen<sup>*</sup>, Linyan Xiang<sup>*</sup>, Ying Zhou, Liu Yang<sup>†</sup>"
   link:

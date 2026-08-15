@@ -20,3 +20,5 @@ Intelligence is commonly understood as the ability to acquire and apply knowledg
 Our work centers on [**numerical intelligence**](/blogs/en/icon/): the ability to acquire and apply knowledge from numerical context. We develop In-Context Operator Networks (ICON) as a framework that enables frozen models to infer and apply relations from numerical context across scientific and social systems. We also explore the synergy between linguistic and numerical intelligence. To accelerate this research, we develop self-evolving agents (try our [**EvE**](https://github.com/scaling-group/eve)) for automated discovery of algorithms and beyond.
 
 We are looking for passionate new students, postdocs, and visiting scholars to join the team!
+
+**Funding.** We gratefully acknowledge support from the [National Research Foundation, Singapore](https://www.nrf.gov.sg/grants/nrff/) under the NRF Fellowship (Project No. **NRF-NRFF17-2025-0006**).

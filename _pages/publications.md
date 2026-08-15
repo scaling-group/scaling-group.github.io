@@ -26,9 +26,9 @@ permalink: /publications/
 <div class="publication-highlight" markdown="0">
   <div class="publication-highlight__media">
     {% if publi.image_path %}
-    <img src="{{ '/' | append: publi.image_path | relative_url }}" class="img-responsive publication-highlight__image" />
+    <img src="{{ '/' | append: publi.image_path | relative_url }}" class="img-responsive publication-highlight__image{% if publi.image_class %} {{ publi.image_class }}{% endif %}" />
     {% else %}
-    <img src="{{ '/images/papers/' | append: publi.image | relative_url }}" class="img-responsive publication-highlight__image" />
+    <img src="{{ '/images/papers/' | append: publi.image | relative_url }}" class="img-responsive publication-highlight__image{% if publi.image_class %} {{ publi.image_class }}{% endif %}" />
     {% endif %}
     {% if publi.image2 %}
     <img src="{{ '/images/papers/' | append: publi.image2 | relative_url }}" class="img-responsive publication-highlight__image" />
