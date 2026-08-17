@@ -95,13 +95,21 @@ VICON extends the framework to 2D fields with a patch-wise vision transformer, t
 
 GICON brings the same philosophy to graph-structured systems using graph message passing and example-aware positional encoding. It provides a shared representation for numerical observations on irregular domains and studies geometric and example-cardinality generalization on real spatiotemporal problems.
 
+**In-Context Modeling as a Retrain-Free Paradigm for Foundation Models in Computational Science** ([arXiv 2026](https://arxiv.org/abs/2604.23098))
+
+In-Context Modeling (ICM) connects in-context learning with physics-informed training. Instead of requiring labeled input-output pairs, the governing equations provide the training signal, while observational fields are presented to the model as physical context. At inference time, the frozen model assimilates new measurements and answers field queries in a single forward pass. This preserves the label-free supervision of physics-informed learning while removing the usual need to optimize a new model for every problem instance: one model generalizes across unseen materials, geometries, and loading conditions without retraining.
+
+![Overview of In-Context Modeling with physics-informed training]({{ '/images/papers/icm-figure1.png' | relative_url }}){: .figure-light-canvas style="width: 100%; display: block; margin: 0 auto"}
+
+Figure 3: Overview of ICM. Observational fields are converted into physics-informed tokens, governing equations provide the label-free training signal, and a frozen attention-based model infers unknown physical relationships from context without retraining. From Figure 1 of [*In-Context Modeling as a Retrain-Free Paradigm for Foundation Models in Computational Science*](https://arxiv.org/abs/2604.23098).
+
 **VICX: Generalizable Robot Manipulation via Video Generation and In-Context Operator Network** ([arXiv 2026](https://arxiv.org/abs/2606.12028), [Project]({{ '/vicx/' | relative_url }}))
 
 VICX extends the ICON thread into embodied AI. A frozen video generation model provides high-level visual plans, while V2T-ICON grounds those generated videos into executable robot-state trajectories using retrieved image-state examples as in-context prompts. This turns visual-to-state grounding into an operator inference problem and connects in-context operator learning with closed-loop robot manipulation.
 
 ![VICX closed-loop robot manipulation framework]({{ '/vicx/assets/paper/closed_loop_evaluation.png' | relative_url }}){: .figure-light-canvas style="width: 80%; display: block; margin: 0 auto"}
 
-Figure 3: The VICX framework. A frozen video generation model proposes a visual plan, and V2T-ICON grounds it into a robot trajectory using image-state references.
+Figure 4: The VICX framework. A frozen video generation model proposes a visual plan, and V2T-ICON grounds it into a robot trajectory using image-state references.
 
 **A Foundation Model of Numerical Intelligence with Cross-Disciplinary Generalization** ([arXiv 2026](https://arxiv.org/abs/2607.28432))
 
@@ -109,7 +117,7 @@ UNICON takes ICON to cross-disciplinary scale and makes the case for numerical i
 
 ![UNICON training across heterogeneous numerical systems and inference on unseen disciplines]({{ '/images/papers/unicon-fig1.png' | relative_url }}){: style="width: 80%; display: block; margin: 0 auto"}
 
-Figure 4: UNICON learns how to learn from graph-based numerical context, then applies that ability to systems and disciplines not represented in training.
+Figure 5: UNICON learns how to learn from graph-based numerical context, then applies that ability to systems and disciplines not represented in training.
 
 ## ICON Harnesses: Orchestrating Model Calls at Inference Time
 
@@ -135,7 +143,7 @@ More broadly, this division of labor suggests an AI ecosystem made of interopera
 
 ![Linguistic and numerical intelligence in an artificial general intelligence ecosystem]({{ '/images/papers/unicon-fig1a.png' | relative_url }}){: style="width: 100%; display: block; margin: 0 auto"}
 
-Figure 5: Linguistic and numerical intelligence as complementary components of an artificial general intelligence ecosystem. From Figure 1a of [*A Foundation Model of Numerical Intelligence with Cross-Disciplinary Generalization*](https://arxiv.org/abs/2607.28432).
+Figure 6: Linguistic and numerical intelligence as complementary components of an artificial general intelligence ecosystem. From Figure 1a of [*A Foundation Model of Numerical Intelligence with Cross-Disciplinary Generalization*](https://arxiv.org/abs/2607.28432).
 
 ## A Research Program for Numerical Intelligence
 

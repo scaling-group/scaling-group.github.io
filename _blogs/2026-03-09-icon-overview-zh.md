@@ -96,13 +96,21 @@ VICON 把这个框架扩展到二维场，使用 patch-wise vision transformer�
 
 GICON 则把同样的思想带到图结构系统中，使用 graph message passing 和 example-aware positional encoding。图为不规则区域上的数值观测提供了统一表示，它进一步在真实时空问题上研究几何泛化和样例数量泛化。
 
+**In-Context Modeling as a Retrain-Free Paradigm for Foundation Models in Computational Science** ([arXiv 2026](https://arxiv.org/abs/2604.23098))
+
+In-Context Modeling（ICM）把 in-context learning 与 physics-informed training 连接起来。训练不需要成对的输入输出标签，而是由控制方程提供训练信号；观测场则作为 physical context 输入模型。推理时，冻结模型吸收新的测量，并在一次前向传播中回答新的场查询。这样既保留了 physics-informed learning 无需标签监督的优点，也摆脱了通常需要为每个具体问题重新优化模型的开销：同一个模型无需重新训练，就能泛化到未见过的材料、几何和加载条件。
+
+![采用 physics-informed training 的 In-Context Modeling 总览]({{ '/images/papers/icm-figure1.png' | relative_url }}){: .figure-light-canvas style="width: 100%; display: block; margin: 0 auto"}
+
+图 3：ICM 总览。观测场被转换为 physics-informed tokens，控制方程提供无标签的训练信号，冻结的 attention-based model 则从上下文中推断未知的物理关系，无需重新训练。引自 [*In-Context Modeling as a Retrain-Free Paradigm for Foundation Models in Computational Science*](https://arxiv.org/abs/2604.23098) 的 Figure 1。
+
 **VICX: Generalizable Robot Manipulation via Video Generation and In-Context Operator Network** ([arXiv 2026](https://arxiv.org/abs/2606.12028), [Project]({{ '/vicx/' | relative_url }}))
 
 VICX 把 ICON 这条研究线索进一步延伸到 embodied AI。冻结的视频生成模型负责给出高层视觉规划，而 V2T-ICON 使用检索得到的 image-state examples 作为上下文提示，把生成的视频落地为可执行的机器人状态轨迹。这样，视觉到状态的 grounding 就被转化为一个算子推断问题，也把 in-context operator learning 与闭环机器人操作连接起来。
 
 ![VICX 闭环机器人操作框架]({{ '/vicx/assets/paper/closed_loop_evaluation.png' | relative_url }}){: .figure-light-canvas style="width: 80%; display: block; margin: 0 auto"}
 
-图 3：VICX 框架。冻结的视频生成模型提出视觉规划，V2T-ICON 利用 image-state references 将其落地为机器人轨迹。
+图 4：VICX 框架。冻结的视频生成模型提出视觉规划，V2T-ICON 利用 image-state references 将其落地为机器人轨迹。
 
 **A Foundation Model of Numerical Intelligence with Cross-Disciplinary Generalization** ([arXiv 2026](https://arxiv.org/abs/2607.28432))
 
@@ -110,7 +118,7 @@ UNICON 把 ICON 推进到跨学科规模，也让“数值智能”成为一个�
 
 ![UNICON 在异构数值系统上的训练以及在未见学科上的推理]({{ '/images/papers/unicon-fig1.png' | relative_url }}){: style="width: 80%; display: block; margin: 0 auto"}
 
-图 4：UNICON 学习如何从图结构数值上下文中学习，再把这种能力应用到训练中未出现的系统和学科。
+图 5：UNICON 学习如何从图结构数值上下文中学习，再把这种能力应用到训练中未出现的系统和学科。
 
 ## ICON Harness：在推理时编排模型调用
 
@@ -136,7 +144,7 @@ In-context operator learning 的一个基础洞见是：同一个物理问题，
 
 ![人工通用智能生态中的语言智能与数值智能]({{ '/images/papers/unicon-fig1a.png' | relative_url }}){: style="width: 100%; display: block; margin: 0 auto"}
 
-图 5：语言智能与数值智能作为人工通用智能生态中相互补充的组成部分。引自 [*A Foundation Model of Numerical Intelligence with Cross-Disciplinary Generalization*](https://arxiv.org/abs/2607.28432) 的 Figure 1a。
+图 6：语言智能与数值智能作为人工通用智能生态中相互补充的组成部分。引自 [*A Foundation Model of Numerical Intelligence with Cross-Disciplinary Generalization*](https://arxiv.org/abs/2607.28432) 的 Figure 1a。
 
 ## 数值智能研究计划
 
