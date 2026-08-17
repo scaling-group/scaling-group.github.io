@@ -67,7 +67,11 @@ From a broader perspective, we see three broad stages in how machine learning wo
 
 Our work on ICON has developed through a sequence of papers, each advancing the framework by one step.
 
+<sup>*</sup> Equal contribution &nbsp;&nbsp; <sup>†</sup> Corresponding author
+
 **In-Context Operator Learning with Data Prompts for Differential Equation Problems** ([PNAS 2023](https://www.pnas.org/doi/10.1073/pnas.2310142120))
+
+<em>Liu Yang, Siting Liu, Tingwei Meng, Stanley J. Osher<sup>†</sup></em>
 
 This paper introduced in-context operator learning and ICON. A single model, without fine-tuning, handled 19 problem types spanning forward and inverse ODE, PDE, and mean-field control settings, with many operators inside each type.
 
@@ -77,9 +81,13 @@ Figure 1: In-context operator learning for a mean-field control problem. The mod
 
 **PDE Generalization of In-Context Operator Networks** ([JCP 2024](https://www.sciencedirect.com/science/article/pii/S0021999124006272))
 
+<em>Liu Yang, Stanley J. Osher<sup>†</sup></em>
+
 Here we examined whether a single ICON model could generalize across conservation laws with different fluxes and timesteps, including previously unseen PDE forms. We also studied prompt design strategies such as variable transforms and stride manipulation to enlarge the solvable regime.
 
 **Fine-Tune Language Models as Multi-Modal Differential Equation Solvers** ([Neural Networks 2025](https://www.sciencedirect.com/science/article/abs/pii/S089360802500334X))
+
+<em>Liu Yang, Siting Liu, and Stanley J. Osher<sup>†</sup></em>
 
 This work adopted a decoder-only, language-model-style architecture and introduced multi-modal prompting. The model can use human language and LaTeX equations alongside numerical examples, providing an early interface between linguistic and numerical forms of context.
 
@@ -89,13 +97,19 @@ Figure 2: Multi-modal in-context operator learning. Textual descriptions and num
 
 **VICON: Vision In-Context Operator Networks for Multi-Physics Fluid Dynamics Prediction** ([TMLR 2026](https://arxiv.org/pdf/2411.16063))
 
+<em>Yadi Cao<sup>*</sup>, Yuxuan Liu<sup>*</sup>, Liu Yang, Rose Yu, Hayden Schaeffer, Stanley Osher<sup>†</sup></em>
+
 VICON extends the framework to 2D fields with a patch-wise vision transformer, targeting multi-physics fluid dynamics with flexible rollout and partially missing frames.
 
 **GICON: Graph In-Context Operator Networks for Generalizable Spatiotemporal Prediction** ([arXiv 2026](https://arxiv.org/abs/2603.12725v3))
 
+<em>Chenghan Wu, Zongmin Yu, Boai Sun, Liu Yang<sup>†</sup></em>
+
 GICON brings the same philosophy to graph-structured systems using graph message passing and example-aware positional encoding. It provides a shared representation for numerical observations on irregular domains and studies geometric and example-cardinality generalization on real spatiotemporal problems.
 
 **In-Context Modeling as a Retrain-Free Paradigm for Foundation Models in Computational Science** ([arXiv 2026](https://arxiv.org/abs/2604.23098))
+
+<em>Lingfeng Li<sup>*</sup>, Zhuoyuan Li<sup>*</sup>, Shun Li<sup>*</sup>, Kaixin Zhan, Huajian Gao<sup>†</sup>, Changqing Chen<sup>†</sup>, Liu Yang<sup>†</sup></em>
 
 In-Context Modeling (ICM) connects in-context learning with physics-informed training. Instead of requiring labeled input-output pairs, the governing equations provide the training signal, while observational fields are presented to the model as physical context. At inference time, the frozen model assimilates new measurements and answers field queries in a single forward pass. This preserves the label-free supervision of physics-informed learning while removing the usual need to optimize a new model for every problem instance: one model generalizes across unseen materials, geometries, and loading conditions without retraining.
 
@@ -105,6 +119,8 @@ Figure 3: Overview of ICM. Observational fields are converted into physics-infor
 
 **VICX: Generalizable Robot Manipulation via Video Generation and In-Context Operator Network** ([arXiv 2026](https://arxiv.org/abs/2606.12028), [Project]({{ '/vicx/' | relative_url }}))
 
+<em>Song Chen<sup>*</sup>, Linyan Xiang<sup>*</sup>, Ying Zhou, Liu Yang<sup>†</sup></em>
+
 VICX extends the ICON thread into embodied AI. A frozen video generation model provides high-level visual plans, while V2T-ICON grounds those generated videos into executable robot-state trajectories using retrieved image-state examples as in-context prompts. This turns visual-to-state grounding into an operator inference problem and connects in-context operator learning with closed-loop robot manipulation.
 
 ![VICX closed-loop robot manipulation framework]({{ '/vicx/assets/paper/closed_loop_evaluation.png' | relative_url }}){: .figure-light-canvas style="width: 80%; display: block; margin: 0 auto"}
@@ -112,6 +128,8 @@ VICX extends the ICON thread into embodied AI. A frozen video generation model p
 Figure 4: The VICX framework. A frozen video generation model proposes a visual plan, and V2T-ICON grounds it into a robot trajectory using image-state references.
 
 **A Foundation Model of Numerical Intelligence with Cross-Disciplinary Generalization** ([arXiv 2026](https://arxiv.org/abs/2607.28432))
+
+<em>Chenghan Wu, Zongmin Yu, Liu Yang<sup>†</sup></em>
 
 UNICON takes ICON to cross-disciplinary scale and makes the case for numerical intelligence concrete. A single model is trained on numerical systems spanning hydrology, traffic, power systems, weather, land, ocean, soil, solar resources and human mobility, then frozen. Presented with graph-based examples from a new system, it infers the predictive relation expressed by those examples and applies it to new queries. The same model approaches specialist performance even in disciplines absent from training. Combining UNICON with language-model agents to perform contextual ensemble learning (CEL) yields further gains, enabling it to surpass state-of-the-art specialists in a discipline unseen during training. Experiments also show that a more diverse training corpus improves generalization to unseen systems and disciplines.
 
@@ -125,11 +143,29 @@ A foundational insight in in-context operator learning is that the same physical
 
 We call the mechanism that exploits this freedom an inference-time **harness**: an external program around a frozen model that constructs prompts, orchestrates model calls, and processes their outputs without updating the model weights. Across our work, this idea has developed into a continuing research thread:
 
-1. **Change of variables and varying stride.** In [*PDE Generalization of In-Context Operator Networks: A Study on 1D Scalar Nonlinear Conservation Laws*](https://www.sciencedirect.com/science/article/pii/S0021999124006272), change-of-variables and varying-stride strategies reformulate a numerical query before it is given to ICON. They show that prompt-space transformations can extend the range of problems addressed by the same frozen model.
+1. **Change of variables and varying stride**
 
-2. **Chain of Operators (CHOP).** [*Harness In-Context Operator Learning with Chain of Operators*](https://arxiv.org/abs/2606.12318) turns prompt reformulation into a compositional harness. CHOP routes numerical prompts through explicit elementary operator transformations, moving a difficult query through intermediate representations where the frozen ICON is more capable and then mapping the result back.
+    [*PDE Generalization of In-Context Operator Networks: A Study on 1D Scalar Nonlinear Conservation Laws*](https://www.sciencedirect.com/science/article/pii/S0021999124006272) ([JCP 2024](https://www.sciencedirect.com/science/article/pii/S0021999124006272))
 
-3. **Contextual Ensemble Learning (CEL).** In [*A Foundation Model of Numerical Intelligence with Cross-Disciplinary Generalization*](https://arxiv.org/abs/2607.28432), CEL orchestrates diverse context-building pathways and fuses their predictions. By constructing contexts from distinct observation slices, CEL systematically exposes the frozen network to complementary facets of the system, fusing these partial views to approximate the target operator far more reliably.
+    <em>Liu Yang, Stanley J. Osher<sup>†</sup></em>
+
+    Change-of-variables and varying-stride strategies reformulate a numerical query before it is given to ICON. They show that prompt-space transformations can extend the range of problems addressed by the same frozen model.
+
+2. **Chain of Operators (CHOP)**
+
+    [*Harness In-Context Operator Learning with Chain of Operators*](https://arxiv.org/abs/2606.12318) ([arXiv 2026](https://arxiv.org/abs/2606.12318))
+
+    <em>Minghui Yang, Ling Guo, Liu Yang<sup>†</sup></em>
+
+    This work turns prompt reformulation into a compositional harness. CHOP routes numerical prompts through explicit elementary operator transformations, moving a difficult query through intermediate representations where the frozen ICON is more capable and then mapping the result back.
+
+3. **Contextual Ensemble Learning (CEL)**
+
+    [*A Foundation Model of Numerical Intelligence with Cross-Disciplinary Generalization*](https://arxiv.org/abs/2607.28432) ([arXiv 2026](https://arxiv.org/abs/2607.28432))
+
+    <em>Chenghan Wu, Zongmin Yu, Liu Yang<sup>†</sup></em>
+
+    CEL orchestrates diverse context-building pathways and fuses their predictions. By constructing contexts from distinct observation slices, CEL systematically exposes the frozen network to complementary facets of the system, fusing these partial views to approximate the target operator far more reliably.
 
 These methods share one principle: after training has produced a capable in-context learner, further adaptation can happen by programming its numerical prompt space. A harness makes the inference behavior of a frozen ICON programmable without updating its weights, separating the costly acquisition of general in-context learning ability from the task-specific orchestration of how that ability is used.
 

@@ -68,7 +68,11 @@ $$
 
 我们关于 ICON 的工作，是沿着一系列论文逐步展开的。每篇论文都把这个框架推进了一步。
 
+<sup>*</sup> 共同第一作者 &nbsp;&nbsp; <sup>†</sup> 通讯作者
+
 **In-Context Operator Learning with Data Prompts for Differential Equation Problems** ([PNAS 2023](https://www.pnas.org/doi/10.1073/pnas.2310142120))
+
+<em>Liu Yang, Siting Liu, Tingwei Meng, Stanley J. Osher<sup>†</sup></em>
 
 这篇论文提出了 in-context operator learning 和 ICON。一个统一模型在不微调的前提下，处理了 19 类问题，涵盖正向和逆向的 ODE、PDE 以及 mean-field control，而且每一类内部都包含许多具体算子。
 
@@ -78,9 +82,13 @@ $$
 
 **PDE Generalization of In-Context Operator Networks** ([JCP 2024](https://www.sciencedirect.com/science/article/pii/S0021999124006272))
 
+<em>Liu Yang, Stanley J. Osher<sup>†</sup></em>
+
 在这篇工作中，我们考察了一个统一的 ICON 模型能否在不同通量函数、不同时间步长的守恒律之间泛化，甚至泛化到此前未见过的 PDE 形式。我们还研究了 prompt design 策略，例如变量变换和 stride manipulation，以拓展模型可处理的问题范围。
 
 **Fine-Tune Language Models as Multi-Modal Differential Equation Solvers** ([Neural Networks 2025](https://www.sciencedirect.com/science/article/abs/pii/S089360802500334X))
+
+<em>Liu Yang, Siting Liu, and Stanley J. Osher<sup>†</sup></em>
 
 这篇工作采用了 decoder-only、language-model 风格的架构，并引入了 multi-modal prompting。模型不仅可以使用数值样例，还可以同时利用自然语言和 LaTeX 方程，为语言与数值两种上下文之间建立了一个早期接口。
 
@@ -90,13 +98,19 @@ $$
 
 **VICON: Vision In-Context Operator Networks for Multi-Physics Fluid Dynamics Prediction** ([TMLR 2026](https://arxiv.org/pdf/2411.16063))
 
+<em>Yadi Cao<sup>*</sup>, Yuxuan Liu<sup>*</sup>, Liu Yang, Rose Yu, Hayden Schaeffer, Stanley Osher<sup>†</sup></em>
+
 VICON 把这个框架扩展到二维场，使用 patch-wise vision transformer，面向多物理流体动力学问题，并支持灵活的 rollout，以及部分缺帧的情形。
 
 **GICON: Graph In-Context Operator Networks for Generalizable Spatiotemporal Prediction** ([arXiv 2026](https://arxiv.org/abs/2603.12725v3))
 
+<em>Chenghan Wu, Zongmin Yu, Boai Sun, Liu Yang<sup>†</sup></em>
+
 GICON 则把同样的思想带到图结构系统中，使用 graph message passing 和 example-aware positional encoding。图为不规则区域上的数值观测提供了统一表示，它进一步在真实时空问题上研究几何泛化和样例数量泛化。
 
 **In-Context Modeling as a Retrain-Free Paradigm for Foundation Models in Computational Science** ([arXiv 2026](https://arxiv.org/abs/2604.23098))
+
+<em>Lingfeng Li<sup>*</sup>, Zhuoyuan Li<sup>*</sup>, Shun Li<sup>*</sup>, Kaixin Zhan, Huajian Gao<sup>†</sup>, Changqing Chen<sup>†</sup>, Liu Yang<sup>†</sup></em>
 
 In-Context Modeling（ICM）把 in-context learning 与 physics-informed training 连接起来。训练不需要成对的输入输出标签，而是由控制方程提供训练信号；观测场则作为 physical context 输入模型。推理时，冻结模型吸收新的测量，并在一次前向传播中回答新的场查询。这样既保留了 physics-informed learning 无需标签监督的优点，也摆脱了通常需要为每个具体问题重新优化模型的开销：同一个模型无需重新训练，就能泛化到未见过的材料、几何和加载条件。
 
@@ -106,6 +120,8 @@ In-Context Modeling（ICM）把 in-context learning 与 physics-informed trainin
 
 **VICX: Generalizable Robot Manipulation via Video Generation and In-Context Operator Network** ([arXiv 2026](https://arxiv.org/abs/2606.12028), [Project]({{ '/vicx/' | relative_url }}))
 
+<em>Song Chen<sup>*</sup>, Linyan Xiang<sup>*</sup>, Ying Zhou, Liu Yang<sup>†</sup></em>
+
 VICX 把 ICON 这条研究线索进一步延伸到 embodied AI。冻结的视频生成模型负责给出高层视觉规划，而 V2T-ICON 使用检索得到的 image-state examples 作为上下文提示，把生成的视频落地为可执行的机器人状态轨迹。这样，视觉到状态的 grounding 就被转化为一个算子推断问题，也把 in-context operator learning 与闭环机器人操作连接起来。
 
 ![VICX 闭环机器人操作框架]({{ '/vicx/assets/paper/closed_loop_evaluation.png' | relative_url }}){: .figure-light-canvas style="width: 80%; display: block; margin: 0 auto"}
@@ -113,6 +129,8 @@ VICX 把 ICON 这条研究线索进一步延伸到 embodied AI。冻结的视频
 图 4：VICX 框架。冻结的视频生成模型提出视觉规划，V2T-ICON 利用 image-state references 将其落地为机器人轨迹。
 
 **A Foundation Model of Numerical Intelligence with Cross-Disciplinary Generalization** ([arXiv 2026](https://arxiv.org/abs/2607.28432))
+
+<em>Chenghan Wu, Zongmin Yu, Liu Yang<sup>†</sup></em>
 
 UNICON 把 ICON 推进到跨学科规模，也让“数值智能”成为一个可以具体检验的命题。一个统一模型先在水文学、交通、电力系统、天气、陆地、海洋、土壤、太阳能和人类移动等数值系统上训练，然后冻结。在推理时，UNICON 从新系统的图结构样例中推断这些样例所表达的预测关系，再将其应用到新的查询上。同一个模型即使面对训练中完全未出现的学科也能接近专用模型的表现。将 UNICON 与语言模型智能体结合，由智能体执行 contextual ensemble learning（CEL），能够进一步提升表现，使 UNICON 在一个训练中未见的学科上超越最先进的专用模型。实验也表明，更多样化的训练语料能够改善对未见系统和学科的泛化。
 
@@ -126,11 +144,29 @@ In-context operator learning 的一个基础洞见是：同一个物理问题，
 
 我们把利用这种自由度的机制称为推理时 **harness**：它是包裹在冻结模型之外的程序，负责构造提示、编排模型调用和处理输出，但不更新模型权重。在我们的工作中，这个想法逐渐发展为一条持续推进的研究线索：
 
-1. **变量变换与 varying stride。** 在 [*PDE Generalization of In-Context Operator Networks: A Study on 1D Scalar Nonlinear Conservation Laws*](https://www.sciencedirect.com/science/article/pii/S0021999124006272) 中，change-of-variables 和 varying-stride 策略先重构数值查询，再把它交给 ICON。它们表明，提示空间中的变换能够拓展同一个冻结模型可以处理的问题范围。
+1. **变量变换与 varying stride**
 
-2. **Chain of Operators（CHOP）。** [*Harness In-Context Operator Learning with Chain of Operators*](https://arxiv.org/abs/2606.12318) 把提示重构发展为一个组合式 harness。CHOP 让数值提示经过一系列显式的初等算子变换，把困难查询转换到冻结 ICON 更有能力处理的中间表示，再将结果映射回来。
+    [*PDE Generalization of In-Context Operator Networks: A Study on 1D Scalar Nonlinear Conservation Laws*](https://www.sciencedirect.com/science/article/pii/S0021999124006272) ([JCP 2024](https://www.sciencedirect.com/science/article/pii/S0021999124006272))
 
-3. **Contextual Ensemble Learning（CEL）。** 在 [*A Foundation Model of Numerical Intelligence with Cross-Disciplinary Generalization*](https://arxiv.org/abs/2607.28432) 中，CEL 编排多样化的上下文构造路径，并融合各条路径的预测。通过从不同的观测切片构造上下文，CEL 系统地向冻结网络呈现系统的互补侧面，再融合这些局部视角，从而更加可靠地逼近目标算子。
+    <em>Liu Yang, Stanley J. Osher<sup>†</sup></em>
+
+    Change-of-variables 和 varying-stride 策略先重构数值查询，再把它交给 ICON。它们表明，提示空间中的变换能够拓展同一个冻结模型可以处理的问题范围。
+
+2. **Chain of Operators（CHOP）**
+
+    [*Harness In-Context Operator Learning with Chain of Operators*](https://arxiv.org/abs/2606.12318) ([arXiv 2026](https://arxiv.org/abs/2606.12318))
+
+    <em>Minghui Yang, Ling Guo, Liu Yang<sup>†</sup></em>
+
+    这篇工作把提示重构发展为一个组合式 harness。CHOP 让数值提示经过一系列显式的初等算子变换，把困难查询转换到冻结 ICON 更有能力处理的中间表示，再将结果映射回来。
+
+3. **Contextual Ensemble Learning（CEL）**
+
+    [*A Foundation Model of Numerical Intelligence with Cross-Disciplinary Generalization*](https://arxiv.org/abs/2607.28432) ([arXiv 2026](https://arxiv.org/abs/2607.28432))
+
+    <em>Chenghan Wu, Zongmin Yu, Liu Yang<sup>†</sup></em>
+
+    CEL 编排多样化的上下文构造路径，并融合各条路径的预测。通过从不同的观测切片构造上下文，CEL 系统地向冻结网络呈现系统的互补侧面，再融合这些局部视角，从而更加可靠地逼近目标算子。
 
 这些方法共享同一个原则：训练得到一个有能力的 in-context learner 之后，进一步的适应可以通过对它的数值提示空间进行编程来实现。借助 harness，冻结 ICON 的推理行为可以在不更新权重的情况下通过程序编排，从而将获得通用上下文学习能力的高成本训练与面向具体任务的推理编排分离开来。
 
