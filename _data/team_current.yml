@@ -16,15 +16,9 @@
   number_educ: 1
   education1: Ph.D. Zhejiang University
 
-- name: Linyan Xiang
-  photo: people.png
-  info: Research Fellow (Postdoc), from July 2025
-  number_educ: 1
-  education1: Ph.D. University of Michigan-Dearborn
-
 - name: Zongmin Yu
   photo: people.png
-  info: Research Assistant, from February 2026
+  info: NUS Ph.D. Student, from August 2026
   number_educ: 1
   education1: B.S. National University of Singapore
 
@@ -50,17 +44,12 @@
   number_educ: 1
   education1: B.Sc. Fudan University
 
-- name: Haoming Kong
-  photo: people.png
-  info: Master Student, from August 2024
-  number_educ: 1
-  education1: B.Sc. Nanjing University
-
 - name: Chenghan Wu
   photo: chenghan_wu.jpg
-  info: Master Student, from August 2024
-  number_educ: 1
-  education1: B.E. & B.Sc. Shanghai Jiao Tong University
+  info: Research Assistant, from August 2026
+  number_educ: 2
+  education1: M.Sc. National University of Singapore
+  education2: B.E. & B.Sc. Shanghai Jiao Tong University
 
 
 - name: "Join Us!"
