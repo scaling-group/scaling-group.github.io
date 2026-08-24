@@ -17,7 +17,15 @@ pin_order: 1
   <p class="blog-epigraph__source">— Ludwig Wittgenstein, <cite>Tractatus Logico-Philosophicus</cite>, 6.522</p>
 </aside>
 
-Intelligence is commonly understood as the ability to acquire and apply knowledge, adapt to unfamiliar situations, and solve new problems. Large language models exhibit this capacity by inferring task-relevant knowledge from textual context and applying it to new tasks. Yet intelligence need not be confined to language. Scientific and social systems often reveal themselves numerically before we can fully describe them in words: traffic moves across road networks, water flows through river basins, and physical fields evolve over space and time. These observations contain predictive relations that may be learned before they are named, formalized, or built into a specialist model. We call the ability to acquire and apply knowledge from such numerical context [*numerical intelligence*](https://arxiv.org/abs/2607.28432).
+## Numerical Intelligence Beyond Language
+
+Intelligence is commonly understood as the ability to acquire and apply knowledge, adapt to unfamiliar situations, and solve new problems. Large language models exhibit this capacity by inferring task-relevant knowledge from textual context and applying it to new tasks. Yet intelligence need not be confined to language. Scientific and social systems often reveal themselves numerically before we can fully describe them in words: traffic moves across road networks, water flows through river basins, and physical fields evolve over space and time. These observations contain predictive relations that may be learned before they are named, formalized, or built into a specialist model.
+
+We call the ability to acquire and apply knowledge from such numerical context [*numerical intelligence*](https://arxiv.org/abs/2607.28432), and view it as a foundational pillar of artificial intelligence alongside linguistic intelligence. It treats measurements themselves as context: a model perceives raw numerical observations, infers the mechanisms or predictive relations that organize them, and reasons about unfamiliar systems without first translating those observations into words.
+
+Unlike conventional deep learning, numerical intelligence does not encode the rules of one specific system in model weights and rely on retraining for each new application. Instead, the weights encode a general capacity to reason from numerical context, while the numerical prompt supplies the knowledge needed for the system at hand. This allows a frozen model to adapt at inference time.
+
+This capability matters because the systems that shape science, society, and business—from climate and energy to cities, markets, and supply chains—are continuously revealed through measurements. Turning changing data into an understanding of system behavior, reliable predictions, and timely actions gives AI a direct interface to the measurable world.
 
 ## Operator Approximation as a Unifying Perspective
 
@@ -137,17 +145,17 @@ Figure 5: The VICX framework. A frozen video generation model proposes a visual 
 
 <em>Chenghan Wu, Zongmin Yu, Liu Yang<sup>†</sup></em>
 
-UNICON takes ICON to cross-disciplinary scale and makes the case for numerical intelligence concrete. A single model is trained on numerical systems spanning hydrology, traffic, power systems, weather, land, ocean, soil, solar resources and human mobility, then frozen. Presented with graph-based examples from a new system, it infers the predictive relation expressed by those examples and applies it to new queries. The same model approaches specialist performance even in disciplines absent from training. Combining UNICON with language-model agents to perform contextual ensemble learning (CEL) yields further gains, enabling it to surpass state-of-the-art specialists in a discipline unseen during training. Experiments also show that a more diverse training corpus improves generalization to unseen systems and disciplines.
+UNICON takes ICON to cross-disciplinary scale and makes the case for numerical intelligence concrete. A single model is trained on numerical systems spanning hydrology, traffic, power systems, weather, land, ocean, soil, solar resources and human mobility, then frozen. Presented with graph-based examples from a new system, it infers the predictive relation expressed by those examples and applies it to new queries. The same model approaches specialist performance even in disciplines absent from training, including web activity and air quality. Combining UNICON with language-model agents to perform contextual ensemble learning (CEL) yields further gains, enabling it to surpass state-of-the-art specialists in a discipline unseen during training. Experiments also show that a more diverse training corpus improves generalization to unseen systems and disciplines.
 
 ![UNICON training across heterogeneous numerical systems and inference on unseen disciplines]({{ '/images/papers/unicon-fig1.png' | relative_url }}){: style="width: 80%; display: block; margin: 0 auto"}
 
 Figure 6: UNICON learns how to learn from graph-based numerical context, then applies that ability to systems and disciplines not represented in training.
 
-## ICON Harnesses: Orchestrating Model Calls at Inference Time
+## Programmable ICON Harnesses
 
-A foundational insight in in-context operator learning is that the same physical problem can be addressed in different ways by reformulating its numerical prompt. Equivalent formulations need not elicit identical behavior from a frozen model: one formulation may place the problem in a regime that the model handles much more reliably than another. This opens a new route to better inference without retraining.
+A foundational insight in in-context operator learning is that the same numerical problem can be addressed in different ways by reformulating its prompt. Equivalent formulations need not elicit identical behavior from a frozen model: one formulation may place the problem in a regime that the model handles much more reliably than another. This opens a new route to better inference without retraining.
 
-We call the mechanism that exploits this freedom an inference-time **harness**: an external program around a frozen model that constructs prompts, orchestrates model calls, and processes their outputs without updating the model weights. Across our work, this idea has developed into a continuing research thread:
+We call the mechanism that exploits this freedom an inference-time **harness**: a programmable layer around a frozen model that constructs and transforms numerical prompts, selects examples, orchestrates model calls, and processes or combines their outputs without updating the model weights. Like a harness for a language model, it can turn a general base model into a task-adapted system through code. It can also quantify uncertainty and impose explicit mathematical rules on the inference process. Across our work, this idea has developed into a continuing research thread:
 
 **Change of variables and varying stride**
 
@@ -173,7 +181,7 @@ This work turns prompt reformulation into a compositional harness. CHOP routes n
 
 CEL orchestrates diverse context-building pathways and fuses their predictions. By constructing contexts from distinct observation slices, CEL systematically exposes the frozen network to complementary facets of the system, fusing these partial views to approximate the target operator far more reliably.
 
-These methods share one principle: after training has produced a capable in-context learner, further adaptation can happen by programming its numerical prompt space. A harness makes the inference behavior of a frozen ICON programmable without updating its weights, separating the costly acquisition of general in-context learning ability from the task-specific orchestration of how that ability is used.
+These methods share one principle: after training has produced a capable in-context learner, further adaptation can happen by programming its numerical prompt space and the sequence of model calls. A harness makes the inference behavior of a frozen ICON programmable without updating its weights, separating the costly acquisition of general in-context learning ability from the task-specific orchestration of how that ability is used.
 
 ## Linguistic Intelligence and Numerical Intelligence
 
