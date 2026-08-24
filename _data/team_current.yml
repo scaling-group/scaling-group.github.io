@@ -16,6 +16,14 @@
   number_educ: 1
   education1: Ph.D. Zhejiang University
 
+- name: Shuo Wang
+  photo: people.png
+  info: Research Fellow (Postdoc), from August 2026
+  github: https://github.com/shuowang-ai
+  website: https://scholar.google.com/citations?user=xmWZWwoAAAAJ&hl=en
+  number_educ: 1
+  education1: Ph.D. Beijing Normal University
+
 - name: Zongmin Yu
   photo: people.png
   info: NUS Ph.D. Student, from August 2026
