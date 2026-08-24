@@ -27,16 +27,16 @@ Unlike conventional deep learning, numerical intelligence does not encode the ru
 
 This capability matters because the systems that shape science, society, and business—from climate and energy to cities, markets, and supply chains—are continuously revealed through measurements. Turning changing data into an understanding of system behavior, reliable predictions, and timely actions gives AI a direct interface to the measurable world.
 
-## Operator Approximation as a Unifying Perspective
+## Operators as a Common Language
 
-Many scientific and social problems can be formulated as operator-learning problems. An operator is a map between spaces of functions or fields:
+For numerical intelligence to work across heterogeneous systems, problems that appear unrelated must first be expressed in a common mathematical language. Operators provide such a language. An operator maps one space of functions or fields to another:
 
 $$
 \mathcal{F}: \mathcal{X}\to\mathcal{Y},
 \qquad y(\cdot)=\mathcal{F}[x(\cdot)].
 $$
 
-Unlike a pointwise rule that maps one value to another, an operator takes an entire function or field as its input and returns another entire function or field. This provides a common language for many tasks: an operator may evolve a traffic-density field forward in time, map a rainfall field to river discharge, recover an unknown coefficient field from observations, or map a desired target to a control function. The particular operator is determined by the governing dynamics and their parameters, together with the task formulation, domain or geometry, boundary and forcing conditions, and the choice of input and output variables. Operator approximation seeks to compute or learn this entire function-to-function map.
+Unlike a pointwise rule that maps one value to another, an operator takes an entire function or field as input and returns another function or field. This single abstraction covers many tasks: forecasting can evolve a traffic-density field forward in time, physical modeling can map a rainfall field to river discharge, inverse problems can recover an unknown coefficient field from observations, and control can map a desired target to an action. For a particular problem, the operator is determined by the governing dynamics and their parameters, the task formulation, the domain or geometry, the boundary and forcing conditions, and the choice of input and output variables. Operator approximation is the task of computing or learning this function-to-function map.
 
 For a concrete example, consider a 1D conservation law
 
@@ -52,28 +52,17 @@ $$
 
 or more compactly $$\mathcal{F}_{f,\tau}(u_0) = u_\tau$$. Its input is the entire initial profile $$u_0(x)$$, and its output is the entire evolved profile $$u(\tau,x)$$. Thus the operator is not merely one of the derivative symbols appearing in the PDE; it is the complete evolution rule induced by the equation. Because the domain and periodic boundary condition are held fixed here, changing $$f$$ or $$\tau$$ produces a different operator in this family.
 
-Classical numerical methods evaluate this operator once the governing equation is specified. In fixed-operator learning, one would train a model $$G_\theta$$ for a particular operator so that $$G_\theta(u_0)\approx \mathcal{F}_{f,\tau}(u_0)$$. If the operator changes, another model or additional fine-tuning is usually required.
+Classical numerical methods evaluate a specified operator once the governing equation is known. Fixed-operator learning instead approximates that operator with a model $$G_\theta$$, so that $$G_\theta(u_0)\approx \mathcal{F}_{f,\tau}(u_0)$$. In both cases, the operator is fixed in advance; if it changes, the solver must be reformulated or the model retrained or fine-tuned.
 
-Our work asks whether a frozen model can instead infer the currently relevant operator directly from numerical examples. This is the central idea behind **In-Context Operator Networks (ICON)**. Rather than fitting one model to one fixed operator, a single model $$T_\theta$$ is trained over a distribution of operators and receives a few input-output examples in its context:
+**In-Context Operator Networks (ICON)** move the specification of the operator into the context. Rather than fitting one model to one fixed operator, a single model $$T_\theta$$ is trained over a distribution of operators and receives a few input-output examples as a numerical prompt:
 
 $$
 \widehat{u}_\tau^{(q)} = T_\theta\!\left(\{(u_0^{(i)},u_\tau^{(i)})\}_{i=1}^{k},\, u_0^{(q)}\right).
 $$
 
-The model infers the operator expressed by these examples and applies it immediately to the query, without updating its weights at test time. This lets the model adapt by changing the prompt rather than by changing the weights. In our earlier papers we used the terms *condition* and *quantity of interest (QoI)*. Here we instead use *key function* and *value function*, which are closer to the broader literature.
+The examples identify the operator relevant to the query, while the model weights provide the general ability to infer and apply it. No weight update is needed at test time. This is the mathematical realization of the numerical intelligence described above: knowledge about the current system enters through measurements rather than retraining.
 
-![Classic operator learning compared with in-context operator learning]({{ '/images/papers/icon-vs-operator-learning.png' | relative_url }}){: .figure-light-canvas style="width: 100%; display: block; margin: 0 auto"}
-
-Figure 1: Classic operator learning encodes one fixed solution operator in model weights through training, whereas in-context operator learning infers the relevant operator from examples and applies it to a new question without updating the weights.
-
-Why do we find this direction compelling?
-
-- Knowledge about a system or task can be supplied at inference time through numerical examples rather than stored entirely in model weights.
-- A single frozen model can adapt to many operators and systems simply by changing its context.
-- A diverse corpus of numerical systems can improve generalization beyond the systems and even the disciplines seen during training.
-- Numerical models can work together with language-model agents: linguistic intelligence interprets goals and organizes inference, while numerical intelligence supplies quantitative predictions.
-
-From a broader perspective, we see three broad stages in how machine learning works with numerical systems. The first stage focused on approximating solution functions, for example Physics-Informed Neural Networks. The second shifted toward approximating solution operators, for example DeepONet and Fourier Neural Operator. ICON points to a third stage: the predictive relation needed for a task is inferred from numerical context and applied by a fixed model. The aim is no longer only to approximate one operator well, but to build models that can acquire and use new numerical knowledge in context.
+This formulation also clarifies three stages in how machine learning works with numerical systems. The first approximates individual solution functions, as in Physics-Informed Neural Networks. The second approximates fixed solution operators, as in DeepONet and Fourier Neural Operator. ICON points to a third stage: the predictive relation itself is inferred from numerical context and then applied by a frozen model. The goal is no longer only to approximate one operator well, but to build models that can acquire and use new numerical knowledge in context.
 
 ## A Research Thread
 
@@ -91,13 +80,13 @@ This paper introduced in-context operator learning and ICON. Without fine-tuning
 
 ![A two-dimensional mean-field control problem solved by ICON]({{ '/images/papers/icon-mfg-side-by-side.png' | relative_url }}){: style="width: 100%; display: block; margin: 0 auto"}
 
-Figure 2: ICON across 1D and 2D problems. The first panel shows selected 1D forward and inverse ODE and PDE problems: the top row contains key functions and the bottom row contains value functions; grey dots are numerical prompts, blue dots are the question, red dots are the prediction, and solid black lines show the ground truth and closely overlap the prediction. The second panel shows a 2D-to-2D mean-field control problem: three prompted examples appear on the left, followed by the query key function, ground-truth value function, predicted value function, and prediction error on the right. The model infers the operator from these examples and solves the 2D spatiotemporal query in one forward pass.
+Figure 1: ICON across 1D and 2D problems. The first panel shows selected 1D forward and inverse ODE and PDE problems: the top row contains key functions and the bottom row contains value functions (called conditions and QoIs in the original paper); grey dots are numerical prompts, blue dots are the question, red dots are the prediction, and solid black lines show the ground truth and closely overlap the prediction. The second panel shows a 2D-to-2D mean-field control problem: three prompted examples appear on the left, followed by the query key function, ground-truth value function, predicted value function, and prediction error on the right. The model infers the operator from these examples and solves the 2D spatiotemporal query in one forward pass.
 
 **PDE Generalization of In-Context Operator Networks** ([JCP 2024](https://www.sciencedirect.com/science/article/pii/S0021999124006272))
 
 <em>Liu Yang, Stanley J. Osher<sup>†</sup></em>
 
-Here we demonstrated that a single ICON model can generalize across conservation laws with different fluxes and timesteps, including previously unseen PDE forms. We also studied prompt design strategies such as variable transforms and stride manipulation to enlarge the solvable regime.
+Here we demonstrated that a single ICON model can generalize across conservation laws with different fluxes and timesteps, including previously unseen PDE forms. We also studied prompt-design strategies based on changes of variables and varying the forecast horizon to enlarge the solvable regime.
 
 **Fine-Tune Language Models as Multi-Modal Differential Equation Solvers** ([Neural Networks 2025](https://www.sciencedirect.com/science/article/abs/pii/S089360802500334X))
 
@@ -107,7 +96,7 @@ This work adopted a decoder-only, language-model-style architecture and introduc
 
 ![]({{ '/images/papers/icon-multi-modal_numerical.png' | relative_url }}){: style="width: 80%; float: center; margin: 0px"}
 
-Figure 3: Multi-modal in-context operator learning. Textual descriptions and numerical examples can both act as prompt information for the operator.
+Figure 2: Multi-modal in-context operator learning. Textual descriptions and numerical examples can both act as prompt information for the operator.
 
 **VICON: Vision In-Context Operator Networks for Multi-Physics Fluid Dynamics Prediction** ([TMLR 2026](https://arxiv.org/pdf/2411.16063))
 
@@ -129,7 +118,7 @@ In-Context Modeling (ICM) connects in-context learning with physics-informed tra
 
 ![Overview of In-Context Modeling with physics-informed training]({{ '/images/papers/icm-figure1.png' | relative_url }}){: .figure-light-canvas style="width: 100%; display: block; margin: 0 auto"}
 
-Figure 4: Overview of ICM. Observational fields are converted into physics-informed tokens, governing equations provide the label-free training signal, and a frozen attention-based model infers unknown physical relationships from context without retraining.
+Figure 3: Overview of ICM. Observational fields are converted into physics-informed tokens, governing equations provide the label-free training signal, and a frozen attention-based model infers unknown physical relationships from context without retraining.
 
 **VICX: Generalizable Robot Manipulation via Video Generation and In-Context Operator Network** ([arXiv 2026](https://arxiv.org/abs/2606.12028), [Project]({{ '/vicx/' | relative_url }}))
 
@@ -139,7 +128,7 @@ VICX extends the ICON thread into embodied AI. A frozen video generation model p
 
 ![VICX closed-loop robot manipulation framework]({{ '/vicx/assets/paper/closed_loop_evaluation.png' | relative_url }}){: .figure-light-canvas style="width: 80%; display: block; margin: 0 auto"}
 
-Figure 5: The VICX framework. A frozen video generation model proposes a visual plan, and V2T-ICON grounds it into a robot trajectory using image-state references.
+Figure 4: The VICX framework. A frozen video generation model proposes a visual plan, and V2T-ICON grounds it into a robot trajectory using image-state references.
 
 **A Foundation Model of Numerical Intelligence with Cross-Disciplinary Generalization** ([arXiv 2026](https://arxiv.org/abs/2607.28432))
 
@@ -149,7 +138,7 @@ UNICON takes ICON to cross-disciplinary scale and makes the case for numerical i
 
 ![UNICON training across heterogeneous numerical systems and inference on unseen disciplines]({{ '/images/papers/unicon-fig1.png' | relative_url }}){: style="width: 80%; display: block; margin: 0 auto"}
 
-Figure 6: UNICON learns how to learn from graph-based numerical context, then applies that ability to systems and disciplines not represented in training.
+Figure 5: UNICON learns how to learn from graph-based numerical context, then applies that ability to systems and disciplines not represented in training.
 
 ## Programmable ICON Harnesses
 
@@ -157,29 +146,23 @@ A foundational insight in in-context operator learning is that the same numerica
 
 We call the mechanism that exploits this freedom an inference-time **harness**: a programmable layer around a frozen model that constructs and transforms numerical prompts, selects examples, orchestrates model calls, and processes or combines their outputs without updating the model weights. Like a harness for a language model, it can turn a general base model into a task-adapted system through code. It can also quantify uncertainty and impose explicit mathematical rules on the inference process. Across our work, this idea has developed into a continuing research thread:
 
-**Change of variables and varying stride**
-
-[*PDE Generalization of In-Context Operator Networks: A Study on 1D Scalar Nonlinear Conservation Laws*](https://www.sciencedirect.com/science/article/pii/S0021999124006272) ([JCP 2024](https://www.sciencedirect.com/science/article/pii/S0021999124006272))
+**PDE Generalization of In-Context Operator Networks: A Study on 1D Scalar Nonlinear Conservation Laws** ([JCP 2024](https://www.sciencedirect.com/science/article/pii/S0021999124006272))
 
 <em>Liu Yang, Stanley J. Osher<sup>†</sup></em>
 
-Change-of-variables and varying-stride strategies reformulate a numerical query before it is given to ICON. They show that prompt-space transformations can extend the range of problems addressed by the same frozen model.
+*Change of variables and varying forecast horizon.* These strategies reformulate a numerical query before it is given to ICON. They show that prompt-space transformations can extend the range of problems addressed by the same frozen model.
 
-**Chain of Operators (CHOP)**
-
-[*Harness In-Context Operator Learning with Chain of Operators*](https://arxiv.org/abs/2606.12318) ([arXiv 2026](https://arxiv.org/abs/2606.12318))
+**Harness In-Context Operator Learning with Chain of Operators** ([arXiv 2026](https://arxiv.org/abs/2606.12318))
 
 <em>Minghui Yang, Ling Guo, Liu Yang<sup>†</sup></em>
 
-This work turns prompt reformulation into a compositional harness. CHOP routes numerical prompts through explicit elementary operator transformations, moving a difficult query through intermediate representations where the frozen ICON is more capable and then mapping the result back.
+*Chain of Operators (CHOP).* This work turns prompt reformulation into a compositional harness. CHOP routes numerical prompts through explicit elementary operator transformations, moving a difficult query through intermediate representations where the frozen ICON is more capable and then mapping the result back.
 
-**Contextual Ensemble Learning (CEL)**
-
-[*A Foundation Model of Numerical Intelligence with Cross-Disciplinary Generalization*](https://arxiv.org/abs/2607.28432) ([arXiv 2026](https://arxiv.org/abs/2607.28432))
+**A Foundation Model of Numerical Intelligence with Cross-Disciplinary Generalization** ([arXiv 2026](https://arxiv.org/abs/2607.28432))
 
 <em>Chenghan Wu, Zongmin Yu, Liu Yang<sup>†</sup></em>
 
-CEL orchestrates diverse context-building pathways and fuses their predictions. By constructing contexts from distinct observation slices, CEL systematically exposes the frozen network to complementary facets of the system, fusing these partial views to approximate the target operator far more reliably.
+*Contextual Ensemble Learning (CEL).* CEL orchestrates diverse context-building pathways and fuses their predictions. By constructing contexts from distinct observation slices, CEL systematically exposes the frozen network to complementary facets of the system, fusing these partial views to approximate the target operator far more reliably.
 
 These methods share one principle: after training has produced a capable in-context learner, further adaptation can happen by programming its numerical prompt space and the sequence of model calls. A harness makes the inference behavior of a frozen ICON programmable without updating its weights, separating the costly acquisition of general in-context learning ability from the task-specific orchestration of how that ability is used.
 
@@ -193,7 +176,7 @@ More broadly, this division of labor suggests an AI ecosystem made of interopera
 
 ![Linguistic and numerical intelligence in an artificial general intelligence ecosystem]({{ '/images/papers/unicon-fig1a.png' | relative_url }}){: style="width: 100%; display: block; margin: 0 auto"}
 
-Figure 7: Linguistic and numerical intelligence as complementary components of an artificial general intelligence ecosystem.
+Figure 6: Linguistic and numerical intelligence as complementary components of an artificial general intelligence ecosystem.
 
 ## A Research Program for Numerical Intelligence
 

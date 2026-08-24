@@ -28,16 +28,16 @@ pin_order: 1
 
 这项能力之所以重要，是因为塑造科学、社会与商业的系统——从气候、能源到城市、市场与供应链——都在持续通过测量显现出来。把不断变化的数据及时转化为对系统行为的理解、可靠的预测和行动，让人工智能能够直接连接可测量的现实世界。
 
-## 算子逼近：一种统一视角
+## 算子：一种共同语言
 
-许多科学和社会问题都可以表述为算子学习问题。算子是函数空间或场空间之间的映射：
+要让数值智能跨越不同系统，首先需要用一种共同的数学语言描述那些表面上彼此无关的问题。算子提供了这样的语言。一个算子是函数空间或场空间之间的映射：
 
 $$
 \mathcal{F}: \mathcal{X}\to\mathcal{Y},
 \qquad y(\cdot)=\mathcal{F}[x(\cdot)].
 $$
 
-不同于把一个数值映射成另一个数值的逐点规律，算子的输入是一个完整的函数或场，输出也是另一个完整的函数或场。它为许多不同任务提供了统一语言：算子可以把交通密度场向未来演化，把降雨场映射为河流流量，从观测中恢复未知的系数场，或者把目标状态映射为控制函数。一个具体算子由系统的控制规律及其参数、任务的表述方式、区域或几何、边界与外部驱动条件，以及输入输出变量的定义共同决定。算子逼近的目标，就是计算或学习这种完整的函数到函数映射。
+不同于把一个数值映射成另一个数值的逐点规律，算子的输入是一个完整的函数或场，输出也是另一个函数或场。同一种抽象可以覆盖许多任务：预测可以把交通密度场向未来演化，物理建模可以把降雨场映射为河流流量，逆问题可以从观测中恢复未知的系数场，控制问题则可以把目标状态映射为行动。对于一个具体问题，算子由系统的控制规律及其参数、任务的表述方式、区域或几何、边界与外部驱动条件，以及输入输出变量的定义共同决定。算子逼近的目标，就是计算或学习这种函数到函数的映射。
 
 举一个具体的例子，考虑一个一维守恒律
 
@@ -53,28 +53,17 @@ $$
 
 也可以更紧凑地写成 $$\mathcal{F}_{f,\tau}(u_0) = u_\tau$$。它的输入是完整的初始剖面 $$u_0(x)$$，输出是完整的演化后剖面 $$u(\tau,x)$$。因此，这里的算子并不是 PDE 中出现的某个微分符号，而是由方程诱导出的完整演化规律。由于这里始终固定空间区域和周期性边界条件，这个算子族只随 $$f$$ 和 $$\tau$$ 改变。
 
-经典数值方法是在控制方程已知后计算这个算子。在固定算子学习里，人们会针对某一个特定算子训练模型 $$G_\theta$$，使得 $$G_\theta(u_0)\approx \mathcal{F}_{f,\tau}(u_0)$$。如果算子发生变化，通常就需要重新训练模型，或者再做一次微调。
+经典数值方法在控制方程已知后计算一个已经指定的算子；固定算子学习则用模型 $$G_\theta$$ 逼近它，使得 $$G_\theta(u_0)\approx \mathcal{F}_{f,\tau}(u_0)$$。两种方式都预先固定了算子：一旦算子改变，就需要重新构造求解器，或者重新训练、微调模型。
 
-我们的工作试图回答：能不能让一个冻结模型直接从数值样例中识别当前需要的算子？这就是 **In-Context Operator Networks（ICON）** 的核心想法。ICON 不再为每个固定算子分别训练模型，而是让一个统一模型 $$T_\theta$$ 面对一族算子，并给它少量输入输出样例作为上下文：
+**In-Context Operator Networks（ICON）** 把算子的指定方式移到了上下文中。ICON 不再为每个固定算子分别训练模型，而是让一个统一模型 $$T_\theta$$ 面对一族算子，并接收少量输入输出样例作为数值提示：
 
 $$
 \widehat{u}_\tau^{(q)} = T_\theta\!\left(\{(u_0^{(i)},u_\tau^{(i)})\}_{i=1}^{k},\, u_0^{(q)}\right).
 $$
 
-模型从这些样例中推断出它们所表达的算子，并立刻将其应用到待求解的问题上；测试时不需要更新权重。这样一来，模型适应新任务的方式就不再是改权重，而是改上下文。在我们早期的论文里，我们使用的是 *condition* 和 *quantity of interest (QoI)* 这组术语。这里改用 *key function* 和 *value function*，是因为它们更贴近更广义的文献。
+这些样例指出当前查询所需的算子，而模型权重提供推断并应用算子的通用能力；测试时不需要更新权重。这正是上文所说数值智能的一种数学实现：当前系统的知识通过测量进入模型，而不是通过重新训练写入权重。
 
-![经典算子学习与 in-context operator learning 的对比]({{ '/images/papers/icon-vs-operator-learning.png' | relative_url }}){: .figure-light-canvas style="width: 100%; display: block; margin: 0 auto"}
-
-图 1：经典算子学习通过训练把一个固定解算子编码进模型权重；in-context operator learning 则从样例中推断当前需要的算子，并在不更新权重的情况下将其应用到新的问题上。
-
-为什么我们觉得这个方向值得做？
-
-- 关于系统和任务的知识，可以在推理时由数值样例提供，而不必全部固化在模型权重里。
-- 同一个冻结模型只需更换上下文，就能适应许多不同的算子和系统。
-- 来自不同数值系统的多样化训练语料，有可能提升模型对训练中未见系统、甚至未见学科的泛化能力。
-- 数值模型可以与语言模型智能体协作：语言智能负责理解目标和组织推理，数值智能负责给出定量预测。
-
-从更大的脉络来看，我们把机器学习处理数值系统的方式概括为三个阶段。第一阶段关注解函数本身的逼近，例如 Physics-Informed Neural Networks。第二阶段转向解算子的逼近，例如 DeepONet 和 Fourier Neural Operator。ICON 指向第三个阶段：任务所需的预测关系由模型从数值上下文中推断，再由固定模型加以应用。目标不再只是把某一个算子逼近得足够好，而是让模型能够在上下文中获取和使用新的数值知识。
+这种表述也澄清了机器学习处理数值系统的三个阶段。第一阶段逼近单个解函数，例如 Physics-Informed Neural Networks。第二阶段逼近固定的解算子，例如 DeepONet 和 Fourier Neural Operator。ICON 指向第三个阶段：预测关系本身由模型从数值上下文中推断，再由冻结模型加以应用。目标不再只是把某一个算子逼近得足够好，而是让模型能够在上下文中获取和使用新的数值知识。
 
 ## 一条研究线索
 
@@ -92,13 +81,13 @@ $$
 
 ![ICON 求解的二维 mean-field control 问题]({{ '/images/papers/icon-mfg-side-by-side.png' | relative_url }}){: style="width: 100%; display: block; margin: 0 auto"}
 
-图 2：ICON 横跨 1D 与 2D 问题。第一幅图展示选取的 1D 正向与逆向 ODE、PDE 问题：上排为 key functions，下排为 value functions；灰点是数值提示，蓝点是问题，红点是预测，黑色实线是 ground truth，并与预测基本重合。第二幅图展示一个 2D-to-2D mean-field control 问题：左侧是三个提示样例，右侧依次是 query key function、ground-truth value function、predicted value function 和 prediction error。模型从样例中推断算子，并在一次前向传播中求解二维时空查询。
+图 1：ICON 横跨 1D 与 2D 问题。第一幅图展示选取的 1D 正向与逆向 ODE、PDE 问题：上排为 key functions，下排为 value functions（原论文称为 conditions 和 QoIs）；灰点是数值提示，蓝点是问题，红点是预测，黑色实线是 ground truth，并与预测基本重合。第二幅图展示一个 2D-to-2D mean-field control 问题：左侧是三个提示样例，右侧依次是 query key function、ground-truth value function、predicted value function 和 prediction error。模型从样例中推断算子，并在一次前向传播中求解二维时空查询。
 
 **PDE Generalization of In-Context Operator Networks** ([JCP 2024](https://www.sciencedirect.com/science/article/pii/S0021999124006272))
 
 <em>Liu Yang, Stanley J. Osher<sup>†</sup></em>
 
-在这篇工作中，我们验证了一个统一的 ICON 模型能够在不同通量函数、不同时间步长的守恒律之间泛化，甚至泛化到此前未见过的 PDE 形式。我们还研究了 prompt design 策略，例如变量变换和 stride manipulation，以拓展模型可处理的问题范围。
+在这篇工作中，我们验证了一个统一的 ICON 模型能够在不同通量函数、不同时间步长的守恒律之间泛化，甚至泛化到此前未见过的 PDE 形式。我们还研究了 prompt design 策略，例如变量变换和 varying forecast horizon，以拓展模型可处理的问题范围。
 
 **Fine-Tune Language Models as Multi-Modal Differential Equation Solvers** ([Neural Networks 2025](https://www.sciencedirect.com/science/article/abs/pii/S089360802500334X))
 
@@ -108,7 +97,7 @@ $$
 
 ![]({{ '/images/papers/icon-multi-modal_numerical.png' | relative_url }}){: style="width: 80%; float: center; margin: 0px"}
 
-图 3：多模态 in-context operator learning。文本描述和数值样例都可以作为关于当前算子的上下文信息。
+图 2：多模态 in-context operator learning。文本描述和数值样例都可以作为关于当前算子的上下文信息。
 
 **VICON: Vision In-Context Operator Networks for Multi-Physics Fluid Dynamics Prediction** ([TMLR 2026](https://arxiv.org/pdf/2411.16063))
 
@@ -130,7 +119,7 @@ In-Context Modeling（ICM）把 in-context learning 与 physics-informed trainin
 
 ![采用 physics-informed training 的 In-Context Modeling 总览]({{ '/images/papers/icm-figure1.png' | relative_url }}){: .figure-light-canvas style="width: 100%; display: block; margin: 0 auto"}
 
-图 4：ICM 总览。观测场被转换为 physics-informed tokens，控制方程提供无标签的训练信号，冻结的 attention-based model 则从上下文中推断未知的物理关系，无需重新训练。
+图 3：ICM 总览。观测场被转换为 physics-informed tokens，控制方程提供无标签的训练信号，冻结的 attention-based model 则从上下文中推断未知的物理关系，无需重新训练。
 
 **VICX: Generalizable Robot Manipulation via Video Generation and In-Context Operator Network** ([arXiv 2026](https://arxiv.org/abs/2606.12028), [Project]({{ '/vicx/' | relative_url }}))
 
@@ -140,7 +129,7 @@ VICX 把 ICON 这条研究线索进一步延伸到 embodied AI。冻结的视频
 
 ![VICX 闭环机器人操作框架]({{ '/vicx/assets/paper/closed_loop_evaluation.png' | relative_url }}){: .figure-light-canvas style="width: 80%; display: block; margin: 0 auto"}
 
-图 5：VICX 框架。冻结的视频生成模型提出视觉规划，V2T-ICON 利用 image-state references 将其落地为机器人轨迹。
+图 4：VICX 框架。冻结的视频生成模型提出视觉规划，V2T-ICON 利用 image-state references 将其落地为机器人轨迹。
 
 **A Foundation Model of Numerical Intelligence with Cross-Disciplinary Generalization** ([arXiv 2026](https://arxiv.org/abs/2607.28432))
 
@@ -150,7 +139,7 @@ UNICON 把 ICON 推进到跨学科规模，也让“数值智能”成为一个�
 
 ![UNICON 在异构数值系统上的训练以及在未见学科上的推理]({{ '/images/papers/unicon-fig1.png' | relative_url }}){: style="width: 80%; display: block; margin: 0 auto"}
 
-图 6：UNICON 学习如何从图结构数值上下文中学习，再把这种能力应用到训练中未出现的系统和学科。
+图 5：UNICON 学习如何从图结构数值上下文中学习，再把这种能力应用到训练中未出现的系统和学科。
 
 ## 可编程的 ICON Harness
 
@@ -158,29 +147,23 @@ In-context operator learning 的一个基础洞见是：同一个数值问题，
 
 我们把利用这种自由度的机制称为推理时 **harness**：它是包裹在冻结模型之外的可编程层，负责构造和变换数值提示、选择样例、编排模型调用，并处理或融合输出，但不更新模型权重。与语言模型的 harness 类似，它通过代码将一个通用基础模型转化为适应具体任务的系统，还可以量化不确定性，并在推理过程中施加显式的数学规则。在我们的工作中，这个想法逐渐发展为一条持续推进的研究线索：
 
-**变量变换与 varying stride**
-
-[*PDE Generalization of In-Context Operator Networks: A Study on 1D Scalar Nonlinear Conservation Laws*](https://www.sciencedirect.com/science/article/pii/S0021999124006272) ([JCP 2024](https://www.sciencedirect.com/science/article/pii/S0021999124006272))
+**PDE Generalization of In-Context Operator Networks: A Study on 1D Scalar Nonlinear Conservation Laws** ([JCP 2024](https://www.sciencedirect.com/science/article/pii/S0021999124006272))
 
 <em>Liu Yang, Stanley J. Osher<sup>†</sup></em>
 
-Change-of-variables 和 varying-stride 策略先重构数值查询，再把它交给 ICON。它们表明，提示空间中的变换能够拓展同一个冻结模型可以处理的问题范围。
+*变量变换与 varying forecast horizon。* 这些策略先重构数值查询，再把它交给 ICON。它们表明，提示空间中的变换能够拓展同一个冻结模型可以处理的问题范围。
 
-**Chain of Operators（CHOP）**
-
-[*Harness In-Context Operator Learning with Chain of Operators*](https://arxiv.org/abs/2606.12318) ([arXiv 2026](https://arxiv.org/abs/2606.12318))
+**Harness In-Context Operator Learning with Chain of Operators** ([arXiv 2026](https://arxiv.org/abs/2606.12318))
 
 <em>Minghui Yang, Ling Guo, Liu Yang<sup>†</sup></em>
 
-这篇工作把提示重构发展为一个组合式 harness。CHOP 让数值提示经过一系列显式的初等算子变换，把困难查询转换到冻结 ICON 更有能力处理的中间表示，再将结果映射回来。
+*Chain of Operators（CHOP）。* 这篇工作把提示重构发展为一个组合式 harness。CHOP 让数值提示经过一系列显式的初等算子变换，把困难查询转换到冻结 ICON 更有能力处理的中间表示，再将结果映射回来。
 
-**Contextual Ensemble Learning（CEL）**
-
-[*A Foundation Model of Numerical Intelligence with Cross-Disciplinary Generalization*](https://arxiv.org/abs/2607.28432) ([arXiv 2026](https://arxiv.org/abs/2607.28432))
+**A Foundation Model of Numerical Intelligence with Cross-Disciplinary Generalization** ([arXiv 2026](https://arxiv.org/abs/2607.28432))
 
 <em>Chenghan Wu, Zongmin Yu, Liu Yang<sup>†</sup></em>
 
-CEL 编排多样化的上下文构造路径，并融合各条路径的预测。通过从不同的观测切片构造上下文，CEL 系统地向冻结网络呈现系统的互补侧面，再融合这些局部视角，从而更加可靠地逼近目标算子。
+*Contextual Ensemble Learning（CEL）。* CEL 编排多样化的上下文构造路径，并融合各条路径的预测。通过从不同的观测切片构造上下文，CEL 系统地向冻结网络呈现系统的互补侧面，再融合这些局部视角，从而更加可靠地逼近目标算子。
 
 这些方法共享同一个原则：训练得到一个有能力的 in-context learner 之后，进一步的适应可以通过对它的数值提示空间和模型调用序列进行编程来实现。借助 harness，冻结 ICON 的推理行为可以在不更新权重的情况下通过程序编排，从而将获得通用上下文学习能力的高成本训练与面向具体任务的推理编排分离开来。
 
@@ -194,7 +177,7 @@ CEL 编排多样化的上下文构造路径，并融合各条路径的预测。�
 
 ![人工通用智能生态中的语言智能与数值智能]({{ '/images/papers/unicon-fig1a.png' | relative_url }}){: style="width: 100%; display: block; margin: 0 auto"}
 
-图 7：语言智能与数值智能作为人工通用智能生态中相互补充的组成部分。
+图 6：语言智能与数值智能作为人工通用智能生态中相互补充的组成部分。
 
 ## 数值智能研究计划
 
