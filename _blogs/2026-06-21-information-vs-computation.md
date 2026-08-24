@@ -83,11 +83,11 @@ This compression is necessarily lossy. A problem cannot preserve all background.
 
 The problem itself is not the final answer. It is more like an interface. It compresses my information to the point where AI can begin computation.
 
-## Our Practice: Evolutionary Ensemble of Agents (EvE)
+## Our Practice: Evolving Ensemble of Agents (EvE)
 
 This is also one of the core motivations behind our work on [EvE](https://github.com/scaling-group/eve).
 
-What EvE does can be understood as wrapping existing, already powerful coding agents inside a decentralized evolutionary ensemble. It evolves two populations at the same time: one is the solver population inside the repository, namely concrete code, algorithms, proof drafts, or other functional components; the other is the agent population, namely the guidance and skills used by agents. The former is responsible for producing better solutions, while the latter is responsible for continuously improving the way solutions are produced.
+What EvE does can be understood as organizing existing, already powerful coding agents into a decentralized, co-evolving system. It evolves two populations at the same time: one is the solver population inside the repository, namely concrete code, algorithms, proof drafts, or other functional components; the other is the agent population, namely the guidance and skills used by agents. The former is responsible for producing better solutions, while the latter is responsible for continuously improving the way solutions are produced.
 
 Concretely, when running EvE, you need to give it three kinds of things.
 

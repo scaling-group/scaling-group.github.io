@@ -1,5 +1,5 @@
 ---
-title: "软件 3.0 与 Evolutionary Ensemble (EvE) of Agents"
+title: "软件 3.0 与 Evolving Ensemble of Agents (EvE)"
 layout: blog_post
 author: "杨柳, 于宗民"
 date: 2026-05-09
@@ -11,7 +11,7 @@ pinned: true
 pin_order: 2
 ---
 
-本文由杨柳撰写，撰写过程中与组员于宗民有深入讨论和交流。以下“我”指代杨柳。我绝非软件开发领域的专家，仅仅想分享一下我们最近的工作“Evolutionary Ensemble (EvE) of Agents” ([arXiv](https://arxiv.org/abs/2605.09018), [GitHub](https://github.com/scaling-group/eve))背后的思路。
+本文由杨柳撰写，撰写过程中与组员于宗民有深入讨论和交流。以下“我”指代杨柳。我绝非软件开发领域的专家，仅仅想分享一下我们最近的工作“Evolving Ensemble of Agents (EvE)” ([arXiv](https://arxiv.org/abs/2605.09018), [GitHub](https://github.com/scaling-group/eve))背后的思路。
 
 ## 软件 1.0: 工程师迭代传统代码
 
@@ -86,7 +86,7 @@ FunSearch和AlphaEvolve在LLM-as-Optimizer的基础上，进一步引入了进�
 - 我们需要一个能兼容所有其他agent，还能无限scalable的框架。我们最终选择一种彻底去中心化的集群（ensemble）架构。EvE 摒弃了教条式的角色划分（如“管理者”与“工人”），从而获得了普适的兼容能力。从原理上讲，任何现有的 Agent 或多 Agent 系统，都能被无缝集成并视为该集群中的一个个体。
 - 对下游任务，我们挑选一个我们能做的，距离完全的AI自指迭代最接近的任务：设计foundation model网络结构。我们的兴趣是in-context operator networks，一种科学计算foundation model框架，用它来做testbed也就顺利成章了。
 
-最后这些实践变成了Evolutionary Ensemble (EvE) of Agents ([arXiv](https://arxiv.org/abs/2605.09018), [GitHub](https://github.com/scaling-group/eve))。结果相当惊艳，EvE可以真正解决AI研究中遇到的难点，甚至比我们组内部所有的人类设计都要好。
+最后这些实践变成了 Evolving Ensemble of Agents (EvE) ([arXiv](https://arxiv.org/abs/2605.09018), [GitHub](https://github.com/scaling-group/eve))。结果相当惊艳，EvE可以真正解决AI研究中遇到的难点，甚至比我们组内部所有的人类设计都要好。
 
 ## 结语
 

@@ -1,5 +1,5 @@
 ---
-title: "Software 3.0 and Evolutionary Ensemble (EvE) of Agents"
+title: "Software 3.0 and Evolving Ensemble of Agents (EvE)"
 layout: blog_post
 author: "Liu Yang, Zongmin Yu"
 date: 2026-05-09
@@ -11,7 +11,7 @@ pinned: true
 pin_order: 2
 ---
 
-This article was written by Liu Yang, following in-depth discussions and exchanges with team member Zongmin Yu. In the text below, "I" refers to Liu Yang. I am by no means an expert in software development; I simply want to share the thinking behind our recent work, "Evolutionary Ensemble (EvE) of Agents" ([arXiv](https://arxiv.org/abs/2605.09018), [GitHub](https://github.com/scaling-group/eve)).
+This article was written by Liu Yang, following in-depth discussions and exchanges with team member Zongmin Yu. In the text below, "I" refers to Liu Yang. I am by no means an expert in software development; I simply want to share the thinking behind our recent work, "Evolving Ensemble of Agents (EvE)" ([arXiv](https://arxiv.org/abs/2605.09018), [GitHub](https://github.com/scaling-group/eve)).
 
 ## Software 1.0: Engineers Iterating on Traditional Code
 
@@ -89,7 +89,7 @@ Just as I was worrying about how to create a self-referentially iterating Agent-
 * We require a framework that is both universally compatible with all other agents and infinitely scalable. Ultimately, we settled on a completely decentralized ensemble architecture. By abandoning rigid role assignments (such as "leaders" vs. "workers"), EvE achieves universal compatibility. In principle, any existing agent or multi-agent system can be seamlessly integrated and treated as a single individual within this ensemble.
 * For the downstream task, we chose the one closest to full AI self-iteration: designing foundation model architectures. Our interest lies in "in-context operator networks," a scientific computing foundation model framework, making it a natural testbed.
 
-Ultimately, these practices became **Evolutionary Ensemble (EvE) of Agents** ([arXiv](https://arxiv.org/abs/2605.09018), [GitHub](https://github.com/scaling-group/eve)). The results were stunning: EvE can truly solve bottlenecks encountered in our AI research, even outperforming all the human designs within our own group.
+Ultimately, these practices became **Evolving Ensemble of Agents (EvE)** ([arXiv](https://arxiv.org/abs/2605.09018), [GitHub](https://github.com/scaling-group/eve)). The results were stunning: EvE can truly solve bottlenecks encountered in our AI research, even outperforming all the human designs within our own group.
 
 ## Conclusion
 

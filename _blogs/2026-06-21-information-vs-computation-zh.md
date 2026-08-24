@@ -83,11 +83,11 @@ AI输出取决于它能接触到的信息。模型参数和agent程序里有什�
 
 这个问题本身不是最终答案。它更像是一个接口。它把我的信息压缩到 AI 可以开始计算的程度。
 
-## 我们的实践：Evolutionary Ensemble of Agents (EvE)
+## 我们的实践：Evolving Ensemble of Agents (EvE)
 
 这也是我们做 [EvE](https://github.com/scaling-group/eve) 时很核心的一个动机。
 
-EvE 做的事情，可以理解成把现有的、已经很强的 coding agent 包进一个去中心化的 evolutionary ensemble 里。它同时演化两个种群：一个是 repository 里的 solver 种群，也就是具体的代码、算法、证明草稿或者其他功能组件；另一个是 agent 种群，也就是 agent 使用的 guidance 和 skills。前者负责产生更好的解，后者负责让产生解的方式本身持续自我改进。
+EvE 做的事情，可以理解成把现有的、已经很强的 coding agent 组织成一个去中心化、共同演化的系统。它同时演化两个种群：一个是 repository 里的 solver 种群，也就是具体的代码、算法、证明草稿或者其他功能组件；另一个是 agent 种群，也就是 agent 使用的 guidance 和 skills。前者负责产生更好的解，后者负责让产生解的方式本身持续自我改进。
 
 具体来说，运行 EvE 时，你需要给它三类东西。
 

@@ -193,3 +193,5 @@ CEL 编排多样化的上下文构造路径，并融合各条路径的预测。�
 这些工作共同构成了一项数值智能研究计划：训练让模型学会如何从上下文中学习，上下文则提供当前问题所需的知识。
 
 推进这一研究计划，需要共享模型、多样化数据集、跨学科 benchmark、推理方法和具体应用。我们构建了开源基础设施 [**icon-core**](https://github.com/scaling-group/icon-core)，将模型实现、训练流程和示例组织成可供社区复用的技术栈。
+
+为了加速数值智能研究，我们构建了 [**Evolving Ensemble of Agents（EvE）**](https://arxiv.org/abs/2605.09018)（[GitHub](https://github.com/scaling-group/eve)，[相关文章]({{ '/blogs/zh/software-engineer/' | relative_url }})）：一个将强大的 coding agents 组织成去中心化、共同演化 ensemble 的自我改进系统。EvE 不重新设计基础 agents，而是让决定 agent 行为的 guidance 和 skills 与代码仓库中的候选解共同演化。我们已经使用 EvE 迭代 ICON 的模型架构并设计 inference harness，把自动化研究直接纳入推进数值智能的过程。
