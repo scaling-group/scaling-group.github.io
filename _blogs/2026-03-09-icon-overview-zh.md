@@ -1,5 +1,5 @@
 ---
-title: "In-Context Operator Networks：数值智能研究计划"
+title: "In-Context Operator Networks: A Research Program for Numerical Intelligence"
 layout: blog_post
 author: "杨柳"
 date: 2026-03-09
@@ -18,7 +18,7 @@ pin_order: 1
   <p class="blog-epigraph__source">— Ludwig Wittgenstein，<cite>Tractatus Logico-Philosophicus</cite>，6.522</p>
 </aside>
 
-## 超越语言的数值智能
+## 超越语言的智能
 
 智能通常被理解为获取和应用知识、适应陌生情境以及解决新问题的能力。大语言模型通过从文本上下文中推断与任务相关的知识，并将其应用于新任务，展现了这种能力。然而，智能并不必局限于语言。科学与社会系统往往先通过数值显现出来，然后才被语言完整描述：交通在路网上流动，水流穿过河流流域，物理场随时间和空间演化。这些观测中包含着预测关系；在我们为它们命名、建立形式化描述或训练专用模型之前，这些关系就可能已经可以从数据中学习。
 
@@ -81,7 +81,7 @@ $$
 
 ![ICON 求解的二维 mean-field control 问题]({{ '/images/papers/icon-mfg-side-by-side.png' | relative_url }}){: style="width: 100%; display: block; margin: 0 auto"}
 
-图 1：ICON 横跨 1D 与 2D 问题。第一幅图展示选取的 1D 正向与逆向 ODE、PDE 问题：上排为 key functions，下排为 value functions（原论文称为 conditions 和 QoIs）；灰点是数值提示，蓝点是问题，红点是预测，黑色实线是 ground truth，并与预测基本重合。第二幅图展示一个 2D-to-2D mean-field control 问题：左侧是三个提示样例，右侧依次是 query key function、ground-truth value function、predicted value function 和 prediction error。模型从样例中推断算子，并在一次前向传播中求解二维时空查询。
+图 1：ICON 横跨 1D 与 2D 问题。第一幅图展示选取的 1D 正向与逆向 ODE、PDE 问题：上排为 key functions，下排为 value functions（原论文称为 conditions 和 QoIs）；灰点构成数值上下文样例，蓝点是问题，红点是预测，实线表示 ground truth，并与预测基本重合。第二幅图展示一个 2D-to-2D mean-field control 问题：左侧是三个数值上下文样例，右侧依次是 query key function、ground-truth value function、predicted value function 和 prediction error。模型从这些样例中推断算子，并在一次前向传播中求解二维时空查询。
 
 **PDE Generalization of In-Context Operator Networks** ([JCP 2024](https://www.sciencedirect.com/science/article/pii/S0021999124006272))
 
@@ -95,7 +95,7 @@ $$
 
 这篇工作采用了 decoder-only、language-model 风格的架构，并引入了 multi-modal prompting。模型不仅可以使用数值样例，还可以同时利用自然语言和 LaTeX 方程，为语言与数值两种上下文之间建立了一个早期接口。
 
-![]({{ '/images/papers/icon-multi-modal_numerical.png' | relative_url }}){: style="width: 80%; float: center; margin: 0px"}
+![]({{ '/images/papers/icon-multi-modal_numerical.png' | relative_url }}){: style="width: 100%; display: block; margin: 0 auto"}
 
 图 2：多模态 in-context operator learning。文本描述和数值样例都可以作为关于当前算子的上下文信息。
 

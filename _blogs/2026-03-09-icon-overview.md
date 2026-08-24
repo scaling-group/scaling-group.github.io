@@ -17,7 +17,7 @@ pin_order: 1
   <p class="blog-epigraph__source">— Ludwig Wittgenstein, <cite>Tractatus Logico-Philosophicus</cite>, 6.522</p>
 </aside>
 
-## Numerical Intelligence Beyond Language
+## Intelligence Beyond Language
 
 Intelligence is commonly understood as the ability to acquire and apply knowledge, adapt to unfamiliar situations, and solve new problems. Large language models exhibit this capacity by inferring task-relevant knowledge from textual context and applying it to new tasks. Yet intelligence need not be confined to language. Scientific and social systems often reveal themselves numerically before we can fully describe them in words: traffic moves across road networks, water flows through river basins, and physical fields evolve over space and time. These observations contain predictive relations that may be learned before they are named, formalized, or built into a specialist model.
 
@@ -80,7 +80,7 @@ This paper introduced in-context operator learning and ICON. Without fine-tuning
 
 ![A two-dimensional mean-field control problem solved by ICON]({{ '/images/papers/icon-mfg-side-by-side.png' | relative_url }}){: style="width: 100%; display: block; margin: 0 auto"}
 
-Figure 1: ICON across 1D and 2D problems. The first panel shows selected 1D forward and inverse ODE and PDE problems: the top row contains key functions and the bottom row contains value functions (called conditions and QoIs in the original paper); grey dots are numerical prompts, blue dots are the question, red dots are the prediction, and solid black lines show the ground truth and closely overlap the prediction. The second panel shows a 2D-to-2D mean-field control problem: three prompted examples appear on the left, followed by the query key function, ground-truth value function, predicted value function, and prediction error on the right. The model infers the operator from these examples and solves the 2D spatiotemporal query in one forward pass.
+Figure 1: ICON across 1D and 2D problems. The first panel shows selected 1D forward and inverse ODE and PDE problems: the top row contains key functions and the bottom row contains value functions (called conditions and QoIs in the original paper); grey dots form the numerical contextual examples, blue dots are the question, red dots are the prediction, and solid lines show the ground truth, closely overlapping the prediction. The second panel shows a 2D-to-2D mean-field control problem: three numerical contextual examples appear on the left, followed by the query key function, ground-truth value function, predicted value function, and prediction error on the right. The model infers the operator from these examples and solves the 2D spatiotemporal query in one forward pass.
 
 **PDE Generalization of In-Context Operator Networks** ([JCP 2024](https://www.sciencedirect.com/science/article/pii/S0021999124006272))
 
@@ -94,7 +94,7 @@ Here we demonstrated that a single ICON model can generalize across conservation
 
 This work adopted a decoder-only, language-model-style architecture and introduced multi-modal prompting. The model can use human language and LaTeX equations alongside numerical examples, providing an early interface between linguistic and numerical forms of context.
 
-![]({{ '/images/papers/icon-multi-modal_numerical.png' | relative_url }}){: style="width: 80%; float: center; margin: 0px"}
+![]({{ '/images/papers/icon-multi-modal_numerical.png' | relative_url }}){: style="width: 100%; display: block; margin: 0 auto"}
 
 Figure 2: Multi-modal in-context operator learning. Textual descriptions and numerical examples can both act as prompt information for the operator.
 
