@@ -153,9 +153,9 @@ In-context operator learning 的一个基础洞见是：同一个数值问题，
 
 *变量变换与 varying forecast horizon。* 这些策略先重构数值查询，再把它交给 ICON。它们表明，提示空间中的变换能够拓展同一个冻结模型可以处理的问题范围。
 
-**Harness In-Context Operator Learning with Chain of Operators** ([arXiv 2026](https://arxiv.org/abs/2606.12318))
+**Chain of Operators: An Inference-Time Harness for In-Context Operator Learning** ([arXiv 2026](https://arxiv.org/abs/2606.12318))
 
-<em>Minghui Yang, Ling Guo, Liu Yang<sup>†</sup></em>
+<em>Minghui Yang, Chenghan Wu, Ling Guo, Liu Yang<sup>†</sup></em>
 
 *Chain of Operators（CHOP）。* 这篇工作把提示重构发展为一个组合式 harness。CHOP 让数值提示经过一系列显式的初等算子变换，把困难查询转换到冻结 ICON 更有能力处理的中间表示，再将结果映射回来。
 

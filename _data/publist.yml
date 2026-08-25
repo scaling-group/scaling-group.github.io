@@ -16,10 +16,10 @@
     display: arXiv, Jun 2026
   highlight: 2
 
-- title: "Harness In-Context Operator Learning with Chain of Operators"
+- title: "Chain of Operators: An Inference-Time Harness for In-Context Operator Learning"
   image:
   description:
-  authors: "Minghui Yang, Ling Guo, Liu Yang<sup>†</sup>"
+  authors: "Minghui Yang, Chenghan Wu, Ling Guo, Liu Yang<sup>†</sup>"
   link:
     url: https://arxiv.org/abs/2606.12318
     display: arXiv, Jun 2026
@@ -36,9 +36,9 @@
   project: /vicx/
   highlight: 1
 
-- title: "Self-Evolving Scientific Agent Discovers Generalizable Physically-Reasoned Fluid Control"
+- title: "Self-Evolving Scientific Agent Designs Physically-Reasoned Whitebox Fluid Control"
   image:
-  description: We present a self-evolving scientific-agent workflow that uses large language models and iterative code generation to automate interpretable controller construction for physical systems. On an underactuated two-joint dogfish swimmer, the agent discovers a unified controller that generalizes to unseen static targets and dynamically curved pursuit trajectories.
+  description: We present a self-evolving scientific-agent workflow that uses large language models and iterative code generation to automate interpretable whitebox controller construction for physical systems. On an underactuated two-joint dogfish swimmer navigating an unsteady four-cylinder wake, the agent designs a unified controller that generalizes across target positions, wake geometries, cylinder counts, and inflow speeds without retraining or retuning.
   authors: "Boai Sun, Wenjin Guo, Zongmin Yu, Liu Yang<sup>†</sup>"
   link:
     url: https://arxiv.org/abs/2606.08405

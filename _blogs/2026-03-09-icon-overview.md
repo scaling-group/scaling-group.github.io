@@ -152,9 +152,9 @@ We call the mechanism that exploits this freedom an inference-time **harness**: 
 
 *Change of variables and varying forecast horizon.* These strategies reformulate a numerical query before it is given to ICON. They show that prompt-space transformations can extend the range of problems addressed by the same frozen model.
 
-**Harness In-Context Operator Learning with Chain of Operators** ([arXiv 2026](https://arxiv.org/abs/2606.12318))
+**Chain of Operators: An Inference-Time Harness for In-Context Operator Learning** ([arXiv 2026](https://arxiv.org/abs/2606.12318))
 
-<em>Minghui Yang, Ling Guo, Liu Yang<sup>†</sup></em>
+<em>Minghui Yang, Chenghan Wu, Ling Guo, Liu Yang<sup>†</sup></em>
 
 *Chain of Operators (CHOP).* This work turns prompt reformulation into a compositional harness. CHOP routes numerical prompts through explicit elementary operator transformations, moving a difficult query through intermediate representations where the frozen ICON is more capable and then mapping the result back.
 
