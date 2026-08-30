@@ -25,10 +25,11 @@
   education1: Ph.D. Beijing Normal University
 
 - name: Zongmin Yu
-  photo: people.png
+  photo: zongmin_yu.png
   info: NUS Ph.D. Student, from August 2026
+  github: https://github.com/zongmin-yu
   number_educ: 1
-  education1: B.S. National University of Singapore
+  education1: B.Comp. (CS), National University of Singapore
 
 - name: Jun Zhai
   photo: jun_zhai.jpg
