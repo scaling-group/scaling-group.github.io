@@ -6,19 +6,19 @@ date: 2026-09-07
 lang: en
 translation_key: producing-mathematics-understanding-mathematics
 permalink: /blogs/en/producing-mathematics-understanding-mathematics/
-abstract: "The prospect of intellectual work becoming cheap and abundant makes the purposes of mathematical research harder to leave implicit. Starting late and compute-constrained, team S17 placed third out of 256 participants in IGP24 by developing mathematical methods and eventually adopting an autonomously coordinated ensemble. The campaign shows how research organizations can accumulate methods, respond to exact evidence, and scale beyond an individual worker. As roles once requiring human judgment become automated, we need to decide what greater mathematical capacity is for and what place human inquiry should have within it."
+abstract: "Starting late and compute-constrained, we placed third out of 256 participants in IGP24 by developing mathematical constructions and eventually adopting an autonomously coordinated agent ensemble. The campaign offers an early look at research organizations that can scale beyond an individual worker—and asks what greater mathematical capacity should be for as the production of mathematics becomes cheap and abundant."
 ---
 Intellectual work, once the rarest and most valuable of commodities, is on the verge of becoming cheap and abundant. This will transform mathematics more profoundly than any increase in solved problems. In [*Mathematics in the age of AI*](https://arxiv.org/abs/2608.16753), Terence Tao asks what mathematical research is trying to achieve as AI becomes capable of research-level work. Machines can increasingly develop the constructions, methods, and arguments through which the subject advances. What do we want that greater capacity to make possible, and what place should human inquiry have within it?
 
-During our [IGP24](https://competition.sair.foundation/competitions/igp24/overview) campaign, we encountered that question directly. Starting late and compute-constrained, our team relied on autonomous agent systems where machines didn't just propose candidate solutions, but developed mathematical methods and eventually coordinated their own search. The campaign became an experiment in scaling research beyond an individual worker—and an early look at what happens when the production of mathematics is automated.
+Our [IGP24](https://competition.sair.foundation/competitions/igp24/overview) team, [S17](https://competition.sair.foundation/competitions/igp24/leaderboard), consisted of three NUS Mathematics graduate students: Jun Zhai, Zhikang Luo, and Guodong Tang. We relied on autonomous agent systems where machines didn't just propose candidate solutions, but developed mathematical methods and eventually coordinated their own search. The campaign became an experiment in scaling research beyond an individual worker—and an early look at what happens when the production of mathematics is automated.
 
 ## The IGP24 target space
 
-When the competition closed in August 2026, our team, S17, finished **third out of [256 participants](https://competition.sair.foundation/competitions/igp24/discoveries)**, with 122,239 scoreable pairs and a final score of 6266.38.
+When the competition closed in August 2026, our final collection covered 122,239 scoreable pairs and received a score of 6266.38.
 
-The competition concerned an enormous, finite slice of the inverse Galois problem over \(\mathbb{Q}\). For an irreducible polynomial over the rational numbers, the Galois group records the symmetries among its roots. IGP24 fixed the degree at 24 and asked participants to submit explicit monic integer polynomials covering as many pairs of transitive Galois groups and real-root signatures as possible. Here the signature \(r\) specifies the number of real roots.
+The competition concerned an enormous, finite slice of the inverse Galois problem over \\(\mathbb{Q}\\). For an irreducible polynomial over the rational numbers, the Galois group records the symmetries among its roots. IGP24 fixed the degree at 24 and asked participants to submit explicit monic integer polynomials covering as many pairs of transitive Galois groups and real-root signatures as possible. Here the signature \\(r\\) specifies the number of real roots.
 
-Degree 24 already contains 25,000 transitive groups, labeled \(24\mathrm{T}1\) through \(24\mathrm{T}25000\). Accounting for allowable real signatures gave the competition 165,836 target \((24\mathrm{T}t, r)\) pairs. Every candidate passed through an [exact verification pipeline](https://competition.sair.foundation/competitions/igp24/evaluation-setup). A plausible construction counted for nothing unless the polynomial had exactly the claimed algebraic structure.
+Degree 24 already contains 25,000 transitive groups, labeled \\(24\mathrm{T}1\\) through \\(24\mathrm{T}25000\\). Accounting for allowable real signatures gave the competition 165,836 target \\((24\mathrm{T}t, r)\\) pairs. Every candidate passed through an [exact verification pipeline](https://competition.sair.foundation/competitions/igp24/evaluation-setup). A plausible construction counted for nothing unless the polynomial had exactly the claimed algebraic structure.
 
 A successful campaign required mathematical constructions, reliable implementations, target analysis, exact verification, and judgment about where the next unit of compute could still matter. Other teams continually changed the frontier of uncovered targets. A productive direction could become redundant overnight.
 
@@ -30,13 +30,13 @@ We had no pre-existing databases. We used more hardware than the winner, though 
 
 We first tried our lab’s [EvE (Evolving Ensemble of Agents)](https://github.com/scaling-group/eve) framework because it was already available and could produce interpretable results.
 
-Untargeted random sampling was a poor way to seek groups such as the alternating group \(A_{24}\). For uniformly sampled monic degree-24 integer polynomials with coefficients bounded by \(H\), the probability of obtaining the full symmetric group \(S_{24}\) tends to one as \(H\) grows, as [Bhargava’s theorem](https://arxiv.org/abs/2410.03792) establishes. Our EvE runs sought constructions that enforce a square discriminant while controlling the real-root signature. A square discriminant places the Galois group inside \(A_{24}\); establishing equality requires further verification.
+Untargeted random sampling was a poor way to seek groups such as the alternating group \\(A_{24}\\). For uniformly sampled monic degree-24 integer polynomials with coefficients bounded by \\(H\\), the probability of obtaining the full symmetric group \\(S_{24}\\) tends to one as \\(H\\) grows, as [Bhargava’s theorem](https://arxiv.org/abs/2410.03792) establishes. Our EvE runs sought constructions that enforce a square discriminant while controlling the real-root signature. A square discriminant places the Galois group inside \\(A_{24}\\); establishing equality requires further verification.
 
-EvE evolves polynomial searches together with the reasoning heuristics and programmatic strategies of coding agents across successive generations. Each combined classical real analysis and constructive geometry to find structural invariants that forced the Galois group to embed into \(A_{24}\). They developed constructions across five explicit real-root signatures:
+EvE evolves polynomial searches together with the reasoning heuristics and programmatic strategies of coding agents across successive generations. Each combined classical real analysis and constructive geometry to find structural invariants that forced the Galois group to embed into \\(A_{24}\\). They developed constructions across five explicit real-root signatures:
 
-* **\(r = 0\).** Hilbert-type families whose derivative satisfies \(f'(x) = xP(x)^2\), with an early unscaled polynomial given by \(13x^{24} + 48x^{13} + 156x^2 + 13\).
-* **\(r \in \{4, 8, 12\}\).** Equal-critical-value Morse constructions, pairing critical points with equal polynomial values so that the discriminant factors as an exact square while steering the real-root count.
-* **\(r = 24\).** A connection between classical orthogonal polynomials and Galois invariants through \(24! \cdot L_{24}^{(1)}\), where \(L_{24}^{(1)}\) is the generalized Laguerre polynomial. This construction produced 24 positive real roots and a provably square discriminant.
+* **\\(r = 0\\).** Hilbert-type families whose derivative satisfies \\(f'(x) = xP(x)^2\\), with an early unscaled polynomial given by \\(13x^{24} + 48x^{13} + 156x^2 + 13\\).
+* **\\(r \in \{4, 8, 12\}\\).** Equal-critical-value Morse constructions, pairing critical points with equal polynomial values so that the discriminant factors as an exact square while steering the real-root count.
+* **\\(r = 24\\).** A connection between classical orthogonal polynomials and Galois invariants through \\(24! \cdot L_{24}^{(1)}\\), where \\(L_{24}^{(1)}\\) is the generalized Laguerre polynomial. This construction produced 24 positive real roots and a provably square discriminant.
 
 EvE was effective at discovering self-contained polynomial generators, but IGP24 did not offer a stable object for it to evolve. Progress depended on a portfolio of heterogeneous methods, accumulated evidence, live targets, and external computations whose relative value changed throughout the campaign. Selecting successive generations of whole generators conflated the quality of a method with the temporary value of the targets it happened to reach. In these generational cycles, human judgment went to deciding which code survived, not to engaging with the underlying algebraic ideas. We instead needed to preserve methods as separate research lanes and adapt the allocation among them.
 
@@ -46,7 +46,7 @@ That suggested a different unit of adaptation: not a whole generator selected be
 
 [GPT‑5.6 Sol Ultra](https://openai.com/index/gpt-5-6/) had recently become available and appeared to offer exactly this through native multi-agent coordination. We therefore switched from EvE and tested Ultra across dozens of runs. Its agents explored group-action routes for producing further degree-24 polynomials, tested constructions computationally, and submitted verified results. The work accumulated in construction scripts, experimental outputs, and further directions to pursue.
 
-Over longer runs, the workspaces became increasingly difficult to make sense of, and the agents’ conversational context deteriorated. They were trying to track hundreds of open \((24\mathrm{T}t, r)\) targets. As they lost track of their work, they hallucinated prior verification states, repeated exhausted code paths, and confused which targets had already been captured on the live leaderboard.
+Over longer runs, the workspaces became increasingly difficult to make sense of, and the agents’ conversational context deteriorated. They were trying to track hundreds of open \\((24\mathrm{T}t, r)\\) targets. As they lost track of their work, they hallucinated prior verification states, repeated exhausted code paths, and confused which targets had already been captured on the live leaderboard.
 
 We repeatedly had to reset and relaunch both the workspace and the agent to restore productive work. In practice, the researcher's role degraded into context custodian—clearing out stale memory and coaxing the model back on track instead of contemplating the algebraic landscapes it was bumping against. The recurring deterioration made these interventions part of operating Ultra throughout the campaign.
 
@@ -74,11 +74,11 @@ The turning point for this setup came when the coordinator was finally made to s
 
 The role implemented an extraction pipeline based on the following mathematical procedure:
 
-1. Extract the Galois group \(G\) of an already verified degree-24 polynomial.
-2. Enumerate all conjugacy classes of index-24 subgroups \(H \le G\).
-3. Compute the coset action \(G \curvearrowright G/H\) to identify the target transitive group ID \(t\).
-4. Determine the source field’s actual complex-conjugation element and count its fixed points in \(G/H\) to predict the real-root signature \(r\).
-5. For uncovered \((t, r)\) pairs on the live leaderboard, compute the primitive subfield polynomial associated with the subgroup, then verify its degree, irreducibility, signature, and group ID.
+1. Extract the Galois group \\(G\\) of an already verified degree-24 polynomial.
+2. Enumerate all conjugacy classes of index-24 subgroups \\(H \le G\\).
+3. Compute the coset action \\(G \curvearrowright G/H\\) to identify the target transitive group ID \\(t\\).
+4. Determine the source field’s actual complex-conjugation element and count its fixed points in \\(G/H\\) to predict the real-root signature \\(r\\).
+5. For uncovered \\((t, r)\\) pairs on the live leaderboard, compute the primitive subfield polynomial associated with the subgroup, then verify its degree, irreducibility, signature, and group ID.
 
 The same-closure-constructor operated above this fixed computation. It adapted the surrounding search when facts appeared only during execution. It changed source coverage after discovering gaps in the available signatures, widened the source pool after source-specific complex-conjugation failures, and reconstructed the pipeline when temporary state was lost.
 
@@ -101,7 +101,7 @@ In an AI-native institute, roles can form around a bottleneck, divide when evide
 As these autonomous research systems scale, they bring into sharp relief three distinct frontiers of mathematical work:
 
 * **The result frontier**, which consists of verified objects—our team’s final collection of 122,239 scoreable pairs.
-* **The method frontier**, which consists of procedures that generate whole classes of objects, such as EvE’s \(A_{24}\) Morse invariants and our same-closure extraction pipeline.
+* **The method frontier**, which consists of procedures that generate whole classes of objects, such as EvE’s \\(A_{24}\\) Morse invariants and our same-closure extraction pipeline.
 * **The understanding frontier**, which consists of structural explanations: why an obstruction occurs, which principles govern it, and how those principles fit into a larger theory.
 
 The same-closure episode produced an explanation as well as new targets. It showed why subgroup reachability alone could not settle the signature question: the arithmetic realization of complex conjugation mattered. Yet turning this observation into general theory resists easy automation: knowing that an involution obstructs a target does not reveal whether the failure is an artifact of that single number field or an intrinsic arithmetic bottleneck governing the entire family. Moving toward broader theory would require organizing such explanations across construction families, identifying their common structure, and establishing general statements. Making those statements and their reasoning intelligible to people would be a further achievement. IGP24 rewarded the resulting polynomials without assessing either that theoretical synthesis or its contribution to human understanding.

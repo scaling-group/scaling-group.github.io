@@ -1,3 +1,6 @@
+- date: Sep 07 2026
+  headline: "Congratulations to Jun Zhai for leading team S17 to a 3rd-place finish out of 256 participants in [IGP24](https://competition.sair.foundation/competitions/igp24/overview)! Read Jun's retrospective blog post: [Producing Mathematics, Understanding Mathematics](/blogs/en/producing-mathematics-understanding-mathematics/)."
+
 - date: Jul 30 2026
   headline: "Our paper [A Foundation Model of Numerical Intelligence with Cross-Disciplinary Generalization](https://arxiv.org/abs/2607.28432) is now available on arXiv. UNICON is a single frozen model that infers system-specific predictive relations from graph-based numerical examples and approaches specialist performance across disciplines absent from training."
 
