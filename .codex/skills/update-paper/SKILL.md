@@ -45,6 +45,8 @@ Each paper is a YAML item with fields such as:
 - `authors`
 - `link.url`
 - `link.display`
+- `arxiv.url`
+- `arxiv.display`
 - `github`
 - `highlight`
 
@@ -56,10 +58,14 @@ Rules:
   - use `<sup>†</sup>` for corresponding authors when the paper states corresponding author status
   - for arXiv papers, check the arXiv HTML/PDF/source for author footnotes because the abstract page often omits them
 - `link.url` should point to the primary current destination for the paper.
+- When an official venue page exposes a `Published` date, use that date for `link.display` and chronological placement. Do not substitute the conference or workshop event date.
+- For workshop papers, include the parent conference directly in the venue name across Publications, News, and the CV, following the existing style such as `2nd ICML Workshop on Foundation Models for Structured Data`.
+- When both an official venue page and arXiv are available, keep them as two independent links: use `link` for the official venue and `arxiv` for arXiv. Do not combine both labels under one URL. Ensure both the Highlights and Full List sections in `_pages/publications.md` render the two links.
 - `link.display` should summarize status in the existing style, for example:
   - `arXiv, May 2026`
-  - `Neural Networks, April 2025 / arXiv, Aug 2023`
-  - `Transactions on Machine Learning Research, Jan 2026 / arXiv, Nov 2024`
+  - `Neural Networks, April 2025`
+  - `Transactions on Machine Learning Research, Jan 2026`
+- `arxiv.display` should use the same concise date style, for example `arXiv, Aug 2023`.
 
 ### News
 
@@ -72,6 +78,9 @@ Rules:
   - arXiv case: `Our paper [Title](link) is now available on arXiv.`
   - official publication case: `Our paper [Title](link) is published in Venue.` or `is accepted by Venue.`
 - Reuse an existing news item when it is clearly the same milestone; otherwise add a new one.
+- For an official milestone, use the official `Published` date when available; do not use the conference or workshop event date.
+- If an arXiv announcement and a later official milestone are consolidated into one news item, use the later milestone date and link the paper title to the official page. In a separate sentence, explicitly state the full arXiv date (month, day, and year) and link to arXiv; do not reduce the arXiv history to a bare parenthetical link. Example: `Our paper [Title](official link) is accepted by Venue. It was first made available on [arXiv](arXiv link) on Mar 13, 2026.`
+- Remove the older standalone arXiv news item only after the merged item preserves that explicit arXiv timing.
 
 ### Blogs
 
@@ -134,8 +143,8 @@ cd downloads/cv && pdflatex -interaction=nonstopmode liuyang.tex && rm -f liuyan
 
 - Find the existing publication entry if the paper was previously listed from arXiv.
 - Update `link.url` to the official paper page.
-- Update `link.display` so it includes the venue and publication date, and keep the arXiv reference when relevant.
-- Update any existing news item that still points only to arXiv when the official link should replace it, or add a new milestone item if publication/acceptance is a distinct event.
+- Update `link.display` so it includes the venue and publication date, and keep the arXiv reference as a separate `arxiv` link when relevant.
+- Update any existing news item that still points only to arXiv when the official link should replace it, or add a new milestone item if publication/acceptance is a distinct event. When consolidating the two milestones, follow the News rule above so the explicit arXiv timing is preserved before removing the older item.
 - Update related blog posts so official venue information appears wherever the paper is already discussed.
 - Upgrade the paper's entry in `downloads/cv/pub_plain.tex` from arXiv form to journal form and recompile the CV.
 

@@ -104,7 +104,7 @@ Figure 2: Multi-modal in-context operator learning. Textual descriptions and num
 
 VICON extends the framework to 2D fields with a patch-wise vision transformer, targeting multi-physics fluid dynamics with flexible rollout and partially missing frames.
 
-**GICON: Graph In-Context Operator Networks for Generalizable Spatiotemporal Prediction** ([arXiv 2026](https://arxiv.org/abs/2603.12725v3))
+**GICON: Graph In-Context Operator Networks for Generalizable Spatiotemporal Prediction** ([2nd ICML Workshop on Foundation Models for Structured Data 2026](https://openreview.net/forum?id=WWriHdAbOm), [arXiv](https://arxiv.org/abs/2603.12725v3))
 
 <em>Chenghan Wu, Zongmin Yu, Boai Sun, Liu Yang<sup>†</sup></em>
 

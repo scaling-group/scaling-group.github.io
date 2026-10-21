@@ -105,7 +105,7 @@ $$
 
 VICON 把这个框架扩展到二维场，使用 patch-wise vision transformer，面向多物理流体动力学问题，并支持灵活的 rollout，以及部分缺帧的情形。
 
-**GICON: Graph In-Context Operator Networks for Generalizable Spatiotemporal Prediction** ([arXiv 2026](https://arxiv.org/abs/2603.12725v3))
+**GICON: Graph In-Context Operator Networks for Generalizable Spatiotemporal Prediction** ([2nd ICML Workshop on Foundation Models for Structured Data 2026](https://openreview.net/forum?id=WWriHdAbOm), [arXiv](https://arxiv.org/abs/2603.12725v3))
 
 <em>Chenghan Wu, Zongmin Yu, Boai Sun, Liu Yang<sup>†</sup></em>
 

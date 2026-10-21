@@ -16,6 +16,18 @@
     display: arXiv, Jun 2026
   highlight: 2
 
+- title: "Escher-Loop: Mutual Evolution by Closed-Loop Self-Referential Optimization"
+  image:
+  description:
+  authors: "Ziyang Liu<sup>*</sup>, Xinyan Guo<sup>*</sup>, Xuchen Wei<sup>*</sup>, Han Hao<sup>†</sup>, Liu Yang<sup>†</sup>"
+  link:
+    url: https://openreview.net/forum?id=QfswR1WwtS
+    display: "3rd ICML Workshop on AI for Math: Toward Self-Evolving Scientific Agents, Jun 2026"
+  arxiv:
+    url: https://arxiv.org/abs/2604.23472
+    display: arXiv, Apr 2026
+  highlight: 2
+
 - title: "Chain of Operators: An Inference-Time Harness for In-Context Operator Learning"
   image:
   description:
@@ -45,6 +57,18 @@
     display: arXiv, Jun 2026
   highlight: 2
 
+- title: "Graph In-Context Operator Networks for Generalizable Spatiotemporal Prediction"
+  image:
+  description:
+  authors: "Chenghan Wu, Zongmin Yu, Boai Sun, Liu Yang<sup>†</sup>"
+  link:
+    url: https://openreview.net/forum?id=WWriHdAbOm
+    display: 2nd ICML Workshop on Foundation Models for Structured Data, May 2026
+  arxiv:
+    url: https://arxiv.org/abs/2603.12725v3
+    display: arXiv, Mar 2026
+  highlight: 2
+
 - title: "Evolving Ensemble of Agents"
   image: eve-demo.gif
   image2: eve-overview.png
@@ -65,31 +89,16 @@
     display: arXiv, Apr 2026
   highlight: 1
 
-- title: "Escher-Loop: Mutual Evolution by Closed-Loop Self-Referential Optimization"
-  image:
-  description:
-  authors: "Ziyang Liu<sup>*</sup>, Xinyan Guo<sup>*</sup>, Xuchen Wei<sup>*</sup>, Han Hao<sup>†</sup>, Liu Yang<sup>†</sup>"
-  link:
-    url: https://arxiv.org/abs/2604.23472
-    display: arXiv, Apr 2026
-  highlight: 2
-
-- title: "Graph In-Context Operator Networks for Generalizable Spatiotemporal Prediction"
-  image:
-  description:
-  authors: "Chenghan Wu, Zongmin Yu, Boai Sun, Liu Yang<sup>†</sup>"
-  link:
-    url: https://arxiv.org/abs/2603.12725v3
-    display: arXiv, Mar 2026
-  highlight: 2
-
 - title: "VICON: Vision In-Context Operator Networks for Multi-Physics Fluid Dynamics Prediction"
   image: 
   description:
   authors: "Yadi Cao<sup>*</sup>, Yuxuan Liu<sup>*</sup>, Liu Yang, Rose Yu, Hayden Schaeffer, Stanley Osher<sup>†</sup>"
   link:
     url: https://openreview.net/forum?id=6V3YmHULQ3
-    display: Transactions on Machine Learning Research, Jan 2026 / arXiv, Nov 2024
+    display: Transactions on Machine Learning Research, Jan 2026
+  arxiv:
+    url: https://arxiv.org/abs/2411.16063
+    display: arXiv, Nov 2024
   highlight: 2
 
 - title: "Gaussian Ensemble Topology (GET): A New Explicit and Inherently Smooth Framework for Manufacture-Ready Topology Optimization"
@@ -107,7 +116,10 @@
   authors: "Liu Yang, Stanley J. Osher<sup>†</sup>"
   link:
     url: https://www.sciencedirect.com/science/article/pii/S0021999124006272
-    display: Journal of Computational Physics, Dec 2024 / arXiv, Jan 2024
+    display: Journal of Computational Physics, Dec 2024
+  arxiv:
+    url: https://arxiv.org/abs/2401.07364
+    display: arXiv, Jan 2024
   highlight: 2
   # news2: Good
 
@@ -118,7 +130,10 @@
   authors: "Liu Yang, Siting Liu, and Stanley J. Osher<sup>†</sup>"
   link:
     url: https://www.sciencedirect.com/science/article/abs/pii/S089360802500334X
-    display: Neural Networks, April 2025 / arXiv, Aug 2023
+    display: Neural Networks, April 2025
+  arxiv:
+    url: https://arxiv.org/abs/2308.05061
+    display: arXiv, Aug 2023
   highlight: 2
 
 
@@ -129,5 +144,8 @@
   link:
     url: https://www.pnas.org/doi/10.1073/pnas.2310142120
     display: PNAS, Sep 2023
+  arxiv:
+    url: https://arxiv.org/abs/2304.07993
+    display: arXiv, Apr 2023
   highlight: 1
   # news1: Good

@@ -41,6 +41,7 @@ permalink: /publications/
     </div>
     <p class="publication-highlight__link">
       <strong><a href="{{ publi.link.url }}">{{ publi.link.display }}</a></strong>
+      {% if publi.arxiv %} / <strong><a href="{{ publi.arxiv.url }}">{{ publi.arxiv.display }}</a></strong>{% endif %}
       {% if publi.github %} / <strong><a href="{{ publi.github }}">GitHub</a></strong>{% endif %}
       {% if publi.project %} / <strong><a href="{{ publi.project }}">Project</a></strong>{% endif %}
     </p>
@@ -75,7 +76,7 @@ permalink: /publications/
 {% for publi in site.data.publist %}
 
   {{ publi.title }} <br />
-  <em>{{ publi.authors }} </em><br /><a href="{{ publi.link.url }}">{{ publi.link.display }}</a>{% if publi.github %} / <a href="{{ publi.github }}">GitHub</a>{% endif %}
+  <em>{{ publi.authors }} </em><br /><a href="{{ publi.link.url }}">{{ publi.link.display }}</a>{% if publi.arxiv %} / <a href="{{ publi.arxiv.url }}">{{ publi.arxiv.display }}</a>{% endif %}{% if publi.github %} / <a href="{{ publi.github }}">GitHub</a>{% endif %}
 
 {% endfor %}
 
