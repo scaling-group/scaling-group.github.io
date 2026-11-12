@@ -1,3 +1,6 @@
+- date: Oct 30 2026
+  headline: "Our paper [In-Context Learning as a Retraining-Free Paradigm for Constitutive Modeling](https://www.pnas.org/doi/10.1073/pnas.2620983123) is published in Proceedings of the National Academy of Sciences (PNAS). Code and data are available on [GitHub](https://github.com/scaling-group/icm-hyperelastic) and [Hugging Face](https://huggingface.co/datasets/scaling-group/icm-hyperelastic)."
+
 - date: Sep 07 2026
   headline: "Congratulations to Jun Zhai for leading team S17 to a 3rd-place finish out of 256 participants in [IGP24](https://competition.sair.foundation/competitions/igp24/overview)! Read Jun's retrospective blog post: [Producing Mathematics, Understanding Mathematics](/blogs/en/producing-mathematics-understanding-mathematics/)."
 
@@ -24,9 +27,6 @@
 
 - date: May 09 2026
   headline: "Our paper [Evolving Ensemble of Agents](https://arxiv.org/abs/2605.09018) ([GitHub](https://github.com/scaling-group/eve)) is now available on arXiv. We introduce EvE: a decentralized, co-evolving system of coding agents and code repositories."
-
-- date: Apr 28 2026
-  headline: "Our paper [In-Context Modeling as a Retrain-Free Paradigm for Foundation Models in Computational Science](https://arxiv.org/abs/2604.23098) is now available on arXiv."
 
 - date: Mar 14 2026
   headline: "We released [icon-core](https://github.com/scaling-group/icon-core), an open-source research infrastructure package for In-Context Operator Network (ICON) development. It provides standard models and algorithms, benchmark datasets, training pipelines, and development utilities, featuring built-in support for AI coding assistants like Claude Code."
