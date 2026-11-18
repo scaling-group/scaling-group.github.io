@@ -11,7 +11,7 @@ pinned: true
 pin_order: 2
 ---
 
-This article was written by Liu Yang, following in-depth discussions and exchanges with team member Zongmin Yu. In the text below, "I" refers to Liu Yang. I am by no means an expert in software development; I simply want to share the thinking behind our recent work, "Evolving Ensemble of Agents (EvE)" ([arXiv](https://arxiv.org/abs/2605.09018), [GitHub](https://github.com/scaling-group/eve)).
+This article was written by Liu Yang, with input from many discussions with team member Zongmin Yu. It shares the thinking behind our work, "Evolving Ensemble of Agents (EvE)" ([arXiv](https://arxiv.org/abs/2605.09018), [GitHub](https://github.com/scaling-group/eve)).
 
 ## Software 1.0: Engineers Iterating on Traditional Code
 
@@ -61,7 +61,7 @@ What will happen in the future? Here are my personal thoughts.
 
 * **Self-Referential Iteration of AI**
 
-  Since AI is so good at iterating software, and AI itself is software, why not let AI develop a smarter version of itself, which then develops an even smarter version? This is self-referential iteration. Readers of *Gödel, Escher, Bach: An Eternal Golden Braid* will be familiar with this idea. One could even say this is the Holy Grail of AI.
+  Since AI is so good at iterating software, and AI itself is software, why not let AI develop a smarter version of itself, which then develops an even smarter version? This is self-referential iteration. One could even say this is the Holy Grail of AI.
   
   Self-referential iteration is an ongoing, continuous process of self-completion:
   * AI is already accelerating AI development, though it cannot yet fully detach from human intervention.
@@ -71,7 +71,42 @@ What will happen in the future? Here are my personal thoughts.
 
   It is worth noting that AI's self-referential iteration will not shift the focus of human labor mentioned above. While this iteration will accelerate the pace of AI problem-solving, the decisions of "what to do" and "what defines quality" must remain firmly in human hands.
 
-## Our Exploration
+## The Return of Traditional Code
+{: #return-of-traditional-code style="scroll-margin-top: 96px;" }
+
+Traditional code may return in a new way, potentially reclaiming some of the territory lost to neural networks.
+
+Coding Agents are good at “optimizing code to improve metrics.” This gives us an opportunity to revisit several core problems of Software 1.0:
+
+* **Development cost:** Logic that once required engineers to write and revise code line by line can now be generated and iterated on by agents.
+* **Iteration speed:** Agents can repeatedly edit code, run tests, and analyze feedback, shortening the cycle from identifying a problem to checking a proposed fix.
+* **System scale:** Agents can read and modify large codebases, making more complex explicit logic feasible to maintain.
+
+The code they produce also retains some advantages of traditional software. Prior knowledge in an LLM can help construct solutions and reduce the data needed to learn each task from scratch. Explicit logic makes it easier to inspect a system, locate problems, and analyze its mechanisms. Targeted changes can be made directly in the relevant code, rather than hoping that fine-tuning changes exactly the behavior we intend.
+
+I therefore think many tasks deserve a fresh comparison: is it more appropriate to train a neural network or to ask a Coding Agent to write a program? Jiayi Weng explores a similar idea in [Learning Beyond Gradients](https://trinkle23897.github.io/learning-beyond-gradients/), discussing how agents can iterate on explicit policies using environment feedback and potentially replace deep reinforcement learning in some control tasks. I think this question extends to a much broader range of fields.
+
+For low-dimensional functions, or problems where every input dimension has a clear physical meaning, a neural network need not be the default approximation. Universal approximation does not make it the best representation for every problem. An agent could instead search for a structured parameterization suited to the task, or construct explicit program logic. This route has often been limited by the cost of human design. Coding Agents change that cost.
+
+I still see a substantial role for neural networks in extremely complex functions and foundation models. But as Coding Agents become better at constructing and refining programs, we can revisit many tasks for which neural networks have become the default choice and ask whether explicit code would be a better fit. Two of our recent projects are initial explorations of this idea in scientific computing.
+
+### Rethinking Reinforcement Learning: White-Box Fluid Control
+
+In [Self-Evolving Scientific Agent Designs Physically Reasoned White-Box Fluid Control](https://arxiv.org/abs/2606.08405), we made a small exploration in fluid mechanics. The motivating question is whether a policy must be represented by a neural network when the goal is to improve control through environment feedback.
+
+The task is to guide a two-joint swimmer toward a target in unsteady flow. The agent revises controller code using trajectories and physical feedback from simulations. The resulting explicit feedback controller has inspectable propulsion and steering mechanisms, and adapts to the tested changes in targets and flow conditions.
+
+When agents can take on the work of constructing and refining control logic, we have reason to revisit white-box approaches that once seemed too difficult to design by hand.
+
+### Rethinking PINNs: Must the Solution Representation Be a Neural Network?
+
+[Agentic Symbolic Search: Approximating Solutions of PDEs Beyond Hand-Crafted Expressions, Meshes, and Neural Networks](https://arxiv.org/abs/2606.20467) brings this question to PDE solving. A central idea of PINNs is to represent a solution as a parameterized function, construct a loss from the equation and boundary conditions, and fit the parameters through gradient-based optimization. **Is a neural network necessary for this approach?**
+
+In ASYS, agents construct and revise differentiable symbolic programs using the equation and supplied mathematical knowledge. Gradient methods still fit the parameters, while agents explore the expression's structure and revise it using residuals and fitting results. Gradient-based optimization can therefore be considered separately from the choice of a neural network as the parameterization.
+
+What interests me is whether an agent can find a representation that provides both an effective approximation and mathematical structure we can analyze. This work explores that route on several PDE problems.
+
+## Our Exploration: From Escher-Loop to EvE
 
 The proposal of the [LLM as Optimizers](https://arxiv.org/abs/2309.03409) paradigm in 2023 already signaled a massive shift in software iteration models. Subsequent work like [FunSearch](https://www.nature.com/articles/s41586-023-06924-6) and [AlphaEvolve](https://arxiv.org/abs/2506.13131) further confirmed this trend.
 
