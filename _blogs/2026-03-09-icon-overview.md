@@ -110,7 +110,7 @@ VICON extends the framework to 2D fields with a patch-wise vision transformer, t
 
 GICON brings the same philosophy to graph-structured systems using graph message passing and example-aware positional encoding. It provides a shared representation for numerical observations on irregular domains and studies geometric and example-cardinality generalization on real spatiotemporal problems.
 
-**In-context learning as a retraining-free paradigm for constitutive modeling** ([PNAS, Oct 2026](https://www.pnas.org/doi/10.1073/pnas.2620983123), [arXiv](https://arxiv.org/abs/2604.23098))
+**In-Context Learning as a Retraining-Free Paradigm for Constitutive Modeling** ([PNAS, Oct 2026](https://www.pnas.org/doi/10.1073/pnas.2620983123), [arXiv](https://arxiv.org/abs/2604.23098))
 
 <em>Lingfeng Li<sup>*</sup>, Zhuoyuan Li<sup>*</sup>, Shun Li<sup>*</sup>, Kaixin Zhan, Huajian Gao<sup>†</sup>, Chang Qing Chen<sup>†</sup>, Liu Yang<sup>†</sup></em>
 

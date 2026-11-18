@@ -1,4 +1,4 @@
-- title: "In-context learning as a retraining-free paradigm for constitutive modeling"
+- title: "In-Context Learning as a Retraining-Free Paradigm for Constitutive Modeling"
   image: icm-hyperelastic.png
   description: We introduce In-Context Modeling (ICM), a retraining-free paradigm for constitutive modeling that infers constitutive behavior from physical context rather than material-specific optimization. Trained once on equilibrium deformation fields spanning diverse materials, geometries, and boundary conditions, without stress labels, a single model is deployed directly on unseen hyperelastic materials. A small set of nonuniform strain fields serves as physical context, and the constitutive response is generated in a single forward pass. ICM integrates with finite-element simulations and is validated with experimental full-field measurements.
   authors: "Lingfeng Li<sup>*</sup>, Zhuoyuan Li<sup>*</sup>, Shun Li<sup>*</sup>, Kaixin Zhan, Huajian Gao<sup>†</sup>, Chang Qing Chen<sup>†</sup>, Liu Yang<sup>†</sup>"
