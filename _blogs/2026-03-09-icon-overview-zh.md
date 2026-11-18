@@ -111,9 +111,9 @@ VICON 把这个框架扩展到二维场，使用 patch-wise vision transformer�
 
 GICON 则把同样的思想带到图结构系统中，使用 graph message passing 和 example-aware positional encoding。图为不规则区域上的数值观测提供了统一表示，它进一步在真实时空问题上研究几何泛化和样例数量泛化。
 
-**In-Context Modeling as a Retrain-Free Paradigm for Foundation Models in Computational Science** ([arXiv 2026](https://arxiv.org/abs/2604.23098))
+**In-context learning as a retraining-free paradigm for constitutive modeling** ([PNAS, Oct 2026](https://www.pnas.org/doi/10.1073/pnas.2620983123), [arXiv](https://arxiv.org/abs/2604.23098))
 
-<em>Lingfeng Li<sup>*</sup>, Zhuoyuan Li<sup>*</sup>, Shun Li<sup>*</sup>, Kaixin Zhan, Huajian Gao<sup>†</sup>, Changqing Chen<sup>†</sup>, Liu Yang<sup>†</sup></em>
+<em>Lingfeng Li<sup>*</sup>, Zhuoyuan Li<sup>*</sup>, Shun Li<sup>*</sup>, Kaixin Zhan, Huajian Gao<sup>†</sup>, Chang Qing Chen<sup>†</sup>, Liu Yang<sup>†</sup></em>
 
 In-Context Modeling（ICM）把 in-context learning 与 physics-informed training 连接起来。训练不需要成对的输入输出标签，而是由控制方程提供训练信号；观测场则作为 physical context 输入模型。推理时，冻结模型吸收新的测量，并在一次前向传播中回答新的场查询。这样既保留了 physics-informed learning 无需标签监督的优点，也摆脱了通常需要为每个具体问题重新优化模型的开销：同一个模型无需重新训练，就能泛化到未见过的材料、几何和加载条件。
 

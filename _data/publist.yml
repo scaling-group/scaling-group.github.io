@@ -1,12 +1,27 @@
-- title: "In-Context Learning as a Retraining-Free Paradigm for Constitutive Modeling"
+- title: "In-context learning as a retraining-free paradigm for constitutive modeling"
   image: icm-hyperelastic.png
   description: We introduce In-Context Modeling (ICM), a retraining-free paradigm for constitutive modeling that infers constitutive behavior from physical context rather than material-specific optimization. Trained once on equilibrium deformation fields spanning diverse materials, geometries, and boundary conditions, without stress labels, a single model is deployed directly on unseen hyperelastic materials. A small set of nonuniform strain fields serves as physical context, and the constitutive response is generated in a single forward pass. ICM integrates with finite-element simulations and is validated with experimental full-field measurements.
-  authors: "Lingfeng Li<sup>*</sup>, Zhuoyuan Li<sup>*</sup>, Shun Li<sup>*</sup>, Kaixin Zhan, Huajian Gao<sup>†</sup>, Changqing Chen<sup>†</sup>, Liu Yang<sup>†</sup>"
+  authors: "Lingfeng Li<sup>*</sup>, Zhuoyuan Li<sup>*</sup>, Shun Li<sup>*</sup>, Kaixin Zhan, Huajian Gao<sup>†</sup>, Chang Qing Chen<sup>†</sup>, Liu Yang<sup>†</sup>"
   link:
     url: https://www.pnas.org/doi/10.1073/pnas.2620983123
     display: PNAS, Oct 2026
+  arxiv:
+    url: https://arxiv.org/abs/2604.23098
+    display: arXiv, Apr 2026
   github: https://github.com/scaling-group/icm-hyperelastic
   highlight: 1
+
+- title: "Gaussian Ensemble Topology (GET): A New Explicit and Inherently Smooth Framework for Manufacture-Ready Topology Optimization"
+  image:
+  description: We introduce Gaussian Ensemble Topology (GET), an explicit topology optimization framework that represents design geometries as superpositions of anisotropic Gaussian functions, producing smooth, curvature-continuous, and manufacture-ready designs without post-processing.
+  authors: "Xinyu Ma, Chengxin Wang, Meng Wang, Xu Guo, Liu Yang, Huajian Gao<sup>†</sup>"
+  link:
+    url: https://link.springer.com/article/10.1007/s00158-026-04427-2
+    display: Structural and Multidisciplinary Optimization, Oct 2026
+  arxiv:
+    url: https://arxiv.org/abs/2510.05572
+    display: arXiv, Oct 2025
+  highlight: 2
 
 - title: "A Foundation Model of Numerical Intelligence with Cross-Disciplinary Generalization"
   image: unicon-fig1.png
@@ -100,15 +115,6 @@
   arxiv:
     url: https://arxiv.org/abs/2411.16063
     display: arXiv, Nov 2024
-  highlight: 2
-
-- title: "Gaussian Ensemble Topology (GET): A New Explicit and Inherently Smooth Framework for Manufacture-Ready Topology Optimization"
-  image:
-  description: We introduce Gaussian Ensemble Topology (GET), an explicit topology optimization framework that represents design geometries as superpositions of anisotropic Gaussian functions, producing smooth, curvature-continuous, and manufacture-ready designs without post-processing.
-  authors: "Xinyu Ma, Chengxin Wang, Meng Wang, Xu Guo, Liu Yang<sup>†</sup>, Huajian Gao<sup>†</sup>"
-  link:
-    url: https://arxiv.org/abs/2510.05572
-    display: arXiv, Oct 2025
   highlight: 2
 
 - title: "PDE Generalization of In-Context Operator Networks: A Study on 1D Scalar Nonlinear Conservation Laws"
