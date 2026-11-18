@@ -111,7 +111,7 @@ VICON 把这个框架扩展到二维场，使用 patch-wise vision transformer�
 
 GICON 则把同样的思想带到图结构系统中，使用 graph message passing 和 example-aware positional encoding。图为不规则区域上的数值观测提供了统一表示，它进一步在真实时空问题上研究几何泛化和样例数量泛化。
 
-**In-context learning as a retraining-free paradigm for constitutive modeling** ([PNAS, Oct 2026](https://www.pnas.org/doi/10.1073/pnas.2620983123), [arXiv](https://arxiv.org/abs/2604.23098))
+**In-Context Learning as a Retraining-Free Paradigm for Constitutive Modeling** ([PNAS, Oct 2026](https://www.pnas.org/doi/10.1073/pnas.2620983123), [arXiv](https://arxiv.org/abs/2604.23098))
 
 <em>Lingfeng Li<sup>*</sup>, Zhuoyuan Li<sup>*</sup>, Shun Li<sup>*</sup>, Kaixin Zhan, Huajian Gao<sup>†</sup>, Chang Qing Chen<sup>†</sup>, Liu Yang<sup>†</sup></em>
 
