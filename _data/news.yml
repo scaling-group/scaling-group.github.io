@@ -1,5 +1,8 @@
 - date: Oct 30 2026
-  headline: "Our paper [In-Context Learning as a Retraining-Free Paradigm for Constitutive Modeling](https://www.pnas.org/doi/10.1073/pnas.2620983123) is published in Proceedings of the National Academy of Sciences (PNAS). Code and data are available on [GitHub](https://github.com/scaling-group/icm-hyperelastic) and [Hugging Face](https://huggingface.co/datasets/scaling-group/icm-hyperelastic)."
+  headline: "Our paper [In-context learning as a retraining-free paradigm for constitutive modeling](https://www.pnas.org/doi/10.1073/pnas.2620983123) is published in Proceedings of the National Academy of Sciences (PNAS). Code and data are available on [GitHub](https://github.com/scaling-group/icm-hyperelastic) and [Hugging Face](https://huggingface.co/datasets/scaling-group/icm-hyperelastic). It was first made available on [arXiv](https://arxiv.org/abs/2604.23098) on Apr 25, 2026."
+
+- date: Oct 23 2026
+  headline: "Our paper [Gaussian Ensemble Topology (GET): A New Explicit and Inherently Smooth Framework for Manufacture-Ready Topology Optimization](https://link.springer.com/article/10.1007/s00158-026-04427-2) is published in Structural and Multidisciplinary Optimization. It was first made available on [arXiv](https://arxiv.org/abs/2510.05572) on Oct 07, 2025."
 
 - date: Sep 07 2026
   headline: "Congratulations to Jun Zhai for leading team S17 to a 3rd-place finish out of 256 participants in [IGP24](https://competition.sair.foundation/competitions/igp24/overview)! Read Jun's retrospective blog post: [Producing Mathematics, Understanding Mathematics](/blogs/en/producing-mathematics-understanding-mathematics/)."
@@ -33,9 +36,6 @@
 
 - date: Nov 25 2025
   headline: "Our paper [VICON: Vision In-Context Operator Networks for Multi-Physics Fluid Dynamics Prediction](https://openreview.net/forum?id=6V3YmHULQ3) is accepted by Transactions on Machine Learning Research. This work was done in collaboration with researchers from UCLA and UCSD."
-
-- date: Oct 07 2025
-  headline: "Our paper [Gaussian Ensemble Topology (GET): A New Explicit and Inherently Smooth Framework for Manufacture-Ready Topology Optimization](https://arxiv.org/abs/2510.05572) is now available on arXiv."
 
 - date: August 2025
   headline: 🏆 Liu Yang has been awarded the prestigious [Singapore National Research Foundation Fellowship](https://www.nrf.gov.sg/grants/nrff/) ([class of 2025](https://file.go.gov.sg/nrf-fellowship.pdf)), receiving over SGD 3 million in research funding. This highly competitive honor is granted to only about 10 researchers in Singapore each year.
